@@ -1,0 +1,41 @@
+  **** HLS Build v2025.2 6295257
+Sourcing Tcl script '/home/hwx/HCA/FPGA-SNN/vitis_ws/vitis_ws_spikingformer_official/run_csim_gen.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset sf_zero 
+WARNING: [HLS 200-2182] The 'sf_zero' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Creating and opening solution '/home/hwx/HCA/FPGA-SNN/vitis_ws/vitis_ws_spikingformer_official/sf_zero'.
+INFO: [HLS 200-1510] Running: set_top control 
+INFO: [HLS 200-1510] Running: add_files spikingformer_official.cpp 
+INFO: [HLS 200-10] Adding design file 'spikingformer_official.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb tb_gen.cpp 
+INFO: [HLS 200-10] Adding test bench file 'tb_gen.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/hwx/HCA/FPGA-SNN/vitis_ws/vitis_ws_spikingformer_official/sf_zero/solution1'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xczu7ev-ffvc1156-2-e 
+INFO: [HLS 200-1611] Setting target device to 'xczu7ev-ffvc1156-2-e'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../tb_gen.cpp in debug mode
+../../../../tb_gen.cpp:96:110: error: expected expression
+    FILE* fi = fopen("/tmp/cifar10_real_img.bin", "rb"); fread(img, sizeof(float), 3*32*32, fi); fclose(fi); /
+                                                                                                             ^
+1 error generated.
+make: *** [csim.mk:89: obj/tb_gen.o] Error 1
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:01; Allocated memory: 0.000 MB.
+CSIM Failed
+    while executing
+"source /home/hwx/HCA/FPGA-SNN/vitis_ws/vitis_ws_spikingformer_official/run_csim_gen.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 [list source $tclfile] "
+
+INFO: [HLS 200-112] Total CPU user time: 2.6 seconds. Total CPU system time: 0.68 seconds. Total elapsed time: 3.09 seconds; peak allocated memory: 251.484 MB.
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

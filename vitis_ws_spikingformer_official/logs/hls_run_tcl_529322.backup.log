@@ -1,0 +1,37 @@
+  **** HLS Build v2025.2 6295257
+Sourcing Tcl script '/home/hwx/HCA/FPGA-SNN/vitis_ws/vitis_ws_spikingformer_official/build.tcl'
+INFO: [HLS 200-1510] Running: open_project spikingformer_proj 
+WARNING: [HLS 200-2182] The 'spikingformer_proj' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Creating and opening solution '/home/hwx/HCA/FPGA-SNN/vitis_ws/vitis_ws_spikingformer_official/spikingformer_proj'.
+INFO: [HLS 200-1510] Running: set_top control 
+INFO: [HLS 200-1510] Running: add_files spikingformer_official.cpp 
+INFO: [HLS 200-10] Adding design file 'spikingformer_official.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb tb_spikingformer_official.cpp 
+INFO: [HLS 200-10] Adding test bench file 'tb_spikingformer_official.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/hwx/HCA/FPGA-SNN/vitis_ws/vitis_ws_spikingformer_official/spikingformer_proj/solution1'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xczu7ev-ffvc1156-2-e 
+INFO: [HLS 200-1611] Setting target device to 'xczu7ev-ffvc1156-2-e'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 3.69 seconds. CPU system time: 0.25 seconds. Elapsed time: 4.16 seconds; current allocated memory: 251.473 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file 'spikingformer_official.cpp' ... 
+ERROR: [HLS 207-4638] use of undeclared identifier 'v494'; did you mean 'v514'? (spikingformer_official.cpp:1271:39)
+INFO: [HLS 207-5482] 'v514' declared here (spikingformer_official.cpp:1264:9)
+ERROR: [HLS 207-4638] use of undeclared identifier 'v495'; did you mean 'v515'? (spikingformer_official.cpp:1272:39)
+INFO: [HLS 207-5482] 'v515' declared here (spikingformer_official.cpp:1265:9)
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:08; Allocated memory: 1.133 MB.
+syntax check failed.
+    while executing
+"source /home/hwx/HCA/FPGA-SNN/vitis_ws/vitis_ws_spikingformer_official/build.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 [list source $tclfile] "
+
+INFO: [HLS 200-112] Total CPU user time: 9.02 seconds. Total CPU system time: 1.1 seconds. Total elapsed time: 10.16 seconds; peak allocated memory: 252.605 MB.
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

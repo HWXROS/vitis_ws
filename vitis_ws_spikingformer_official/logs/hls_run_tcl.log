@@ -1,0 +1,4 @@
+  **** HLS Build v2025.2 6295257
+ERROR: HLS Tcl script does not exist: /home/hwx/HCA/FPGA-SNN/vitis_ws/vitis_ws_spikingformer_official/run_new.tcl
+INFO: [HLS 200-112] Total CPU user time: 0.81 seconds. Total CPU system time: 0.25 seconds. Total elapsed time: 0.89 seconds; peak allocated memory: 149.383 MB.
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

@@ -1,0 +1,145 @@
+
+
+================================================================
+== Vitis HLS Report for 'control_Pipeline_VITIS_LOOP_1135_1_VITIS_LOOP_1136_2_VITIS_LOOP_1137_3'
+================================================================
+* Date:           Sun Jul 12 20:26:09 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        spikingformer_proj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu7ev-ffvc1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |      Pipeline     |
+    |   min   |   max   |    min   |    max   | min | max |        Type       |
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |    24578|    24578|  0.246 ms|  0.246 ms|    0|    0|  loop pipeline stp|
+    +---------+---------+----------+----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------------------------------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                                                         |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |                        Loop Name                        |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +---------------------------------------------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- VITIS_LOOP_1135_1_VITIS_LOOP_1136_2_VITIS_LOOP_1137_3  |    24576|    24576|         2|          1|          1|  24576|       yes|
+        +---------------------------------------------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.69>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%indvar_flatten14050 = alloca i32 1"   --->   Operation 5 'alloca' 'indvar_flatten14050' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%sext_ln2299_read = read i62 @_ssdm_op_Read.ap_auto.i62, i62 %sext_ln2299"   --->   Operation 6 'read' 'sext_ln2299_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%sext_ln2299_cast = sext i62 %sext_ln2299_read"   --->   Operation 7 'sext' 'sext_ln2299_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %g0, i1 1, void "   --->   Operation 8 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %g0, void @empty_26, i32 0, i32 0, void @empty_35, i32 0, i32 0, void @empty_22, void @empty_25, void @empty_35, i32 16, i32 16, i32 16, i32 16, void @empty_35, void @empty_35, i32 4294967295, i32 0, i32 0, i32 4"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.42ns)   --->   "%store_ln0 = store i15 0, i15 %indvar_flatten14050"   --->   Operation 10 'store' 'store_ln0' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc.i1009"   --->   Operation 11 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%indvar_flatten14050_load = load i15 %indvar_flatten14050" [spikingformer_official.cpp:1135->spikingformer_official.cpp:2565]   --->   Operation 12 'load' 'indvar_flatten14050_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %g0"   --->   Operation 13 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.84ns)   --->   "%icmp_ln1135 = icmp_eq  i15 %indvar_flatten14050_load, i15 24576" [spikingformer_official.cpp:1135->spikingformer_official.cpp:2565]   --->   Operation 14 'icmp' 'icmp_ln1135' <Predicate = true> <Delay = 0.84> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (0.84ns)   --->   "%add_ln1135 = add i15 %indvar_flatten14050_load, i15 1" [spikingformer_official.cpp:1135->spikingformer_official.cpp:2565]   --->   Operation 15 'add' 'add_ln1135' <Predicate = true> <Delay = 0.84> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%br_ln1135 = br i1 %icmp_ln1135, void %for.inc16.i1015, void %_Z9kernel447PA64_A32_ff.exit.exitStub" [spikingformer_official.cpp:1135->spikingformer_official.cpp:2565]   --->   Operation 16 'br' 'br_ln1135' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.42ns)   --->   "%store_ln1135 = store i15 %add_ln1135, i15 %indvar_flatten14050" [spikingformer_official.cpp:1135->spikingformer_official.cpp:2565]   --->   Operation 17 'store' 'store_ln1135' <Predicate = (!icmp_ln1135)> <Delay = 0.42>
+ST_1 : Operation 24 [1/1] (0.42ns)   --->   "%ret_ln0 = ret"   --->   Operation 24 'ret' 'ret_ln0' <Predicate = (icmp_ln1135)> <Delay = 0.42>
+
+State 2 <SV = 1> <Delay = 7.30>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%g0_addr = getelementptr i32 %g0, i64 %sext_ln2299_cast" [spikingformer_official.cpp:2299->spikingformer_official.cpp:2325]   --->   Operation 18 'getelementptr' 'g0_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%specloopname_ln0 = specloopname void @_ssdm_op_SpecLoopName, void @VITIS_LOOP_1135_1_VITIS_LOOP_1136_2_VITIS_LOOP_1137_3_str"   --->   Operation 19 'specloopname' 'specloopname_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 24576, i64 24576, i64 24576"   --->   Operation 20 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%specpipeline_ln1138 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, i32 4294967295, void @empty_35" [spikingformer_official.cpp:1138->spikingformer_official.cpp:2565]   --->   Operation 21 'specpipeline' 'specpipeline_ln1138' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] ( I:7.30ns O:7.30ns )   --->   "%write_ln1140 = write void @_ssdm_op_Write.m_axi.p1i32.i32, i32 %g0_addr, i32 0, i4 15" [spikingformer_official.cpp:1140->spikingformer_official.cpp:2565]   --->   Operation 22 'write' 'write_ln1140' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%br_ln1137 = br void %for.inc.i1009" [spikingformer_official.cpp:1137->spikingformer_official.cpp:2565]   --->   Operation 23 'br' 'br_ln1137' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 1.696ns
+The critical path consists of the following:
+	'store' operation ('store_ln0') of constant 0 15 bit on local variable 'indvar_flatten14050' [8]  (0.427 ns)
+	'load' operation 15 bit ('indvar_flatten14050_load', spikingformer_official.cpp:1135->spikingformer_official.cpp:2565) on local variable 'indvar_flatten14050' [11]  (0.000 ns)
+	'add' operation 15 bit ('add_ln1135', spikingformer_official.cpp:1135->spikingformer_official.cpp:2565) [14]  (0.842 ns)
+	'store' operation ('store_ln1135', spikingformer_official.cpp:1135->spikingformer_official.cpp:2565) of variable 'add_ln1135', spikingformer_official.cpp:1135->spikingformer_official.cpp:2565 15 bit on local variable 'indvar_flatten14050' [22]  (0.427 ns)
+
+ <State 2>: 7.300ns
+The critical path consists of the following:
+	'getelementptr' operation 32 bit ('g0_addr', spikingformer_official.cpp:2299->spikingformer_official.cpp:2325) [17]  (0.000 ns)
+	bus write operation ('write_ln1140', spikingformer_official.cpp:1140->spikingformer_official.cpp:2565) on port 'g0' (spikingformer_official.cpp:1140->spikingformer_official.cpp:2565) [21]  (7.300 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

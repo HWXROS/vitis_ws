@@ -1,0 +1,13 @@
+INFO: [SIM 2] *************** CSIM start ***************
+   Compiling ../../../../tb_spikingformer_official.cpp in debug mode
+   Compiling ../../../../spikingformer_official.cpp in debug mode
+   Generating csim.exe
+=== spikingformer_official C-Simulation ===
+Note: weights need to be loaded for real inference.
+Initialized 3 buffers.
+Running control()...
+control() completed.
+Output (ap_int<32>): 0 0 0 0 0 0 0 0 0 0 
+Simulation PASSED.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

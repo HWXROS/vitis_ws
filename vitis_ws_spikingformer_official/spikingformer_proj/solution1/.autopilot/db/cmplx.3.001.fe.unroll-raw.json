@@ -1,0 +1,2186 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "30 19 9 74 101 78 82 101 78 106 101 115 101 67 58 82 85 101 96 120 80 59 72 68 61 72 68 41 72 24 72 33 103 61 76 72 90 116 107 15 69 17 51 69 17 7 69 37 69 29 25 51 42 69 77 94 100 73 117 14 13 45 16 53 43 16 53 64 16 71 16 87 93 43 4 16 27 65 55 108 79 110 112 114 119 10 97 119 10 1 119 31 119 23 102 97 91 119 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 99 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 99 36 6 28 22 3 18 12 6 32 21 70 63 54 52 81 5 88 81 75 52 122 52 26 35 5 44 52 86 83 113 123 119 10 97 119 10 1 119 31 119 23 102 97 91 119 104 95 121 40 46 121 40 89 121 84 121 60 50 46 8 121 112 57 1 119 10 97 119 10 1 119 31 119 23 102 97 91 119 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 99 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 99 36 6 28 3 18 12 6 21 70 63 54 52 81 5 88 81 75 52 122 52 26 35 5 44 52 86 83 113 123 119 10 97 119 10 1 119 31 119 23 102 97 91 119 104 95 121 40 46 121 40 89 121 84 121 60 50 46 8 121 112 57 1 119 10 97 119 10 1 119 31 119 23 102 97 91 119 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 99 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 99 36 6 28 3 18 12 6 21 70 63 54 52 81 5 88 81 75 52 122 52 26 35 5 44 52 86 83 113 123 119 10 97 119 10 1 119 31 119 23 102 97 91 119 104 95 121 40 46 121 40 89 121 84 121 60 50 46 8 121 112 57 1 119 10 97 119 10 1 119 31 119 23 102 97 91 119 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 99 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 83 34 49 2 38 49 2 11 49 109 49 56 48 38 39 49 20 99 36 6 28 18 12 6 70 63 54 52 81 5 88 81 75 52 122 52 26 35 5 44 52 86 83 113 123 119 10 97 119 10 1 119 31 119 23 102 97 91 119 104 95 121 40 46 121 40 89 121 84 121 60 50 46 8 121 112 57 91 105 111 118 98 92 62 66",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2311,
+    "instructions": 1046,
+    "memory_accesses": 0,
+    "name": "control",
+    "total_instructions": 19634
+  },
+  "1": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 481,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel34",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "10": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 502,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel35",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "100": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1553,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel550",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "101": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2072,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel589",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "102": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 424,
+    "instructions": 40,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel29",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 40
+  },
+  "103": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1893,
+    "instructions": 40,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel574",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 40
+  },
+  "104": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 365,
+    "instructions": 38,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel25",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 38
+  },
+  "105": {
+    "basicblocks": 5,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 108,
+    "instructions": 12,
+    "memory_accesses": 1,
+    "name": "kernel6",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 12
+  },
+  "106": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2186,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel597",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "107": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1783,
+    "instructions": 38,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel568",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 38
+  },
+  "108": {
+    "basicblocks": 13,
+    "calls": "47",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1224,
+    "instructions": 63,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 7,
+    "name": "kernel527",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 71
+  },
+  "109": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1023,
+    "instructions": 23,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel75",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 23
+  },
+  "11": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1038,
+    "instructions": 29,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel77",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 29
+  },
+  "110": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1192,
+    "instructions": 32,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel525",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 32
+  },
+  "111": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 94,
+    "instructions": 27,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel5",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 27
+  },
+  "112": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 165,
+    "instructions": 38,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel9",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 38
+  },
+  "113": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 540,
+    "instructions": 39,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 3,
+    "name": "kernel41",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 39
+  },
+  "114": {
+    "basicblocks": 15,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1161,
+    "instructions": 61,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 3,
+    "name": "kernel523",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 61
+  },
+  "115": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2169,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel595",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "116": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1804,
+    "instructions": 32,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel569",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 32
+  },
+  "117": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1514,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel548",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "118": {
+    "basicblocks": 5,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 81,
+    "instructions": 16,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel4",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 16
+  },
+  "119": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 386,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel26",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "12": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 832,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel62",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "120": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2040,
+    "instructions": 32,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel587",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 32
+  },
+  "121": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 186,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel10",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "122": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 683,
+    "instructions": 23,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel50",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 23
+  },
+  "123": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 519,
+    "instructions": 38,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel40",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 38
+  },
+  "13": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1476,
+    "instructions": 38,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel546",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 38
+  },
+  "14": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1497,
+    "instructions": 32,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel547",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 32
+  },
+  "15": {
+    "basicblocks": 15,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1752,
+    "instructions": 61,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 3,
+    "name": "kernel567",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 61
+  },
+  "16": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1293,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel531",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "17": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1735,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel562",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "18": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 849,
+    "instructions": 48,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 4,
+    "name": "kernel63",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 48
+  },
+  "19": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2278,
+    "instructions": 32,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel605",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 32
+  },
+  "2": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1057,
+    "instructions": 23,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel78",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 23
+  },
+  "20": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 924,
+    "instructions": 21,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel68",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 21
+  },
+  "21": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1097,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel188",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "22": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1146,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel452",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "23": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 445,
+    "instructions": 34,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel30",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 34
+  },
+  "24": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1933,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel577",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "25": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1657,
+    "instructions": 40,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel556",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 40
+  },
+  "26": {
+    "basicblocks": 10,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 666,
+    "instructions": 27,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel48",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 27
+  },
+  "27": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1278,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel530",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "28": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 876,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel64",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "29": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1678,
+    "instructions": 34,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel557",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 34
+  },
+  "3": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1114,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel192",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "30": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2295,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel606",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "31": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 464,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel32",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "32": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1131,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel447",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "33": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1914,
+    "instructions": 34,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel575",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 34
+  },
+  "34": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1072,
+    "instructions": 42,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 3,
+    "name": "kernel83",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 42
+  },
+  "35": {
+    "basicblocks": 10,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 647,
+    "instructions": 32,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel47",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 32
+  },
+  "36": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 893,
+    "instructions": 29,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel66",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 29
+  },
+  "37": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1697,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel559",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "38": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 968,
+    "instructions": 29,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel71",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 29
+  },
+  "39": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 951,
+    "instructions": 28,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel70",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 28
+  },
+  "4": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1310,
+    "instructions": 36,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel532",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 36
+  },
+  "40": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 321,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel19",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "41": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1950,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel579",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "42": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1617,
+    "instructions": 36,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel554",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 36
+  },
+  "43": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1329,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel533",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "44": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 611,
+    "instructions": 28,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel45",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 28
+  },
+  "45": {
+    "basicblocks": 15,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1445,
+    "instructions": 61,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 3,
+    "name": "kernel545",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 61
+  },
+  "46": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 222,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel12",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "47": {
+    "basicblocks": 4,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "stl_algobase.h",
+    "fileloc": 219,
+    "instructions": 8,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 0,
+    "name": "max<float>",
+    "total_instructions": 8
+  },
+  "48": {
+    "basicblocks": 10,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 987,
+    "instructions": 32,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel72",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 32
+  },
+  "49": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 936,
+    "instructions": 23,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel69",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 23
+  },
+  "5": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 628,
+    "instructions": 29,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel46",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 29
+  },
+  "50": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 243,
+    "instructions": 40,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel13",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 40
+  },
+  "51": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1636,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel555",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "52": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 596,
+    "instructions": 23,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel44",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 23
+  },
+  "53": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1428,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel540",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "54": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 747,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel58",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "55": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1248,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel528",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "56": {
+    "basicblocks": 10,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1006,
+    "instructions": 27,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel73",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 27
+  },
+  "57": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 138,
+    "instructions": 47,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 3,
+    "name": "kernel8",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 47
+  },
+  "58": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2129,
+    "instructions": 40,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel592",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 40
+  },
+  "59": {
+    "basicblocks": 15,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1988,
+    "instructions": 61,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 3,
+    "name": "kernel585",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 61
+  },
+  "6": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 815,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel61",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "60": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 264,
+    "instructions": 34,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel14",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 34
+  },
+  "61": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1872,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel573",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "62": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 33,
+    "instructions": 44,
+    "loads": {
+      "L": 4
+    },
+    "memory_accesses": 5,
+    "name": "kernel1",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 44
+  },
+  "63": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 764,
+    "instructions": 40,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 2,
+    "name": "kernel59",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 40
+  },
+  "64": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1407,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel539",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "65": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1263,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel529",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "66": {
+    "basicblocks": 5,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 18,
+    "instructions": 20,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel0",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 20
+  },
+  "67": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2150,
+    "instructions": 34,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel593",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 34
+  },
+  "68": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1971,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel580",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "69": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1600,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel553",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "7": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1714,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel561",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "70": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 788,
+    "instructions": 48,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 4,
+    "name": "kernel60",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 48
+  },
+  "71": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1390,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel537",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "72": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1836,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel571",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "73": {
+    "basicblocks": 13,
+    "calls": "47",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1529,
+    "instructions": 63,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 7,
+    "name": "kernel549",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 71
+  },
+  "74": {
+    "basicblocks": 17,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2224,
+    "instructions": 83,
+    "loads": {
+      "L": 4
+    },
+    "memory_accesses": 5,
+    "name": "kernel603",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 83
+  },
+  "75": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 698,
+    "instructions": 29,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel52",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 29
+  },
+  "76": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1853,
+    "instructions": 36,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel572",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 36
+  },
+  "77": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1585,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel552",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "78": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2207,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel598",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "79": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1209,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel526",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "8": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 203,
+    "instructions": 36,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel11",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 36
+  },
+  "80": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2019,
+    "instructions": 38,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel586",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 38
+  },
+  "81": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 717,
+    "instructions": 23,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel53",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 23
+  },
+  "82": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2108,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel591",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "83": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 565,
+    "instructions": 32,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel42",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 32
+  },
+  "84": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 283,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel16",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 30
+  },
+  "85": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2089,
+    "instructions": 36,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel590",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 36
+  },
+  "86": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 584,
+    "instructions": 21,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel43",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 21
+  },
+  "87": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1371,
+    "instructions": 34,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel535",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 34
+  },
+  "88": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 732,
+    "instructions": 26,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel54",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 26
+  },
+  "89": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 300,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel18",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "9": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2257,
+    "instructions": 38,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel604",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 38
+  },
+  "90": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1821,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel570",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "91": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 119,
+    "instructions": 36,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel7",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 36
+  },
+  "92": {
+    "basicblocks": 5,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 58,
+    "instructions": 12,
+    "memory_accesses": 1,
+    "name": "kernel2",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 12
+  },
+  "93": {
+    "basicblocks": 12,
+    "calls": "",
+    "control_depth": 2,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1350,
+    "instructions": 40,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel534",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 40
+  },
+  "94": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 1568,
+    "instructions": 32,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel551",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 32
+  },
+  "95": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 338,
+    "instructions": 47,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 3,
+    "name": "kernel24",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 47
+  },
+  "96": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 2057,
+    "instructions": 24,
+    "memory_accesses": 1,
+    "name": "kernel588",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 24
+  },
+  "97": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 403,
+    "instructions": 37,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 3,
+    "name": "kernel28",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 37
+  },
+  "98": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 69,
+    "instructions": 21,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel3",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 21
+  },
+  "99": {
+    "basicblocks": 9,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "spikingformer_official.cpp",
+    "fileloc": 907,
+    "instructions": 31,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 2,
+    "name": "kernel67",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 31
+  }
+}

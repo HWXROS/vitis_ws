@@ -1,0 +1,517 @@
+
+
+================================================================
+== Vitis HLS Report for 'control_Pipeline_VITIS_LOOP_2233_1_VITIS_LOOP_2234_2_VITIS_LOOP_2235_3_VITIS_LOO'
+================================================================
+* Date:           Sun Jul 12 20:26:02 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        spikingformer_proj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu7ev-ffvc1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+-------------------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval |      Pipeline     |
+    |   min   |   max   |    min    |    max    | min | max |        Type       |
+    +---------+---------+-----------+-----------+-----+-----+-------------------+
+    |  2654231|  2654231|  26.542 ms|  26.542 ms|    0|    0|  loop pipeline stp|
+    +---------+---------+-----------+-----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------------------------------------------------------------------------------------------------+---------+---------+----------+-----------+-----------+---------+----------+
+        |                                                                                                               |  Latency (cycles) | Iteration|  Initiation Interval  |   Trip  |          |
+        |                                                   Loop Name                                                   |   min   |   max   |  Latency |  achieved |   target  |  Count  | Pipelined|
+        +---------------------------------------------------------------------------------------------------------------+---------+---------+----------+-----------+-----------+---------+----------+
+        |- VITIS_LOOP_2233_1_VITIS_LOOP_2234_2_VITIS_LOOP_2235_3_VITIS_LOOP_2236_4_VITIS_LOOP_2237_5_VITIS_LOOP_2238_6  |  2654229|  2654229|        24|          2|          1|  1327104|       yes|
+        +---------------------------------------------------------------------------------------------------------------+---------+---------+----------+-----------+-----------+---------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 25
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 25
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 25, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.42>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%v920 = alloca i32 1" [spikingformer_official.cpp:2238->spikingformer_official.cpp:2332]   --->   Operation 27 'alloca' 'v920' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%v919 = alloca i32 1" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 28 'alloca' 'v919' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%indvar_flatten12605 = alloca i32 1"   --->   Operation 29 'alloca' 'indvar_flatten12605' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%v918 = alloca i32 1" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 30 'alloca' 'v918' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%indvar_flatten12618 = alloca i32 1"   --->   Operation 31 'alloca' 'indvar_flatten12618' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%v917 = alloca i32 1" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 32 'alloca' 'v917' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%indvar_flatten12641 = alloca i32 1"   --->   Operation 33 'alloca' 'indvar_flatten12641' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%v916 = alloca i32 1" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 34 'alloca' 'v916' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%indvar_flatten12674 = alloca i32 1"   --->   Operation 35 'alloca' 'indvar_flatten12674' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%v915 = alloca i32 1" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 36 'alloca' 'v915' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%indvar_flatten12717 = alloca i32 1"   --->   Operation 37 'alloca' 'indvar_flatten12717' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%v949_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %v949"   --->   Operation 38 'read' 'v949_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%v944_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %v944"   --->   Operation 39 'read' 'v944_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%sext_ln226522 = read i62 @_ssdm_op_Read.ap_auto.i62, i62 %sext_ln2265"   --->   Operation 40 'read' 'sext_ln226522' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%sext_ln229921 = read i62 @_ssdm_op_Read.ap_auto.i62, i62 %sext_ln2299"   --->   Operation 41 'read' 'sext_ln229921' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%specstablecontent_ln0 = specstablecontent void @_ssdm_op_SpecStableContent, i32 %g0, i1 1, void "   --->   Operation 42 'specstablecontent' 'specstablecontent_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %g0, void @empty_26, i32 0, i32 0, void @empty_35, i32 0, i32 0, void @empty_22, void @empty_25, void @empty_35, i32 16, i32 16, i32 16, i32 16, void @empty_35, void @empty_35, i32 4294967295, i32 0, i32 0, i32 4"   --->   Operation 43 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.42ns)   --->   "%store_ln0 = store i21 0, i21 %indvar_flatten12717"   --->   Operation 44 'store' 'store_ln0' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 45 [1/1] (0.42ns)   --->   "%store_ln2233 = store i2 0, i2 %v915" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 45 'store' 'store_ln2233' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 46 [1/1] (0.42ns)   --->   "%store_ln0 = store i20 0, i20 %indvar_flatten12674"   --->   Operation 46 'store' 'store_ln0' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 47 [1/1] (0.42ns)   --->   "%store_ln2234 = store i2 0, i2 %v916" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 47 'store' 'store_ln2234' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 48 [1/1] (0.42ns)   --->   "%store_ln0 = store i18 0, i18 %indvar_flatten12641"   --->   Operation 48 'store' 'store_ln0' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 49 [1/1] (0.42ns)   --->   "%store_ln2235 = store i2 0, i2 %v917" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 49 'store' 'store_ln2235' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 50 [1/1] (0.42ns)   --->   "%store_ln0 = store i17 0, i17 %indvar_flatten12618"   --->   Operation 50 'store' 'store_ln0' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 51 [1/1] (0.42ns)   --->   "%store_ln2236 = store i6 0, i6 %v918" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 51 'store' 'store_ln2236' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 52 [1/1] (0.42ns)   --->   "%store_ln0 = store i12 0, i12 %indvar_flatten12605"   --->   Operation 52 'store' 'store_ln0' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 53 [1/1] (0.42ns)   --->   "%store_ln2237 = store i6 0, i6 %v919" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 53 'store' 'store_ln2237' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 54 [1/1] (0.42ns)   --->   "%store_ln2238 = store i6 0, i6 %v920" [spikingformer_official.cpp:2238->spikingformer_official.cpp:2332]   --->   Operation 54 'store' 'store_ln2238' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc.i24"   --->   Operation 55 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 3.13>
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%indvar_flatten12717_load = load i21 %indvar_flatten12717" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 56 'load' 'indvar_flatten12717_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %g0"   --->   Operation 57 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 58 [1/1] (0.90ns)   --->   "%icmp_ln2233 = icmp_eq  i21 %indvar_flatten12717_load, i21 1327104" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 58 'icmp' 'icmp_ln2233' <Predicate = true> <Delay = 0.90> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.90> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 59 [1/1] (0.90ns)   --->   "%add_ln2233_1 = add i21 %indvar_flatten12717_load, i21 1" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 59 'add' 'add_ln2233_1' <Predicate = true> <Delay = 0.90> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.90> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%br_ln2233 = br i1 %icmp_ln2233, void %for.inc63.i, void %_Z9kernel603PA3_A34_A34_fPA3_A3_A3_fPA48_A32_A32_f.exit.exitStub" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 60 'br' 'br_ln2233' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%indvar_flatten12605_load = load i12 %indvar_flatten12605" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 61 'load' 'indvar_flatten12605_load' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%indvar_flatten12618_load = load i17 %indvar_flatten12618" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 62 'load' 'indvar_flatten12618_load' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%indvar_flatten12641_load = load i18 %indvar_flatten12641" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 63 'load' 'indvar_flatten12641_load' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%indvar_flatten12674_load = load i20 %indvar_flatten12674" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 64 'load' 'indvar_flatten12674_load' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.89ns)   --->   "%icmp_ln2234 = icmp_eq  i20 %indvar_flatten12674_load, i20 442368" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 65 'icmp' 'icmp_ln2234' <Predicate = (!icmp_ln2233)> <Delay = 0.89> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 66 [1/1] (0.28ns)   --->   "%xor_ln2233 = xor i1 %icmp_ln2234, i1 1" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 66 'xor' 'xor_ln2233' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 67 [1/1] (0.80ns)   --->   "%icmp_ln2237 = icmp_eq  i12 %indvar_flatten12605_load, i12 1024" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 67 'icmp' 'icmp_ln2237' <Predicate = (!icmp_ln2233)> <Delay = 0.80> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 68 [1/1] (0.00ns) (grouped into LUT with out node exitcond_flatten12607_mid212669)   --->   "%and_ln2233_1 = and i1 %icmp_ln2237, i1 %xor_ln2233" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 68 'and' 'and_ln2233_1' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 69 [1/1] (0.86ns)   --->   "%icmp_ln2236 = icmp_eq  i17 %indvar_flatten12618_load, i17 49152" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 69 'icmp' 'icmp_ln2236' <Predicate = (!icmp_ln2233)> <Delay = 0.86> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 70 [1/1] (0.00ns) (grouped into LUT with out node exitcond_flatten12620_mid212673)   --->   "%and_ln2233_2 = and i1 %icmp_ln2236, i1 %xor_ln2233" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 70 'and' 'and_ln2233_2' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 71 [1/1] (0.87ns)   --->   "%icmp_ln2235 = icmp_eq  i18 %indvar_flatten12641_load, i18 147456" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 71 'icmp' 'icmp_ln2235' <Predicate = (!icmp_ln2233)> <Delay = 0.87> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 72 [1/1] (0.28ns)   --->   "%and_ln2233_3 = and i1 %icmp_ln2235, i1 %xor_ln2233" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 72 'and' 'and_ln2233_3' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 73 [1/1] (0.28ns)   --->   "%empty = or i1 %and_ln2233_3, i1 %icmp_ln2234" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 73 'or' 'empty' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 74 [1/1] (0.00ns) (grouped into LUT with out node not_exitcond_flatten12643_mid21271614937)   --->   "%exitcond_flatten12643_not14938 = xor i1 %icmp_ln2235, i1 1" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 74 'xor' 'exitcond_flatten12643_not14938' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 75 [1/1] (0.28ns) (out node of the LUT)   --->   "%not_exitcond_flatten12643_mid21271614937 = or i1 %icmp_ln2234, i1 %exitcond_flatten12643_not14938" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 75 'or' 'not_exitcond_flatten12643_mid21271614937' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 76 [1/1] (0.28ns) (out node of the LUT)   --->   "%exitcond_flatten12607_mid212669 = and i1 %and_ln2233_1, i1 %not_exitcond_flatten12643_mid21271614937" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 76 'and' 'exitcond_flatten12607_mid212669' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 77 [1/1] (0.28ns) (out node of the LUT)   --->   "%exitcond_flatten12620_mid212673 = and i1 %and_ln2233_2, i1 %not_exitcond_flatten12643_mid21271614937" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 77 'and' 'exitcond_flatten12620_mid212673' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 78 [1/1] (0.28ns)   --->   "%empty_92 = or i1 %exitcond_flatten12620_mid212673, i1 %and_ln2233_3" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 78 'or' 'empty_92' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 79 [1/1] (0.28ns)   --->   "%empty_93 = or i1 %empty_92, i1 %icmp_ln2234" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 79 'or' 'empty_93' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 80 [1/1] (0.28ns)   --->   "%not_exitcond_flatten12620_mid212673 = xor i1 %exitcond_flatten12620_mid212673, i1 1" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 80 'xor' 'not_exitcond_flatten12620_mid212673' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 81 [1/1] (0.28ns)   --->   "%exitcond_flatten12607_mid212640 = and i1 %exitcond_flatten12607_mid212669, i1 %not_exitcond_flatten12620_mid212673" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 81 'and' 'exitcond_flatten12607_mid212640' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 82 [1/1] (0.00ns) (grouped into LUT with out node empty_95)   --->   "%empty_94 = or i1 %exitcond_flatten12607_mid212640, i1 %exitcond_flatten12620_mid212673" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 82 'or' 'empty_94' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 83 [1/1] (0.28ns) (out node of the LUT)   --->   "%empty_95 = or i1 %empty_94, i1 %empty" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 83 'or' 'empty_95' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 84 [1/1] (0.80ns)   --->   "%add_ln2237_1 = add i12 %indvar_flatten12605_load, i12 1" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 84 'add' 'add_ln2237_1' <Predicate = (!icmp_ln2233)> <Delay = 0.80> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 85 [1/1] (0.37ns)   --->   "%select_ln2237_1 = select i1 %empty_95, i12 1, i12 %add_ln2237_1" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 85 'select' 'select_ln2237_1' <Predicate = (!icmp_ln2233)> <Delay = 0.37> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 86 [1/1] (0.86ns)   --->   "%add_ln2236_1 = add i17 %indvar_flatten12618_load, i17 1" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 86 'add' 'add_ln2236_1' <Predicate = (!icmp_ln2233)> <Delay = 0.86> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 87 [1/1] (0.35ns)   --->   "%select_ln2236_1 = select i1 %empty_93, i17 1, i17 %add_ln2236_1" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 87 'select' 'select_ln2236_1' <Predicate = (!icmp_ln2233)> <Delay = 0.35> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.35> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 88 [1/1] (0.87ns)   --->   "%add_ln2235_1 = add i18 %indvar_flatten12641_load, i18 1" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 88 'add' 'add_ln2235_1' <Predicate = (!icmp_ln2233)> <Delay = 0.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 89 [1/1] (0.36ns)   --->   "%select_ln2235_1 = select i1 %empty, i18 1, i18 %add_ln2235_1" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 89 'select' 'select_ln2235_1' <Predicate = (!icmp_ln2233)> <Delay = 0.36> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.36> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 90 [1/1] (0.89ns)   --->   "%add_ln2234_1 = add i20 %indvar_flatten12674_load, i20 1" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 90 'add' 'add_ln2234_1' <Predicate = (!icmp_ln2233)> <Delay = 0.89> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 91 [1/1] (0.36ns)   --->   "%select_ln2234_1 = select i1 %icmp_ln2234, i20 1, i20 %add_ln2234_1" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 91 'select' 'select_ln2234_1' <Predicate = (!icmp_ln2233)> <Delay = 0.36> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.36> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 92 [1/1] (0.42ns)   --->   "%store_ln2233 = store i21 %add_ln2233_1, i21 %indvar_flatten12717" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 92 'store' 'store_ln2233' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+ST_2 : Operation 93 [1/1] (0.42ns)   --->   "%store_ln2234 = store i20 %select_ln2234_1, i20 %indvar_flatten12674" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 93 'store' 'store_ln2234' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+ST_2 : Operation 94 [1/1] (0.42ns)   --->   "%store_ln2235 = store i18 %select_ln2235_1, i18 %indvar_flatten12641" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 94 'store' 'store_ln2235' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+ST_2 : Operation 95 [1/1] (0.42ns)   --->   "%store_ln2236 = store i17 %select_ln2236_1, i17 %indvar_flatten12618" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 95 'store' 'store_ln2236' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+ST_2 : Operation 96 [1/1] (0.42ns)   --->   "%store_ln2237 = store i12 %select_ln2237_1, i12 %indvar_flatten12605" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 96 'store' 'store_ln2237' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+
+State 3 <SV = 2> <Delay = 6.21>
+ST_3 : Operation 97 [1/1] (0.00ns)   --->   "%v920_load = load i6 %v920"   --->   Operation 97 'load' 'v920_load' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 98 [1/1] (0.00ns)   --->   "%v919_load = load i6 %v919"   --->   Operation 98 'load' 'v919_load' <Predicate = (!icmp_ln2233 & !empty_95)> <Delay = 0.00>
+ST_3 : Operation 99 [1/1] (0.00ns)   --->   "%v918_load = load i6 %v918"   --->   Operation 99 'load' 'v918_load' <Predicate = (!icmp_ln2233 & !empty_93)> <Delay = 0.00>
+ST_3 : Operation 100 [1/1] (0.00ns)   --->   "%v917_load = load i2 %v917"   --->   Operation 100 'load' 'v917_load' <Predicate = (!icmp_ln2233 & !empty)> <Delay = 0.00>
+ST_3 : Operation 101 [1/1] (0.00ns)   --->   "%v916_load = load i2 %v916" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 101 'load' 'v916_load' <Predicate = (!icmp_ln2233 & !icmp_ln2234)> <Delay = 0.00>
+ST_3 : Operation 102 [1/1] (0.00ns)   --->   "%v915_load = load i2 %v915" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 102 'load' 'v915_load' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 103 [1/1] (0.54ns)   --->   "%add_ln2233 = add i2 %v915_load, i2 1" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 103 'add' 'add_ln2233' <Predicate = (!icmp_ln2233 & icmp_ln2234)> <Delay = 0.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 104 [1/1] (0.17ns)   --->   "%select_ln2233 = select i1 %icmp_ln2234, i2 0, i2 %v916_load" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 104 'select' 'select_ln2233' <Predicate = (!icmp_ln2233)> <Delay = 0.17> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.17> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 105 [1/1] (0.78ns)   --->   "%icmp_ln2238 = icmp_eq  i6 %v920_load, i6 32" [spikingformer_official.cpp:2238->spikingformer_official.cpp:2332]   --->   Operation 105 'icmp' 'icmp_ln2238' <Predicate = (!icmp_ln2233)> <Delay = 0.78> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 106 [1/1] (0.17ns)   --->   "%select_ln2233_1 = select i1 %icmp_ln2234, i2 %add_ln2233, i2 %v915_load" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 106 'select' 'select_ln2233_1' <Predicate = (!icmp_ln2233)> <Delay = 0.17> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.17> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 107 [1/1] (0.54ns)   --->   "%add_ln2234 = add i2 %select_ln2233, i2 1" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 107 'add' 'add_ln2234' <Predicate = (!icmp_ln2233 & and_ln2233_3)> <Delay = 0.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 108 [1/1] (0.17ns)   --->   "%v917_mid212648 = select i1 %empty, i2 0, i2 %v917_load" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 108 'select' 'v917_mid212648' <Predicate = (!icmp_ln2233)> <Delay = 0.17> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.17> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 109 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln2238_mid212617)   --->   "%and_ln2233 = and i1 %not_exitcond_flatten12643_mid21271614937, i1 %xor_ln2233" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 109 'and' 'and_ln2233' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 110 [1/1] (0.17ns)   --->   "%select_ln2234 = select i1 %and_ln2233_3, i2 %add_ln2234, i2 %select_ln2233" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 110 'select' 'select_ln2234' <Predicate = (!icmp_ln2233)> <Delay = 0.17> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.17> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 111 [1/1] (0.54ns)   --->   "%add_ln2235 = add i2 %v917_mid212648, i2 1" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 111 'add' 'add_ln2235' <Predicate = (!icmp_ln2233 & exitcond_flatten12620_mid212673)> <Delay = 0.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 112 [1/1] (0.38ns)   --->   "%v918_mid212625 = select i1 %empty_93, i6 0, i6 %v918_load" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 112 'select' 'v918_mid212625' <Predicate = (!icmp_ln2233)> <Delay = 0.38> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.38> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 113 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln2238_mid212617)   --->   "%icmp_ln2238_mid212665 = and i1 %not_exitcond_flatten12620_mid212673, i1 %and_ln2233" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 113 'and' 'icmp_ln2238_mid212665' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 114 [1/1] (0.17ns)   --->   "%select_ln2235 = select i1 %exitcond_flatten12620_mid212673, i2 %add_ln2235, i2 %v917_mid212648" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 114 'select' 'select_ln2235' <Predicate = (!icmp_ln2233)> <Delay = 0.17> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.17> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 115 [1/1] (0.78ns)   --->   "%add_ln2236 = add i6 %v918_mid212625, i6 1" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 115 'add' 'add_ln2236' <Predicate = (!icmp_ln2233 & exitcond_flatten12607_mid212640)> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 116 [1/1] (0.38ns)   --->   "%v919_mid212612 = select i1 %empty_95, i6 0, i6 %v919_load" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 116 'select' 'v919_mid212612' <Predicate = (!icmp_ln2233)> <Delay = 0.38> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.38> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 117 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln2238_mid212617)   --->   "%exitcond_flatten12607_mid212669_not = xor i1 %exitcond_flatten12607_mid212669, i1 1" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 117 'xor' 'exitcond_flatten12607_mid212669_not' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 118 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln2238_mid212617)   --->   "%not_exitcond_flatten12607_mid212640 = or i1 %exitcond_flatten12620_mid212673, i1 %exitcond_flatten12607_mid212669_not" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 118 'or' 'not_exitcond_flatten12607_mid212640' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 119 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln2238_mid212617)   --->   "%icmp_ln2238_mid212636 = and i1 %not_exitcond_flatten12607_mid212640, i1 %icmp_ln2238_mid212665" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 119 'and' 'icmp_ln2238_mid212636' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 120 [1/1] (0.28ns) (out node of the LUT)   --->   "%icmp_ln2238_mid212617 = and i1 %icmp_ln2238_mid212636, i1 %icmp_ln2238" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 120 'and' 'icmp_ln2238_mid212617' <Predicate = (!icmp_ln2233)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 121 [1/1] (0.38ns)   --->   "%select_ln2236 = select i1 %exitcond_flatten12607_mid212640, i6 %add_ln2236, i6 %v918_mid212625" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 121 'select' 'select_ln2236' <Predicate = (!icmp_ln2233)> <Delay = 0.38> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.38> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 122 [1/1] (0.78ns)   --->   "%add_ln2237 = add i6 %v919_mid212612, i6 1" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 122 'add' 'add_ln2237' <Predicate = (!icmp_ln2233)> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 123 [1/1] (0.00ns) (grouped into LUT with out node v920_mid2)   --->   "%empty_96 = or i1 %icmp_ln2238_mid212617, i1 %exitcond_flatten12607_mid212640" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 123 'or' 'empty_96' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 124 [1/1] (0.00ns) (grouped into LUT with out node v920_mid2)   --->   "%empty_97 = or i1 %empty_96, i1 %empty_92" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 124 'or' 'empty_97' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 125 [1/1] (0.00ns) (grouped into LUT with out node v920_mid2)   --->   "%empty_98 = or i1 %empty_97, i1 %icmp_ln2234" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 125 'or' 'empty_98' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 126 [1/1] (0.38ns) (out node of the LUT)   --->   "%v920_mid2 = select i1 %empty_98, i6 0, i6 %v920_load" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 126 'select' 'v920_mid2' <Predicate = (!icmp_ln2233)> <Delay = 0.38> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.38> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 127 [1/1] (0.38ns)   --->   "%select_ln2237 = select i1 %icmp_ln2238_mid212617, i6 %add_ln2237, i6 %v919_mid212612" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 127 'select' 'select_ln2237' <Predicate = (!icmp_ln2233)> <Delay = 0.38> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.38> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 128 [1/1] (0.00ns)   --->   "%zext_ln2234_1 = zext i2 %select_ln2233_1" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 128 'zext' 'zext_ln2234_1' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 129 [1/1] (0.00ns)   --->   "%zext_ln2234 = zext i2 %select_ln2233_1" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 129 'zext' 'zext_ln2234' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 130 [1/1] (2.18ns)   --->   "%mul_ln2234 = mul i12 %zext_ln2234, i12 1156" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 130 'mul' 'mul_ln2234' <Predicate = (!icmp_ln2233)> <Delay = 2.18> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 131 [1/1] (0.00ns)   --->   "%zext_ln2234_3 = zext i2 %select_ln2234" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 131 'zext' 'zext_ln2234_3' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 132 [1/1] (0.00ns)   --->   "%zext_ln2234_2 = zext i2 %select_ln2234" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 132 'zext' 'zext_ln2234_2' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 133 [1/1] (0.00ns)   --->   "%zext_ln2236 = zext i2 %select_ln2235" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 133 'zext' 'zext_ln2236' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 134 [1/1] (0.00ns)   --->   "%zext_ln2244 = zext i6 %select_ln2236" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 134 'zext' 'zext_ln2244' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 135 [1/1] (0.00ns)   --->   "%p_shl5 = bitconcatenate i8 @_ssdm_op_BitConcatenate.i8.i6.i2, i6 %select_ln2236, i2 0" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 135 'bitconcatenate' 'p_shl5' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 136 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln2244 = sub i8 %p_shl5, i8 %zext_ln2244" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 136 'sub' 'sub_ln2244' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.40> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 137 [1/1] (1.05ns) (root node of TernaryAdder)   --->   "%add_ln2244 = add i8 %sub_ln2244, i8 %zext_ln2234_1" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 137 'add' 'add_ln2244' <Predicate = (!icmp_ln2233)> <Delay = 1.05> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.40> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 138 [1/1] (0.00ns)   --->   "%zext_ln2244_1 = zext i8 %add_ln2244" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 138 'zext' 'zext_ln2244_1' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 139 [1/1] (0.00ns)   --->   "%p_shl6 = bitconcatenate i10 @_ssdm_op_BitConcatenate.i10.i8.i2, i8 %add_ln2244, i2 0" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 139 'bitconcatenate' 'p_shl6' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 140 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln2244_1 = sub i10 %p_shl6, i10 %zext_ln2244_1" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 140 'sub' 'sub_ln2244_1' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.40> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 141 [1/1] (0.96ns) (root node of TernaryAdder)   --->   "%add_ln2244_1 = add i10 %sub_ln2244_1, i10 %zext_ln2234_3" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 141 'add' 'add_ln2244_1' <Predicate = (!icmp_ln2233)> <Delay = 0.96> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.40> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 142 [1/1] (0.00ns)   --->   "%trunc_ln2244 = trunc i10 %add_ln2244_1" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 142 'trunc' 'trunc_ln2244' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 143 [1/1] (0.00ns)   --->   "%tmp_13 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i9.i2, i9 %trunc_ln2244, i2 0" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 143 'bitconcatenate' 'tmp_13' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 144 [1/1] (0.00ns)   --->   "%zext_ln2244_2 = zext i10 %add_ln2244_1" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 144 'zext' 'zext_ln2244_2' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 145 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln2244_2 = sub i11 %tmp_13, i11 %zext_ln2244_2" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 145 'sub' 'sub_ln2244_2' <Predicate = (!icmp_ln2233)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.40> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 146 [1/1] (0.91ns) (root node of TernaryAdder)   --->   "%add_ln2244_2 = add i11 %sub_ln2244_2, i11 %zext_ln2236" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 146 'add' 'add_ln2244_2' <Predicate = (!icmp_ln2233)> <Delay = 0.91> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.40> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 147 [1/1] (0.00ns)   --->   "%zext_ln2244_3 = zext i11 %add_ln2244_2" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 147 'zext' 'zext_ln2244_3' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 148 [1/1] (0.00ns)   --->   "%v914_addr = getelementptr i32 %v914, i64 0, i64 %zext_ln2244_3" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 148 'getelementptr' 'v914_addr' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 149 [2/2] (1.23ns)   --->   "%v922 = load i11 %v914_addr" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 149 'load' 'v922' <Predicate = (!icmp_ln2233)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1296> <RAM>
+ST_3 : Operation 150 [1/1] (0.78ns)   --->   "%tmp = add i6 %select_ln2237, i6 %zext_ln2234_2" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 150 'add' 'tmp' <Predicate = (!icmp_ln2233)> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 151 [1/1] (0.00ns)   --->   "%tmp_14 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i6.i5, i6 %tmp, i5 0" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 151 'bitconcatenate' 'tmp_14' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 152 [1/1] (0.00ns)   --->   "%p_shl = zext i11 %tmp_14" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 152 'zext' 'p_shl' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 153 [1/1] (0.00ns)   --->   "%tmp_15 = bitconcatenate i7 @_ssdm_op_BitConcatenate.i7.i6.i1, i6 %tmp, i1 0" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 153 'bitconcatenate' 'tmp_15' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 154 [1/1] (0.00ns)   --->   "%p_shl25 = zext i7 %tmp_15" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 154 'zext' 'p_shl25' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 155 [1/1] (0.79ns)   --->   "%tmp1 = add i12 %p_shl, i12 %p_shl25" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 155 'add' 'tmp1' <Predicate = (!icmp_ln2233)> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 156 [1/1] (0.00ns)   --->   "%tmp_s = partselect i10 @_ssdm_op_PartSelect.i10.i12.i32.i32, i12 %mul_ln2234, i32 2, i32 11" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 156 'partselect' 'tmp_s' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 157 [1/1] (0.00ns)   --->   "%tmp11 = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i10.i2, i10 %tmp_s, i2 %select_ln2235" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 157 'bitconcatenate' 'tmp11' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 158 [1/1] (0.00ns)   --->   "%zext_ln2243 = zext i12 %tmp11" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 158 'zext' 'zext_ln2243' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 159 [1/1] (0.00ns)   --->   "%zext_ln2243_1 = zext i12 %tmp1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 159 'zext' 'zext_ln2243_1' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 160 [1/1] (0.00ns)   --->   "%or_ln = bitconcatenate i22 @_ssdm_op_BitConcatenate.i22.i5.i17, i5 19, i17 %zext_ln2243_1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 160 'bitconcatenate' 'or_ln' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 161 [1/1] (0.91ns)   --->   "%add_ln2243 = add i22 %or_ln, i22 %zext_ln2243" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 161 'add' 'add_ln2243' <Predicate = (!icmp_ln2233)> <Delay = 0.91> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 162 [1/1] (0.00ns)   --->   "%shl_ln8 = bitconcatenate i24 @_ssdm_op_BitConcatenate.i24.i22.i2, i22 %add_ln2243, i2 0" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 162 'bitconcatenate' 'shl_ln8' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 163 [1/1] (0.00ns)   --->   "%sext_ln2243 = sext i24 %shl_ln8" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 163 'sext' 'sext_ln2243' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 164 [1/1] (0.00ns)   --->   "%zext_ln2243_2 = zext i25 %sext_ln2243" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 164 'zext' 'zext_ln2243_2' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 165 [1/1] (1.08ns)   --->   "%add_ln2243_1 = add i64 %zext_ln2243_2, i64 %v944_read" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 165 'add' 'add_ln2243_1' <Predicate = (!icmp_ln2233)> <Delay = 1.08> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 166 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln2243_1, i32 2, i32 63" [spikingformer_official.cpp:2238->spikingformer_official.cpp:2332]   --->   Operation 166 'partselect' 'trunc_ln' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 167 [1/1] (0.00ns)   --->   "%sext_ln2245_1 = sext i62 %trunc_ln" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 167 'sext' 'sext_ln2245_1' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 168 [1/1] (0.00ns)   --->   "%zext_ln2238 = zext i6 %v920_mid2" [spikingformer_official.cpp:2238->spikingformer_official.cpp:2332]   --->   Operation 168 'zext' 'zext_ln2238' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 169 [1/1] (1.08ns)   --->   "%add_ln2243_2 = add i63 %zext_ln2238, i63 %sext_ln2245_1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 169 'add' 'add_ln2243_2' <Predicate = (!icmp_ln2233)> <Delay = 1.08> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 170 [1/1] (0.00ns)   --->   "%sext_ln2243_1 = sext i63 %add_ln2243_2" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 170 'sext' 'sext_ln2243_1' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 171 [1/1] (0.00ns)   --->   "%g0_addr = getelementptr i32 %g0, i64 %sext_ln2243_1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 171 'getelementptr' 'g0_addr' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 172 [1/1] (0.00ns)   --->   "%trunc_ln2245 = trunc i6 %v920_mid2" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 172 'trunc' 'trunc_ln2245' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 173 [1/1] (0.00ns)   --->   "%trunc_ln2245_1 = trunc i6 %select_ln2237" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 173 'trunc' 'trunc_ln2245_1' <Predicate = (!icmp_ln2233)> <Delay = 0.00>
+ST_3 : Operation 174 [1/1] (0.78ns)   --->   "%add_ln2238 = add i6 %v920_mid2, i6 1" [spikingformer_official.cpp:2238->spikingformer_official.cpp:2332]   --->   Operation 174 'add' 'add_ln2238' <Predicate = (!icmp_ln2233)> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 175 [1/1] (0.42ns)   --->   "%store_ln2233 = store i2 %select_ln2233_1, i2 %v915" [spikingformer_official.cpp:2233->spikingformer_official.cpp:2332]   --->   Operation 175 'store' 'store_ln2233' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+ST_3 : Operation 176 [1/1] (0.42ns)   --->   "%store_ln2234 = store i2 %select_ln2234, i2 %v916" [spikingformer_official.cpp:2234->spikingformer_official.cpp:2332]   --->   Operation 176 'store' 'store_ln2234' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+ST_3 : Operation 177 [1/1] (0.42ns)   --->   "%store_ln2235 = store i2 %select_ln2235, i2 %v917" [spikingformer_official.cpp:2235->spikingformer_official.cpp:2332]   --->   Operation 177 'store' 'store_ln2235' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+ST_3 : Operation 178 [1/1] (0.42ns)   --->   "%store_ln2236 = store i6 %select_ln2236, i6 %v918" [spikingformer_official.cpp:2236->spikingformer_official.cpp:2332]   --->   Operation 178 'store' 'store_ln2236' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+ST_3 : Operation 179 [1/1] (0.42ns)   --->   "%store_ln2237 = store i6 %select_ln2237, i6 %v919" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 179 'store' 'store_ln2237' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+ST_3 : Operation 180 [1/1] (0.42ns)   --->   "%store_ln2238 = store i6 %add_ln2238, i6 %v920" [spikingformer_official.cpp:2238->spikingformer_official.cpp:2332]   --->   Operation 180 'store' 'store_ln2238' <Predicate = (!icmp_ln2233)> <Delay = 0.42>
+
+State 4 <SV = 3> <Delay = 1.23>
+ST_4 : Operation 181 [1/2] ( I:1.23ns O:1.23ns )   --->   "%v922 = load i11 %v914_addr" [spikingformer_official.cpp:2244->spikingformer_official.cpp:2332]   --->   Operation 181 'load' 'v922' <Predicate = true> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1296> <RAM>
+ST_4 : Operation 182 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i18 @_ssdm_op_BitConcatenate.i18.i6.i12, i6 %select_ln2236, i12 0" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 182 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 183 [1/1] (0.00ns)   --->   "%zext_ln2237 = zext i18 %shl_ln" [spikingformer_official.cpp:2237->spikingformer_official.cpp:2332]   --->   Operation 183 'zext' 'zext_ln2237' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 184 [8/8] (7.30ns)   --->   "%g0_load_28_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr, i64 1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 184 'readreq' 'g0_load_28_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_4 : Operation 185 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln2245 = add i64 %zext_ln2237, i64 %v949_read" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 185 'add' 'add_ln2245' <Predicate = true> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.40> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 186 [1/1] (0.00ns)   --->   "%tmp14 = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i5.i5.i2, i5 %trunc_ln2245_1, i5 %trunc_ln2245, i2 0" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 186 'bitconcatenate' 'tmp14' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 187 [1/1] (0.00ns)   --->   "%zext_ln2245 = zext i12 %tmp14" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 187 'zext' 'zext_ln2245' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 188 [1/1] (0.81ns) (root node of TernaryAdder)   --->   "%add_ln2245_1 = add i64 %zext_ln2245, i64 %add_ln2245" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 188 'add' 'add_ln2245_1' <Predicate = true> <Delay = 0.81> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.40> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 189 [1/1] (0.00ns)   --->   "%trunc_ln46 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln2245_1, i32 2, i32 63" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 189 'partselect' 'trunc_ln46' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 190 [1/1] (0.00ns)   --->   "%sext_ln2245 = sext i62 %trunc_ln46" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 190 'sext' 'sext_ln2245' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 191 [1/1] (0.00ns)   --->   "%g0_addr_94 = getelementptr i32 %g0, i64 %sext_ln2245" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 191 'getelementptr' 'g0_addr_94' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 192 [7/8] (7.30ns)   --->   "%g0_load_28_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr, i64 1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 192 'readreq' 'g0_load_28_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 193 [8/8] (7.30ns)   --->   "%g0_load_29_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr_94, i64 1" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 193 'readreq' 'g0_load_29_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 194 [6/8] (7.30ns)   --->   "%g0_load_28_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr, i64 1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 194 'readreq' 'g0_load_28_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 195 [7/8] (7.30ns)   --->   "%g0_load_29_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr_94, i64 1" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 195 'readreq' 'g0_load_29_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 0.00>
+ST_7 : Operation 196 [5/8] (7.30ns)   --->   "%g0_load_28_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr, i64 1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 196 'readreq' 'g0_load_28_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 197 [6/8] (7.30ns)   --->   "%g0_load_29_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr_94, i64 1" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 197 'readreq' 'g0_load_29_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 7> <Delay = 0.00>
+ST_8 : Operation 198 [4/8] (7.30ns)   --->   "%g0_load_28_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr, i64 1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 198 'readreq' 'g0_load_28_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 199 [5/8] (7.30ns)   --->   "%g0_load_29_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr_94, i64 1" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 199 'readreq' 'g0_load_29_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 9 <SV = 8> <Delay = 0.00>
+ST_9 : Operation 200 [3/8] (7.30ns)   --->   "%g0_load_28_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr, i64 1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 200 'readreq' 'g0_load_28_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 201 [4/8] (7.30ns)   --->   "%g0_load_29_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr_94, i64 1" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 201 'readreq' 'g0_load_29_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 9> <Delay = 0.00>
+ST_10 : Operation 202 [2/8] (7.30ns)   --->   "%g0_load_28_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr, i64 1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 202 'readreq' 'g0_load_28_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 203 [3/8] (7.30ns)   --->   "%g0_load_29_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr_94, i64 1" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 203 'readreq' 'g0_load_29_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 11 <SV = 10> <Delay = 7.30>
+ST_11 : Operation 204 [1/8] ( I:7.30ns O:7.30ns )   --->   "%g0_load_28_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr, i64 1" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 204 'readreq' 'g0_load_28_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 205 [2/8] (7.30ns)   --->   "%g0_load_29_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr_94, i64 1" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 205 'readreq' 'g0_load_29_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 12 <SV = 11> <Delay = 7.30>
+ST_12 : Operation 206 [1/1] ( I:7.30ns O:7.30ns )   --->   "%g0_addr_read = read i32 @_ssdm_op_Read.m_axi.i32P1A, i32 %g0_addr" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 206 'read' 'g0_addr_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 207 [1/8] ( I:7.30ns O:7.30ns )   --->   "%g0_load_29_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %g0_addr_94, i64 1" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 207 'readreq' 'g0_load_29_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 13 <SV = 12> <Delay = 7.30>
+ST_13 : Operation 208 [1/1] (0.00ns)   --->   "%v921 = bitcast i32 %g0_addr_read" [spikingformer_official.cpp:2243->spikingformer_official.cpp:2332]   --->   Operation 208 'bitcast' 'v921' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 209 [1/1] ( I:7.30ns O:7.30ns )   --->   "%g0_addr_94_read = read i32 @_ssdm_op_Read.m_axi.i32P1A, i32 %g0_addr_94" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 209 'read' 'g0_addr_94_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_13 : Operation 210 [3/3] (7.01ns)   --->   "%v924 = fmul i32 %v921, i32 %v922" [spikingformer_official.cpp:2246->spikingformer_official.cpp:2332]   --->   Operation 210 'fmul' 'v924' <Predicate = true> <Delay = 7.01> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 2> <II = 1> <Delay = 7.01> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 7.01>
+ST_14 : Operation 211 [2/3] (7.01ns)   --->   "%v924 = fmul i32 %v921, i32 %v922" [spikingformer_official.cpp:2246->spikingformer_official.cpp:2332]   --->   Operation 211 'fmul' 'v924' <Predicate = true> <Delay = 7.01> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 2> <II = 1> <Delay = 7.01> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 7.01>
+ST_15 : Operation 212 [1/3] (7.01ns)   --->   "%v924 = fmul i32 %v921, i32 %v922" [spikingformer_official.cpp:2246->spikingformer_official.cpp:2332]   --->   Operation 212 'fmul' 'v924' <Predicate = true> <Delay = 7.01> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 2> <II = 1> <Delay = 7.01> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 6.43>
+ST_16 : Operation 213 [1/1] (0.00ns)   --->   "%v923 = bitcast i32 %g0_addr_94_read" [spikingformer_official.cpp:2245->spikingformer_official.cpp:2332]   --->   Operation 213 'bitcast' 'v923' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 214 [4/4] (6.43ns)   --->   "%v925 = fadd i32 %v923, i32 %v924" [spikingformer_official.cpp:2247->spikingformer_official.cpp:2332]   --->   Operation 214 'fadd' 'v925' <Predicate = true> <Delay = 6.43> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 6.43>
+ST_17 : Operation 215 [3/4] (6.43ns)   --->   "%v925 = fadd i32 %v923, i32 %v924" [spikingformer_official.cpp:2247->spikingformer_official.cpp:2332]   --->   Operation 215 'fadd' 'v925' <Predicate = true> <Delay = 6.43> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 6.43>
+ST_18 : Operation 216 [2/4] (6.43ns)   --->   "%v925 = fadd i32 %v923, i32 %v924" [spikingformer_official.cpp:2247->spikingformer_official.cpp:2332]   --->   Operation 216 'fadd' 'v925' <Predicate = true> <Delay = 6.43> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 7.30>
+ST_19 : Operation 217 [1/4] (6.43ns)   --->   "%v925 = fadd i32 %v923, i32 %v924" [spikingformer_official.cpp:2247->spikingformer_official.cpp:2332]   --->   Operation 217 'fadd' 'v925' <Predicate = true> <Delay = 6.43> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 218 [1/1] ( I:7.30ns O:7.30ns )   --->   "%g0_addr_137_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P1A, i32 %g0_addr_94, i64 1" [spikingformer_official.cpp:2248->spikingformer_official.cpp:2332]   --->   Operation 218 'writereq' 'g0_addr_137_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 9> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 20 <SV = 19> <Delay = 7.30>
+ST_20 : Operation 219 [1/1] (0.00ns)   --->   "%bitcast_ln2248 = bitcast i32 %v925" [spikingformer_official.cpp:2248->spikingformer_official.cpp:2332]   --->   Operation 219 'bitcast' 'bitcast_ln2248' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 220 [1/1] ( I:7.30ns O:7.30ns )   --->   "%write_ln2248 = write void @_ssdm_op_Write.m_axi.i32P1A, i32 %g0_addr_94, i32 %bitcast_ln2248, i4 15" [spikingformer_official.cpp:2248->spikingformer_official.cpp:2332]   --->   Operation 220 'write' 'write_ln2248' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 21 <SV = 20> <Delay = 0.00>
+ST_21 : Operation 221 [5/5] (7.30ns)   --->   "%g0_addr_137_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %g0_addr_94" [spikingformer_official.cpp:2248->spikingformer_official.cpp:2332]   --->   Operation 221 'writeresp' 'g0_addr_137_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 22 <SV = 21> <Delay = 0.00>
+ST_22 : Operation 222 [4/5] (7.30ns)   --->   "%g0_addr_137_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %g0_addr_94" [spikingformer_official.cpp:2248->spikingformer_official.cpp:2332]   --->   Operation 222 'writeresp' 'g0_addr_137_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 23 <SV = 22> <Delay = 0.42>
+ST_23 : Operation 223 [3/5] (7.30ns)   --->   "%g0_addr_137_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %g0_addr_94" [spikingformer_official.cpp:2248->spikingformer_official.cpp:2332]   --->   Operation 223 'writeresp' 'g0_addr_137_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_23 : Operation 230 [1/1] (0.42ns)   --->   "%ret_ln0 = ret"   --->   Operation 230 'ret' 'ret_ln0' <Predicate = (icmp_ln2233)> <Delay = 0.42>
+
+State 24 <SV = 23> <Delay = 0.00>
+ST_24 : Operation 224 [2/5] (7.30ns)   --->   "%g0_addr_137_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %g0_addr_94" [spikingformer_official.cpp:2248->spikingformer_official.cpp:2332]   --->   Operation 224 'writeresp' 'g0_addr_137_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 25 <SV = 24> <Delay = 7.30>
+ST_25 : Operation 225 [1/1] (0.00ns)   --->   "%specloopname_ln0 = specloopname void @_ssdm_op_SpecLoopName, void @VITIS_LOOP_2233_1_VITIS_LOOP_2234_2_VITIS_LOOP_2235_3_VITIS_LOOP_2236_4_VITIS_LO"   --->   Operation 225 'specloopname' 'specloopname_ln0' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 226 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 1327104, i64 1327104, i64 1327104"   --->   Operation 226 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 227 [1/1] (0.00ns)   --->   "%specpipeline_ln2239 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, i32 4294967295, void @empty_35" [spikingformer_official.cpp:2239->spikingformer_official.cpp:2332]   --->   Operation 227 'specpipeline' 'specpipeline_ln2239' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 228 [1/5] ( I:7.30ns O:7.30ns )   --->   "%g0_addr_137_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %g0_addr_94" [spikingformer_official.cpp:2248->spikingformer_official.cpp:2332]   --->   Operation 228 'writeresp' 'g0_addr_137_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 119 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'readrequnaligned' 'writerequnaligned' 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_25 : Operation 229 [1/1] (0.00ns)   --->   "%br_ln2238 = br void %for.inc.i24" [spikingformer_official.cpp:2238->spikingformer_official.cpp:2332]   --->   Operation 229 'br' 'br_ln2238' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 0.427ns
+The critical path consists of the following:
+	'alloca' operation 21 bit ('indvar_flatten12717') [17]  (0.000 ns)
+	'store' operation ('store_ln0') of constant 0 21 bit on local variable 'indvar_flatten12717' [24]  (0.427 ns)
+
+ <State 2>: 3.131ns
+The critical path consists of the following:
+	'load' operation 20 bit ('indvar_flatten12674_load', spikingformer_official.cpp:2234->spikingformer_official.cpp:2332) on local variable 'indvar_flatten12674' [51]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln2234', spikingformer_official.cpp:2234->spikingformer_official.cpp:2332) [56]  (0.894 ns)
+	'or' operation 1 bit ('not_exitcond_flatten12643_mid21271614937', spikingformer_official.cpp:2234->spikingformer_official.cpp:2332) [71]  (0.287 ns)
+	'and' operation 1 bit ('exitcond_flatten12620_mid212673', spikingformer_official.cpp:2233->spikingformer_official.cpp:2332) [74]  (0.287 ns)
+	'xor' operation 1 bit ('not_exitcond_flatten12620_mid212673', spikingformer_official.cpp:2233->spikingformer_official.cpp:2332) [80]  (0.287 ns)
+	'and' operation 1 bit ('exitcond_flatten12607_mid212640', spikingformer_official.cpp:2233->spikingformer_official.cpp:2332) [82]  (0.287 ns)
+	'or' operation 1 bit ('empty_94', spikingformer_official.cpp:2233->spikingformer_official.cpp:2332) [85]  (0.000 ns)
+	'or' operation 1 bit ('empty_95', spikingformer_official.cpp:2233->spikingformer_official.cpp:2332) [86]  (0.287 ns)
+	'select' operation 12 bit ('select_ln2237_1', spikingformer_official.cpp:2237->spikingformer_official.cpp:2332) [169]  (0.375 ns)
+	'store' operation ('store_ln2237', spikingformer_official.cpp:2237->spikingformer_official.cpp:2332) of variable 'select_ln2237_1', spikingformer_official.cpp:2237->spikingformer_official.cpp:2332 12 bit on local variable 'indvar_flatten12605' [184]  (0.427 ns)
+
+ <State 3>: 6.215ns
+The critical path consists of the following:
+	'load' operation 6 bit ('v919_load') on local variable 'v919', spikingformer_official.cpp:2237->spikingformer_official.cpp:2332 [44]  (0.000 ns)
+	'select' operation 6 bit ('v919_mid212612', spikingformer_official.cpp:2233->spikingformer_official.cpp:2332) [87]  (0.384 ns)
+	'add' operation 6 bit ('add_ln2237', spikingformer_official.cpp:2237->spikingformer_official.cpp:2332) [93]  (0.781 ns)
+	'select' operation 6 bit ('select_ln2237', spikingformer_official.cpp:2237->spikingformer_official.cpp:2332) [98]  (0.384 ns)
+	'add' operation 6 bit ('tmp', spikingformer_official.cpp:2237->spikingformer_official.cpp:2332) [123]  (0.781 ns)
+	'add' operation 12 bit ('tmp1', spikingformer_official.cpp:2237->spikingformer_official.cpp:2332) [128]  (0.798 ns)
+	'add' operation 22 bit ('add_ln2243', spikingformer_official.cpp:2243->spikingformer_official.cpp:2332) [134]  (0.914 ns)
+	'add' operation 64 bit ('add_ln2243_1', spikingformer_official.cpp:2243->spikingformer_official.cpp:2332) [138]  (1.085 ns)
+	'add' operation 63 bit ('add_ln2243_2', spikingformer_official.cpp:2243->spikingformer_official.cpp:2332) [143]  (1.088 ns)
+
+ <State 4>: 1.237ns
+The critical path consists of the following:
+	'load' operation 32 bit ('v922', spikingformer_official.cpp:2244->spikingformer_official.cpp:2332) on array 'v914' [120]  (1.237 ns)
+
+ <State 5>: 0.000ns
+The critical path consists of the following:
+
+ <State 6>: 0.000ns
+The critical path consists of the following:
+
+ <State 7>: 0.000ns
+The critical path consists of the following:
+
+ <State 8>: 0.000ns
+The critical path consists of the following:
+
+ <State 9>: 0.000ns
+The critical path consists of the following:
+
+ <State 10>: 0.000ns
+The critical path consists of the following:
+
+ <State 11>: 7.300ns
+The critical path consists of the following:
+	bus request operation ('g0_load_28_req', spikingformer_official.cpp:2243->spikingformer_official.cpp:2332) on port 'g0' (spikingformer_official.cpp:2243->spikingformer_official.cpp:2332) [146]  (7.300 ns)
+
+ <State 12>: 7.300ns
+The critical path consists of the following:
+	bus read operation ('g0_addr_read', spikingformer_official.cpp:2243->spikingformer_official.cpp:2332) on port 'g0' (spikingformer_official.cpp:2243->spikingformer_official.cpp:2332) [147]  (7.300 ns)
+
+ <State 13>: 7.300ns
+The critical path consists of the following:
+	bus read operation ('g0_addr_94_read', spikingformer_official.cpp:2245->spikingformer_official.cpp:2332) on port 'g0' (spikingformer_official.cpp:2245->spikingformer_official.cpp:2332) [159]  (7.300 ns)
+
+ <State 14>: 7.016ns
+The critical path consists of the following:
+	'fmul' operation 32 bit ('v924', spikingformer_official.cpp:2246->spikingformer_official.cpp:2332) [161]  (7.016 ns)
+
+ <State 15>: 7.016ns
+The critical path consists of the following:
+	'fmul' operation 32 bit ('v924', spikingformer_official.cpp:2246->spikingformer_official.cpp:2332) [161]  (7.016 ns)
+
+ <State 16>: 6.437ns
+The critical path consists of the following:
+	'fadd' operation 32 bit ('v925', spikingformer_official.cpp:2247->spikingformer_official.cpp:2332) [162]  (6.437 ns)
+
+ <State 17>: 6.437ns
+The critical path consists of the following:
+	'fadd' operation 32 bit ('v925', spikingformer_official.cpp:2247->spikingformer_official.cpp:2332) [162]  (6.437 ns)
+
+ <State 18>: 6.437ns
+The critical path consists of the following:
+	'fadd' operation 32 bit ('v925', spikingformer_official.cpp:2247->spikingformer_official.cpp:2332) [162]  (6.437 ns)
+
+ <State 19>: 7.300ns
+The critical path consists of the following:
+	bus request operation ('g0_addr_137_req', spikingformer_official.cpp:2248->spikingformer_official.cpp:2332) on port 'g0' (spikingformer_official.cpp:2248->spikingformer_official.cpp:2332) [164]  (7.300 ns)
+
+ <State 20>: 7.300ns
+The critical path consists of the following:
+	bus write operation ('write_ln2248', spikingformer_official.cpp:2248->spikingformer_official.cpp:2332) on port 'g0' (spikingformer_official.cpp:2248->spikingformer_official.cpp:2332) [165]  (7.300 ns)
+
+ <State 21>: 0.000ns
+The critical path consists of the following:
+
+ <State 22>: 0.000ns
+The critical path consists of the following:
+
+ <State 23>: 0.427ns
+The critical path consists of the following:
+
+ <State 24>: 0.000ns
+The critical path consists of the following:
+
+ <State 25>: 7.300ns
+The critical path consists of the following:
+	bus response operation ('g0_addr_137_resp', spikingformer_official.cpp:2248->spikingformer_official.cpp:2332) on port 'g0' (spikingformer_official.cpp:2248->spikingformer_official.cpp:2332) [166]  (7.300 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
