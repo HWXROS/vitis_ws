@@ -141,10 +141,7 @@ void kernel8(
   float v49[384][1536][1][1],
   float v50[1][384][8][8]
 ) {	// L79
-  auto v51 = reinterpret_cast<float(*)[1536][1][1]>(v49);
-
-
-
+  auto v51 = reinterpret_cast<float(*)[1536][1][1]>(v49);	// L81
 
   for (int v52 = 0; v52 < 1536; v52 += 1) {	// L82
     for (int v53 = 0; v53 < 384; v53 += 1) {	// L83
@@ -362,10 +359,7 @@ void kernel26(
   float v140[1536][384][1][1],
   float v141[1][1536][8][8]
 ) {	// L223
-  auto v142 = reinterpret_cast<float(*)[384][1][1]>(v140);
-
-
-
+  auto v142 = reinterpret_cast<float(*)[384][1][1]>(v140);	// L225
 
   for (int v143 = 0; v143 < 384; v143 += 1) {	// L226
     for (int v144 = 0; v144 < 1536; v144 += 1) {	// L227
@@ -585,10 +579,7 @@ void kernel45(
   float v232[384][384][1],
   float v233[1][384][64]
 ) {	// L367
-  auto v234 = reinterpret_cast<float(*)[384][1]>(v232);
-
-
-
+  auto v234 = reinterpret_cast<float(*)[384][1]>(v232);	// L369
 
   for (int v235 = 0; v235 < 384; v235 += 1) {	// L370
     for (int v236 = 0; v236 < 384; v236 += 1) {	// L371
@@ -852,10 +843,7 @@ void kernel66(
   float v338[1][12][64][32],
   float v339[12][64][32]
 ) {	// L533
-  auto v340 = reinterpret_cast<float(*)[12][64][64]>(v337);
-
-
-
+  auto v340 = reinterpret_cast<float(*)[12][64][64]>(v337);	// L535
 
   for (int v341 = 0; v341 < 64; v341 += 1) {	// L536
     for (int v342 = 0; v342 < 12; v342 += 1) {	// L537
@@ -916,10 +904,7 @@ void kernel69(
   float v363[1][12][32][64],
   float v364[12][64][64]
 ) {	// L574
-  auto v365 = reinterpret_cast<float(*)[12][64][32]>(v362);
-
-
-
+  auto v365 = reinterpret_cast<float(*)[12][64][32]>(v362);	// L576
 
   for (int v366 = 0; v366 < 32; v366 += 1) {	// L577
     for (int v367 = 0; v367 < 12; v367 += 1) {	// L578
@@ -1157,10 +1142,7 @@ void kernel91(
   float v461[384][384][1],
   float v462[1][384][64]
 ) {	// L729
-  auto v463 = reinterpret_cast<float(*)[384][1]>(v461);
-
-
-
+  auto v463 = reinterpret_cast<float(*)[384][1]>(v461);	// L731
 
   for (int v464 = 0; v464 < 384; v464 += 1) {	// L732
     for (int v465 = 0; v465 < 384; v465 += 1) {	// L733
@@ -1249,10 +1231,7 @@ void kernel579(
   float v495[384][384][3][3],
   float v496[1][384][8][8]
 ) {	// L788
-  auto v497 = reinterpret_cast<float(*)[384][3][3]>(v495);
-
-
-
+  auto v497 = reinterpret_cast<float(*)[384][3][3]>(v495);	// L790
 
   for (int v498 = 0; v498 < 384; v498 += 1) {	// L791
     for (int v499 = 0; v499 < 3; v499 += 1) {	// L792
@@ -1555,10 +1534,7 @@ void kernel603(
   float v619[384][192][3][3],
   float v620[1][384][16][16]
 ) {	// L992
-  auto v621 = reinterpret_cast<float(*)[192][3][3]>(v619);
-
-
-
+  auto v621 = reinterpret_cast<float(*)[192][3][3]>(v619);	// L994
 
   for (int v622 = 0; v622 < 192; v622 += 1) {	// L995
     for (int v623 = 0; v623 < 3; v623 += 1) {	// L996
@@ -1883,10 +1859,7 @@ void kernel627(
   float v750[192][96][3][3],
   float v751[1][192][32][32]
 ) {	// L1209
-  auto v752 = reinterpret_cast<float(*)[96][3][3]>(v750);
-
-
-
+  auto v752 = reinterpret_cast<float(*)[96][3][3]>(v750);	// L1211
 
   for (int v753 = 0; v753 < 96; v753 += 1) {	// L1212
     for (int v754 = 0; v754 < 3; v754 += 1) {	// L1213
@@ -2140,10 +2113,7 @@ void kernel647(
   float v854[96][48][3][3],
   float v855[1][96][32][32]
 ) {	// L1378
-  auto v856 = reinterpret_cast<float(*)[48][3][3]>(v854);
-
-
-
+  auto v856 = reinterpret_cast<float(*)[48][3][3]>(v854);	// L1380
 
   for (int v857 = 0; v857 < 48; v857 += 1) {	// L1381
     for (int v858 = 0; v858 < 3; v858 += 1) {	// L1382
