@@ -1,0 +1,5 @@
+# HLS project/solution build artifacts
+spikingformer_csim_proj/
+spikingformer_csynth_proj/
+vitis_hls.log
+logs/
