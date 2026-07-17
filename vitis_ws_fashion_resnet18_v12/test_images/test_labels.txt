@@ -1,0 +1,8 @@
+test_image_0_label9.bin 9
+test_image_1_label2.bin 2
+test_image_2_label1.bin 1
+test_image_3_label1.bin 1
+test_image_4_label6.bin 6
+test_image_5_label1.bin 1
+test_image_6_label4.bin 4
+test_image_7_label6.bin 6

@@ -1,10 +1,5 @@
-# Binary weight/test data (regeneratable)
-v700_weights.bin
-test_image.bin
-pytorch_outputs_t4.bin
-pytorch_outputs_t1.bin
-pytorch_feat*.bin
-
-# Build artifacts
-resnet18_proj/
-*.log
+# HLS project/solution build artifacts
+resnet18_csim_proj/
+resnet18_csynth_proj/
+vitis_hls.log
+logs/

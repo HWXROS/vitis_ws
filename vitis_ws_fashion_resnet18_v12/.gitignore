@@ -1,7 +1,5 @@
-# Binary weight/test data (regeneratable)
-v697_weights.bin
-test_image.bin
-
-# Build artifacts
-fashion_resnet18_proj/
-*.log
+# HLS project/solution build artifacts
+fashion_resnet18_csim_proj/
+fashion_resnet18_csynth_proj/
+vitis_hls.log
+logs/

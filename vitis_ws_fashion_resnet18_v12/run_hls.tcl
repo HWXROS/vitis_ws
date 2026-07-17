@@ -1,14 +1,8 @@
-# Vitis HLS TCL for Fashion-ResNet18 v1.2
-open_project "fashion_resnet18_proj"
+open_project -reset fashion_resnet18_csynth_proj
 set_top control
-add_files fashion_resnet18.cpp
-add_files -tb tb_fashion_resnet18.cpp
-
+add_files hls.cpp
 open_solution "solution1"
-set_part {xczu15eg-ffvb1156-2-i}
+set_part xczu7ev-ffvc1156-2-e
 create_clock -period 10 -name default
-
-csim_design -clean
 csynth_design
-
 exit
