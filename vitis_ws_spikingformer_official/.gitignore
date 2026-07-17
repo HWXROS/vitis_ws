@@ -1,5 +1,6 @@
 # HLS project/solution build artifacts
-spikingformer_csim_proj/
-spikingformer_csynth_proj/
+spikingformer_official_csim_proj/
+spikingformer_official_csynth_proj/
 vitis_hls.log
+csim_run.log
 logs/

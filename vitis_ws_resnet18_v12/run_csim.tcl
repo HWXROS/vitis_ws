@@ -1,7 +1,7 @@
 open_project -reset resnet18_csim_proj
 set_top control
-add_files hls_fhca.cpp
-add_files -tb tb_generated.cpp
+add_files hls.cpp
+add_files -tb tb_run.cpp
 open_solution "solution1"
 set_part xczu7ev-ffvc1156-2-e
 create_clock -period 10 -name default

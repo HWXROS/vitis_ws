@@ -2,4 +2,5 @@
 resnet18_csim_proj/
 resnet18_csynth_proj/
 vitis_hls.log
+csim_run.log
 logs/

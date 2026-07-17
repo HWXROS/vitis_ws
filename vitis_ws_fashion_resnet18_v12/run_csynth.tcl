@@ -1,4 +1,4 @@
-open_project -reset fashion_resnet18_csynth_proj
+open_project -reset fashion_resnet18_spikingmlir_csynth_proj
 set_top control
 add_files hls.cpp
 open_solution "solution1"

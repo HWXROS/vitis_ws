@@ -1,5 +1,6 @@
 # HLS project/solution build artifacts
-fashion_resnet18_csim_proj/
-fashion_resnet18_csynth_proj/
+fashion_resnet18_spikingmlir_csim_proj/
+fashion_resnet18_spikingmlir_csynth_proj/
 vitis_hls.log
+csim_run.log
 logs/
