@@ -14,7 +14,7 @@
 void control(ap_int<32>*, ap_int<32>*, ap_int<32>*);
 void control_t(ap_int<32>*, ap_int<32>*, ap_int<32>*, const ap_int<32>*, float*, long, int, int, long);
 
-#define DDR_SIZE      14001280    // from hls.cpp
+#define DDR_SIZE      12864384    // from hls.cpp
 #define NUM_CLASSES   11
 #define T_STEPS       5
 #define OUTPUT_OFFSET 8388608     // element offset (arg0-based), x4 = byte offset
@@ -27,35 +27,29 @@ struct WeightInfo {
     size_t byte_size;
 };
 
-// 24 weight entries from gen/host/mem_init_ext.cpp
+// 18 weight entries from gen/host/mem_init_ext.cpp
 WeightInfo WEIGHTS[] = {
-    {"data/const_41.bin", 55120384, 4},
-    {"data/const_40.bin", 55157248, 4},
-    {"data/const_39.bin", 55194112, 4},
-    {"data/const_34.bin", 55230976, 4},
-    {"data/const_33.bin", 55267840, 4},
-    {"data/const_47.bin", 55304704, 44},
-    {"data/const_46.bin", 55341568, 1408},
-    {"data/const_45.bin", 55378432, 36864},
-    {"data/const_44.bin", 55415296, 36864},
-    {"data/const_43.bin", 55452160, 36864},
-    {"data/const_42.bin", 55489024, 36864},
-    {"data/const_38.bin", 55525888, 36864},
-    {"data/const_37.bin", 55562752, 36864},
-    {"data/const_36.bin", 55599616, 36864},
-    {"data/const_35.bin", 55636480, 36864},
-    {"data/const_32.bin", 55673344, 36864},
-    {"data/const_31.bin", 55710208, 36864},
-    {"data/const_30.bin", 55747072, 36864},
-    {"data/const_29.bin", 55783936, 36864},
-    {"data/const_27.bin", 55820800, 36864},
-    {"data/const_26.bin", 55857664, 36864},
-    {"data/const_24.bin", 55894528, 128},
-    {"data/const_25.bin", 55931392, 2304},
-    {"data/const_28.bin", 55968256, 4},
+    {"data/const_34.bin", 50793984, 1408},
+    {"data/const_35.bin", 50830848, 44},
+    {"data/const_33.bin", 50867712, 36864},
+    {"data/const_32.bin", 50904576, 36864},
+    {"data/const_31.bin", 50941440, 36864},
+    {"data/const_30.bin", 50978304, 36864},
+    {"data/const_29.bin", 51015168, 36864},
+    {"data/const_28.bin", 51052032, 36864},
+    {"data/const_27.bin", 51088896, 36864},
+    {"data/const_26.bin", 51125760, 36864},
+    {"data/const_25.bin", 51162624, 36864},
+    {"data/const_24.bin", 51199488, 36864},
+    {"data/const_23.bin", 51236352, 36864},
+    {"data/const_22.bin", 51273216, 36864},
+    {"data/const_21.bin", 51310080, 36864},
+    {"data/const_20.bin", 51346944, 36864},
+    {"data/const_18.bin", 51383808, 128},
+    {"data/const_19.bin", 51420672, 2304},
 };
 
-const int NUM_WEIGHTS = 24;
+const int NUM_WEIGHTS = 18;
 const int NUM_IMAGES = 2;
 
 int main() {
