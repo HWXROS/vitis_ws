@@ -273,10 +273,7 @@ void kernel19(
   float v107[512][512][3][3],
   float v108[1][512][3][3]
 ) {	// L168
-  float v109[512][512][3][3];	// L169
-  #pragma HLS resource variable=v109 core=ram_t2p_bram
-
-  memcpy(v109, v107, 2359296 * sizeof(float));	// L170
+  auto v109 = reinterpret_cast<float(*)[512][3][3]>(v107);	// L170
 
   for (int v110 = 0; v110 < 512; v110 += 1) {	// L171
     for (int v111 = 0; v111 < 3; v111 += 1) {	// L172
@@ -376,10 +373,7 @@ void kernel50(
   float v145[512][256][1][1],
   float v146[1][512][3][3]
 ) {	// L235
-  float v147[512][256][1][1];	// L236
-  #pragma HLS resource variable=v147 core=ram_t2p_bram
-
-  memcpy(v147, v145, 131072 * sizeof(float));	// L237
+  auto v147 = reinterpret_cast<float(*)[256][1][1]>(v145);	// L237
 
   for (int v148 = 0; v148 < 256; v148 += 1) {	// L238
     for (int v149 = 0; v149 < 512; v149 += 1) {	// L239
@@ -421,10 +415,7 @@ void kernel67(
   float v163[512][256][3][3],
   float v164[1][512][3][3]
 ) {	// L264
-  float v165[512][256][3][3];	// L265
-  #pragma HLS resource variable=v165 core=ram_t2p_bram
-
-  memcpy(v165, v163, 1179648 * sizeof(float));	// L266
+  auto v165 = reinterpret_cast<float(*)[256][3][3]>(v163);	// L266
 
   for (int v166 = 0; v166 < 256; v166 += 1) {	// L267
     for (int v167 = 0; v167 < 3; v167 += 1) {	// L268
@@ -639,10 +630,7 @@ void kernel83(
   float v253[256][256][3][3],
   float v254[1][256][6][6]
 ) {	// L408
-  float v255[256][256][3][3];	// L409
-  #pragma HLS resource variable=v255 core=ram_t2p_bram
-
-  memcpy(v255, v253, 589824 * sizeof(float));	// L410
+  auto v255 = reinterpret_cast<float(*)[256][3][3]>(v253);	// L410
 
   for (int v256 = 0; v256 < 256; v256 += 1) {	// L411
     for (int v257 = 0; v257 < 3; v257 += 1) {	// L412
@@ -725,10 +713,7 @@ void kernel114(
   float v285[256][128][1][1],
   float v286[1][256][6][6]
 ) {	// L464
-  float v287[256][128][1][1];	// L465
-  #pragma HLS resource variable=v287 core=ram_t2p_bram
-
-  memcpy(v287, v285, 32768 * sizeof(float));	// L466
+  auto v287 = reinterpret_cast<float(*)[128][1][1]>(v285);	// L466
 
   for (int v288 = 0; v288 < 128; v288 += 1) {	// L467
     for (int v289 = 0; v289 < 256; v289 += 1) {	// L468
@@ -770,10 +755,7 @@ void kernel131(
   float v303[256][128][3][3],
   float v304[1][256][6][6]
 ) {	// L493
-  float v305[256][128][3][3];	// L494
-  #pragma HLS resource variable=v305 core=ram_t2p_bram
-
-  memcpy(v305, v303, 294912 * sizeof(float));	// L495
+  auto v305 = reinterpret_cast<float(*)[128][3][3]>(v303);	// L495
 
   for (int v306 = 0; v306 < 128; v306 += 1) {	// L496
     for (int v307 = 0; v307 < 3; v307 += 1) {	// L497
@@ -988,10 +970,7 @@ void kernel147(
   float v393[128][128][3][3],
   float v394[1][128][12][12]
 ) {	// L637
-  float v395[128][128][3][3];	// L638
-  #pragma HLS resource variable=v395 core=ram_t2p_bram
-
-  memcpy(v395, v393, 147456 * sizeof(float));	// L639
+  auto v395 = reinterpret_cast<float(*)[128][3][3]>(v393);	// L639
 
   for (int v396 = 0; v396 < 128; v396 += 1) {	// L640
     for (int v397 = 0; v397 < 3; v397 += 1) {	// L641
@@ -1119,10 +1098,7 @@ void kernel195(
   float v443[128][64][3][3],
   float v444[1][128][12][12]
 ) {	// L722
-  float v445[128][64][3][3];	// L723
-  #pragma HLS resource variable=v445 core=ram_t2p_bram
-
-  memcpy(v445, v443, 73728 * sizeof(float));	// L724
+  auto v445 = reinterpret_cast<float(*)[64][3][3]>(v443);	// L724
 
   for (int v446 = 0; v446 < 64; v446 += 1) {	// L725
     for (int v447 = 0; v447 < 3; v447 += 1) {	// L726
@@ -1337,10 +1313,7 @@ void kernel211(
   float v533[64][64][3][3],
   float v534[1][64][24][24]
 ) {	// L866
-  float v535[64][64][3][3];	// L867
-  #pragma HLS resource variable=v535 core=ram_t2p_bram
-
-  memcpy(v535, v533, 36864 * sizeof(float));	// L868
+  auto v535 = reinterpret_cast<float(*)[64][3][3]>(v533);	// L868
 
   for (int v536 = 0; v536 < 64; v536 += 1) {	// L869
     for (int v537 = 0; v537 < 3; v537 += 1) {	// L870
@@ -1777,7 +1750,7 @@ void control(
   auto v702 = reinterpret_cast<float(*)[1][7][7]>(v697 + 95774208);
   kernel276(v698, v702, v700);	// L1154
   auto v703 = reinterpret_cast<float(*)[64][48][48]>(v695 + 147456);
-  auto v704 = reinterpret_cast<float(*)[64][48][48]>(v697 + 2801664);
+  auto v704 = reinterpret_cast<float(*)[64][48][48]>(v696 + 2801664);
   kernel275(v700, v703, v704);	// L1157
   kernel265(v704, v700);	// L1158
   kernel273(v700, (float)1.000000);	// L1159
@@ -1785,7 +1758,7 @@ void control(
   kernel265(v700, v705);	// L1161
   kernel271(v705, (float)1.000000, (float)0.000000);	// L1162
   kernel270(v704, v705, v700);	// L1163
-  auto v706 = reinterpret_cast<float(*)[64][48][48]>(v696 + 3281664);
+  auto v706 = reinterpret_cast<float(*)[64][48][48]>(v697 + 3281664);
   kernel269(v700, v704, v706);	// L1165
   kernel265(v705, v700);	// L1166
   kernel267(v700, (float)0.000000);	// L1167
@@ -1796,26 +1769,26 @@ void control(
   kernel263(v705, v707);	// L1172
   auto v708 = reinterpret_cast<float(*)[64][24][24]>(v696 + 2961664);
   kernel262(v708, (float)-INFINITY);	// L1174
-  auto v709 = reinterpret_cast<float(*)[3]>(v696 + 3121664);
+  auto v709 = reinterpret_cast<float(*)[3]>(v697 + 3121664);
   kernel261(v707, v709, v708);	// L1176
   auto v710 = reinterpret_cast<float(*)[64][26][26]>(v695 + 2801664);
   kernel260(v710, (float)0.000000);	// L1178
   kernel197(v708, v710);	// L1179
-  auto v711 = reinterpret_cast<float(*)[64][24][24]>(v695 + 3281664);
+  auto v711 = reinterpret_cast<float(*)[64][24][24]>(v696 + 3281664);
   auto v712 = reinterpret_cast<float(*)>(v697 + 88696320);
   kernel212(v712, v711);	// L1182
   auto v713 = reinterpret_cast<float(*)[64][3][3]>(v697 + 91055616);
   kernel211(v710, v713, v711);	// L1184
   auto v714 = reinterpret_cast<float(*)[64][24][24]>(v695 + 294912);
-  auto v715 = reinterpret_cast<float(*)[64][24][24]>(v696 + 2801664);
+  auto v715 = reinterpret_cast<float(*)[64][24][24]>(v697 + 2801664);
   kernel209(v711, v714, v715);	// L1187
   kernel199(v715, v711);	// L1188
   kernel207(v711, (float)1.000000);	// L1189
-  auto v716 = reinterpret_cast<float(*)[64][24][24]>(v697 + 3441664);
+  auto v716 = reinterpret_cast<float(*)[64][24][24]>(v696 + 3441664);
   kernel199(v711, v716);	// L1191
   kernel205(v716, (float)1.000000, (float)0.000000);	// L1192
   kernel204(v715, v716, v711);	// L1193
-  auto v717 = reinterpret_cast<float(*)[64][24][24]>(v697 + 3601664);
+  auto v717 = reinterpret_cast<float(*)[64][24][24]>(v695 + 3601664);
   kernel203(v711, v715, v717);	// L1195
   kernel199(v716, v711);	// L1196
   kernel201(v711, (float)0.000000);	// L1197
@@ -1829,57 +1802,57 @@ void control(
   kernel211(v710, v719, v711);	// L1205
   kernel200(v708, v711);	// L1206
   auto v720 = reinterpret_cast<float(*)[64][24][24]>(v695 + 442368);
-  auto v721 = reinterpret_cast<float(*)[64][24][24]>(v697 + 2801664);
+  auto v721 = reinterpret_cast<float(*)[64][24][24]>(v695 + 2801664);
   kernel209(v711, v720, v721);	// L1209
   kernel199(v721, v711);	// L1210
   kernel207(v711, (float)1.000000);	// L1211
-  kernel199(v711, v708);	// L1212
-  kernel205(v708, (float)1.000000, (float)0.000000);	// L1213
-  kernel204(v721, v708, v711);	// L1214
-  auto v722 = reinterpret_cast<float(*)[64][24][24]>(v696 + 3441664);
-  kernel203(v711, v721, v722);	// L1216
-  kernel199(v708, v711);	// L1217
-  kernel201(v711, (float)0.000000);	// L1218
-  kernel200(v722, v711);	// L1219
-  kernel199(v711, v720);	// L1220
-  kernel229(v710, (float)0.000000);	// L1221
-  kernel197(v708, v710);	// L1222
-  auto v723 = reinterpret_cast<float(*)>(v697 + 79259136);
-  kernel212(v723, v711);	// L1224
-  auto v724 = reinterpret_cast<float(*)[64][3][3]>(v697 + 81618432);
-  kernel211(v710, v724, v711);	// L1226
-  auto v725 = reinterpret_cast<float(*)[64][24][24]>(v695 + 589824);
-  kernel209(v711, v725, v715);	// L1228
-  kernel199(v715, v711);	// L1229
-  kernel207(v711, (float)1.000000);	// L1230
-  kernel199(v711, v722);	// L1231
-  kernel205(v722, (float)1.000000, (float)0.000000);	// L1232
-  kernel204(v715, v722, v711);	// L1233
-  auto v726 = reinterpret_cast<float(*)[64][24][24]>(v696 + 3601664);
-  kernel203(v711, v715, v726);	// L1235
-  kernel199(v722, v711);	// L1236
+  auto v722 = reinterpret_cast<float(*)[64][24][24]>(v697 + 2961664);
+  kernel199(v711, v722);	// L1213
+  kernel205(v722, (float)1.000000, (float)0.000000);	// L1214
+  kernel204(v721, v722, v711);	// L1215
+  auto v723 = reinterpret_cast<float(*)[64][24][24]>(v695 + 3441664);
+  kernel203(v711, v721, v723);	// L1217
+  kernel199(v722, v711);	// L1218
+  kernel201(v711, (float)0.000000);	// L1219
+  kernel200(v723, v711);	// L1220
+  kernel199(v711, v720);	// L1221
+  kernel229(v710, (float)0.000000);	// L1222
+  kernel197(v722, v710);	// L1223
+  auto v724 = reinterpret_cast<float(*)>(v697 + 79259136);
+  kernel212(v724, v711);	// L1225
+  auto v725 = reinterpret_cast<float(*)[64][3][3]>(v697 + 81618432);
+  kernel211(v710, v725, v711);	// L1227
+  auto v726 = reinterpret_cast<float(*)[64][24][24]>(v695 + 589824);
+  kernel209(v711, v726, v715);	// L1229
+  kernel199(v715, v711);	// L1230
+  kernel207(v711, (float)1.000000);	// L1231
+  kernel199(v711, v723);	// L1232
+  kernel205(v723, (float)1.000000, (float)0.000000);	// L1233
+  kernel204(v715, v723, v711);	// L1234
+  kernel203(v711, v715, v717);	// L1235
+  kernel199(v723, v711);	// L1236
   kernel201(v711, (float)0.000000);	// L1237
-  kernel200(v726, v711);	// L1238
-  kernel199(v711, v725);	// L1239
+  kernel200(v717, v711);	// L1238
+  kernel199(v711, v726);	// L1239
   kernel214(v710, (float)0.000000);	// L1240
-  kernel197(v722, v710);	// L1241
+  kernel197(v723, v710);	// L1241
   auto v727 = reinterpret_cast<float(*)>(v697 + 74540544);
   kernel212(v727, v711);	// L1243
   auto v728 = reinterpret_cast<float(*)[64][3][3]>(v697 + 76899840);
   kernel211(v710, v728, v711);	// L1245
-  kernel200(v708, v711);	// L1246
+  kernel200(v722, v711);	// L1246
   auto v729 = reinterpret_cast<float(*)[64][24][24]>(v695 + 737280);
-  kernel209(v711, v729, v721);	// L1248
-  kernel199(v721, v711);	// L1249
+  kernel209(v711, v729, v715);	// L1248
+  kernel199(v715, v711);	// L1249
   kernel207(v711, (float)1.000000);	// L1250
   auto v730 = reinterpret_cast<float(*)[64][24][24]>(v695 + 2961664);
   kernel199(v711, v730);	// L1252
   kernel205(v730, (float)1.000000, (float)0.000000);	// L1253
-  kernel204(v721, v730, v711);	// L1254
-  kernel203(v711, v721, v722);	// L1255
+  kernel204(v715, v730, v711);	// L1254
+  kernel203(v711, v715, v723);	// L1255
   kernel199(v730, v711);	// L1256
   kernel201(v711, (float)0.000000);	// L1257
-  kernel200(v722, v711);	// L1258
+  kernel200(v723, v711);	// L1258
   kernel199(v711, v729);	// L1259
   auto v731 = reinterpret_cast<float(*)[64][26][26]>(v696 + 2801664);
   kernel198(v731, (float)0.000000);	// L1261
@@ -1890,7 +1863,7 @@ void control(
   auto v734 = reinterpret_cast<float(*)[64][3][3]>(v697 + 72181248);
   kernel195(v731, v734, v732);	// L1267
   auto v735 = reinterpret_cast<float(*)[128][12][12]>(v695 + 884736);
-  auto v736 = reinterpret_cast<float(*)[128][12][12]>(v696 + 2801664);
+  auto v736 = reinterpret_cast<float(*)[128][12][12]>(v697 + 2801664);
   kernel145(v732, v735, v736);	// L1270
   kernel135(v736, v732);	// L1271
   kernel143(v732, (float)1.000000);	// L1272
@@ -1917,76 +1890,76 @@ void control(
   kernel178(v730, v743, v732);	// L1293
   kernel136(v737, v732);	// L1294
   auto v744 = reinterpret_cast<float(*)[128][12][12]>(v695 + 1032192);
-  kernel145(v732, v744, v736);	// L1296
-  kernel135(v736, v732);	// L1297
-  kernel143(v732, (float)1.000000);	// L1298
-  auto v745 = reinterpret_cast<float(*)[128][12][12]>(v695 + 2961664);
-  kernel135(v732, v745);	// L1300
-  kernel141(v745, (float)1.000000, (float)0.000000);	// L1301
-  kernel140(v736, v745, v732);	// L1302
-  auto v746 = reinterpret_cast<float(*)[128][12][12]>(v697 + 3441664);
-  kernel139(v732, v736, v746);	// L1304
-  kernel135(v745, v732);	// L1305
-  kernel137(v732, (float)0.000000);	// L1306
-  kernel136(v746, v732);	// L1307
-  kernel135(v732, v744);	// L1308
-  kernel165(v739, (float)0.000000);	// L1309
-  kernel133(v745, v739);	// L1310
-  auto v747 = reinterpret_cast<float(*)>(v697 + 55666176);
-  kernel148(v747, v732);	// L1312
-  auto v748 = reinterpret_cast<float(*)[128][3][3]>(v697 + 58025472);
-  kernel147(v739, v748, v732);	// L1314
-  auto v749 = reinterpret_cast<float(*)[128][12][12]>(v695 + 1179648);
-  kernel145(v732, v749, v736);	// L1316
-  kernel135(v736, v732);	// L1317
-  kernel143(v732, (float)1.000000);	// L1318
-  kernel135(v732, v746);	// L1319
-  kernel141(v746, (float)1.000000, (float)0.000000);	// L1320
-  kernel140(v736, v746, v732);	// L1321
-  auto v750 = reinterpret_cast<float(*)[128][12][12]>(v697 + 3601664);
-  kernel139(v732, v736, v750);	// L1323
-  kernel135(v746, v732);	// L1324
-  kernel137(v732, (float)0.000000);	// L1325
-  kernel136(v750, v732);	// L1326
-  kernel135(v732, v749);	// L1327
-  auto v751 = reinterpret_cast<float(*)[128][14][14]>(v695 + 2801664);
-  kernel150(v751, (float)0.000000);	// L1329
-  kernel133(v746, v751);	// L1330
+  auto v745 = reinterpret_cast<float(*)[128][12][12]>(v696 + 2801664);
+  kernel145(v732, v744, v745);	// L1297
+  kernel135(v745, v732);	// L1298
+  kernel143(v732, (float)1.000000);	// L1299
+  auto v746 = reinterpret_cast<float(*)[128][12][12]>(v696 + 2961664);
+  kernel135(v732, v746);	// L1301
+  kernel141(v746, (float)1.000000, (float)0.000000);	// L1302
+  kernel140(v745, v746, v732);	// L1303
+  auto v747 = reinterpret_cast<float(*)[128][12][12]>(v696 + 3441664);
+  kernel139(v732, v745, v747);	// L1305
+  kernel135(v746, v732);	// L1306
+  kernel137(v732, (float)0.000000);	// L1307
+  kernel136(v747, v732);	// L1308
+  kernel135(v732, v744);	// L1309
+  kernel165(v739, (float)0.000000);	// L1310
+  kernel133(v746, v739);	// L1311
+  auto v748 = reinterpret_cast<float(*)>(v697 + 55666176);
+  kernel148(v748, v732);	// L1313
+  auto v749 = reinterpret_cast<float(*)[128][3][3]>(v697 + 58025472);
+  kernel147(v739, v749, v732);	// L1315
+  auto v750 = reinterpret_cast<float(*)[128][12][12]>(v695 + 1179648);
+  kernel145(v732, v750, v745);	// L1317
+  kernel135(v745, v732);	// L1318
+  kernel143(v732, (float)1.000000);	// L1319
+  auto v751 = reinterpret_cast<float(*)[128][12][12]>(v697 + 3441664);
+  kernel135(v732, v751);	// L1321
+  kernel141(v751, (float)1.000000, (float)0.000000);	// L1322
+  kernel140(v745, v751, v732);	// L1323
+  kernel139(v732, v745, v738);	// L1324
+  kernel135(v751, v732);	// L1325
+  kernel137(v732, (float)0.000000);	// L1326
+  kernel136(v738, v732);	// L1327
+  kernel135(v732, v750);	// L1328
+  kernel150(v739, (float)0.000000);	// L1329
+  kernel133(v751, v739);	// L1330
   auto v752 = reinterpret_cast<float(*)>(v697 + 50947584);
   kernel148(v752, v732);	// L1332
   auto v753 = reinterpret_cast<float(*)[128][3][3]>(v697 + 53306880);
-  kernel147(v751, v753, v732);	// L1334
-  kernel136(v745, v732);	// L1335
+  kernel147(v739, v753, v732);	// L1334
+  kernel136(v746, v732);	// L1335
   auto v754 = reinterpret_cast<float(*)[128][12][12]>(v695 + 1327104);
-  kernel145(v732, v754, v736);	// L1337
-  kernel135(v736, v732);	// L1338
+  kernel145(v732, v754, v745);	// L1337
+  kernel135(v745, v732);	// L1338
   kernel143(v732, (float)1.000000);	// L1339
-  auto v755 = reinterpret_cast<float(*)[128][12][12]>(v696 + 2961664);
-  kernel135(v732, v755);	// L1341
-  kernel141(v755, (float)1.000000, (float)0.000000);	// L1342
-  kernel140(v736, v755, v732);	// L1343
-  kernel139(v732, v736, v746);	// L1344
-  kernel135(v755, v732);	// L1345
-  kernel137(v732, (float)0.000000);	// L1346
-  kernel136(v746, v732);	// L1347
-  kernel135(v732, v754);	// L1348
-  kernel134(v751, (float)0.000000);	// L1349
-  kernel133(v755, v751);	// L1350
-  auto v756 = reinterpret_cast<float(*)[256][6][6]>(v695 + 3281664);
+  kernel135(v732, v746);	// L1340
+  kernel141(v746, (float)1.000000, (float)0.000000);	// L1341
+  kernel140(v745, v746, v732);	// L1342
+  kernel139(v732, v745, v751);	// L1343
+  kernel135(v746, v732);	// L1344
+  kernel137(v732, (float)0.000000);	// L1345
+  kernel136(v751, v732);	// L1346
+  kernel135(v732, v754);	// L1347
+  auto v755 = reinterpret_cast<float(*)[128][14][14]>(v695 + 2801664);
+  kernel134(v755, (float)0.000000);	// L1349
+  kernel133(v746, v755);	// L1350
+  auto v756 = reinterpret_cast<float(*)[256][6][6]>(v696 + 3281664);
   auto v757 = reinterpret_cast<float(*)>(v697 + 46228992);
   kernel84(v757, v756);	// L1353
   auto v758 = reinterpret_cast<float(*)[128][3][3]>(v697 + 48588288);
-  kernel131(v751, v758, v756);	// L1355
+  kernel131(v755, v758, v756);	// L1355
   auto v759 = reinterpret_cast<float(*)[256][6][6]>(v695 + 1474560);
-  auto v760 = reinterpret_cast<float(*)[256][6][6]>(v696 + 2801664);
+  auto v760 = reinterpret_cast<float(*)[256][6][6]>(v697 + 2801664);
   kernel81(v756, v759, v760);	// L1358
   kernel71(v760, v756);	// L1359
   kernel79(v756, (float)1.000000);	// L1360
-  auto v761 = reinterpret_cast<float(*)[256][6][6]>(v696 + 3441664);
+  auto v761 = reinterpret_cast<float(*)[256][6][6]>(v695 + 3441664);
   kernel71(v756, v761);	// L1362
   kernel77(v761, (float)1.000000, (float)0.000000);	// L1363
   kernel76(v760, v761, v756);	// L1364
-  auto v762 = reinterpret_cast<float(*)[256][6][6]>(v696 + 3601664);
+  auto v762 = reinterpret_cast<float(*)[256][6][6]>(v695 + 3601664);
   kernel75(v756, v760, v762);	// L1366
   kernel71(v761, v756);	// L1367
   kernel73(v756, (float)0.000000);	// L1368
@@ -1995,78 +1968,78 @@ void control(
   auto v763 = reinterpret_cast<float(*)[256][8][8]>(v695 + 2801664);
   kernel119(v763, (float)0.000000);	// L1372
   kernel69(v761, v763);	// L1373
-  auto v764 = reinterpret_cast<float(*)>(v697 + 41510400);
-  kernel84(v764, v761);	// L1375
-  auto v765 = reinterpret_cast<float(*)[256][3][3]>(v697 + 43869696);
-  kernel83(v763, v765, v761);	// L1377
-  auto v766 = reinterpret_cast<float(*)>(v697 + 36791808);
-  kernel84(v766, v756);	// L1379
-  auto v767 = reinterpret_cast<float(*)[128][1][1]>(v697 + 39151104);
-  kernel114(v755, v767, v756);	// L1381
-  kernel72(v761, v756);	// L1382
-  auto v768 = reinterpret_cast<float(*)[256][6][6]>(v695 + 1622016);
-  kernel81(v756, v768, v760);	// L1384
-  kernel71(v760, v756);	// L1385
-  kernel79(v756, (float)1.000000);	// L1386
-  auto v769 = reinterpret_cast<float(*)[256][6][6]>(v696 + 2961664);
-  kernel71(v756, v769);	// L1388
-  kernel77(v769, (float)1.000000, (float)0.000000);	// L1389
-  kernel76(v760, v769, v756);	// L1390
-  auto v770 = reinterpret_cast<float(*)[256][6][6]>(v697 + 3441664);
-  kernel75(v756, v760, v770);	// L1392
-  kernel71(v769, v756);	// L1393
-  kernel73(v756, (float)0.000000);	// L1394
-  kernel72(v770, v756);	// L1395
-  kernel71(v756, v768);	// L1396
-  kernel101(v763, (float)0.000000);	// L1397
-  kernel69(v769, v763);	// L1398
-  auto v771 = reinterpret_cast<float(*)>(v697 + 32073216);
-  kernel84(v771, v756);	// L1400
-  auto v772 = reinterpret_cast<float(*)[256][3][3]>(v697 + 34432512);
-  kernel83(v763, v772, v756);	// L1402
-  auto v773 = reinterpret_cast<float(*)[256][6][6]>(v695 + 1769472);
-  kernel81(v756, v773, v760);	// L1404
-  kernel71(v760, v756);	// L1405
-  kernel79(v756, (float)1.000000);	// L1406
-  kernel71(v756, v770);	// L1407
-  kernel77(v770, (float)1.000000, (float)0.000000);	// L1408
-  kernel76(v760, v770, v756);	// L1409
-  auto v774 = reinterpret_cast<float(*)[256][6][6]>(v697 + 3601664);
-  kernel75(v756, v760, v774);	// L1411
-  kernel71(v770, v756);	// L1412
-  kernel73(v756, (float)0.000000);	// L1413
-  kernel72(v774, v756);	// L1414
-  kernel71(v756, v773);	// L1415
-  auto v775 = reinterpret_cast<float(*)[256][8][8]>(v696 + 2801664);
-  kernel86(v775, (float)0.000000);	// L1417
-  kernel69(v770, v775);	// L1418
-  auto v776 = reinterpret_cast<float(*)>(v697 + 27354624);
-  kernel84(v776, v756);	// L1420
-  auto v777 = reinterpret_cast<float(*)[256][3][3]>(v697 + 29713920);
-  kernel83(v775, v777, v756);	// L1422
-  kernel72(v769, v756);	// L1423
-  auto v778 = reinterpret_cast<float(*)[256][6][6]>(v695 + 1916928);
-  kernel81(v756, v778, v760);	// L1425
-  kernel71(v760, v756);	// L1426
-  kernel79(v756, (float)1.000000);	// L1427
-  auto v779 = reinterpret_cast<float(*)[256][6][6]>(v695 + 2961664);
-  kernel71(v756, v779);	// L1429
-  kernel77(v779, (float)1.000000, (float)0.000000);	// L1430
-  kernel76(v760, v779, v756);	// L1431
-  kernel75(v756, v760, v770);	// L1432
-  kernel71(v779, v756);	// L1433
+  auto v764 = reinterpret_cast<float(*)[256][6][6]>(v696 + 3441664);
+  auto v765 = reinterpret_cast<float(*)>(v697 + 41510400);
+  kernel84(v765, v764);	// L1376
+  auto v766 = reinterpret_cast<float(*)[256][3][3]>(v697 + 43869696);
+  kernel83(v763, v766, v764);	// L1378
+  auto v767 = reinterpret_cast<float(*)>(v697 + 36791808);
+  kernel84(v767, v756);	// L1380
+  auto v768 = reinterpret_cast<float(*)[128][1][1]>(v697 + 39151104);
+  kernel114(v746, v768, v756);	// L1382
+  kernel72(v764, v756);	// L1383
+  auto v769 = reinterpret_cast<float(*)[256][6][6]>(v695 + 1622016);
+  auto v770 = reinterpret_cast<float(*)[256][6][6]>(v695 + 2801664);
+  kernel81(v756, v769, v770);	// L1386
+  kernel71(v770, v756);	// L1387
+  kernel79(v756, (float)1.000000);	// L1388
+  auto v771 = reinterpret_cast<float(*)[256][6][6]>(v695 + 2961664);
+  kernel71(v756, v771);	// L1390
+  kernel77(v771, (float)1.000000, (float)0.000000);	// L1391
+  kernel76(v770, v771, v756);	// L1392
+  auto v772 = reinterpret_cast<float(*)[256][6][6]>(v697 + 3441664);
+  kernel75(v756, v770, v772);	// L1394
+  kernel71(v771, v756);	// L1395
+  kernel73(v756, (float)0.000000);	// L1396
+  kernel72(v772, v756);	// L1397
+  kernel71(v756, v769);	// L1398
+  auto v773 = reinterpret_cast<float(*)[256][8][8]>(v696 + 2801664);
+  kernel101(v773, (float)0.000000);	// L1400
+  kernel69(v771, v773);	// L1401
+  auto v774 = reinterpret_cast<float(*)>(v697 + 32073216);
+  kernel84(v774, v756);	// L1403
+  auto v775 = reinterpret_cast<float(*)[256][3][3]>(v697 + 34432512);
+  kernel83(v773, v775, v756);	// L1405
+  auto v776 = reinterpret_cast<float(*)[256][6][6]>(v695 + 1769472);
+  kernel81(v756, v776, v760);	// L1407
+  kernel71(v760, v756);	// L1408
+  kernel79(v756, (float)1.000000);	// L1409
+  kernel71(v756, v761);	// L1410
+  kernel77(v761, (float)1.000000, (float)0.000000);	// L1411
+  kernel76(v760, v761, v756);	// L1412
+  kernel75(v756, v760, v762);	// L1413
+  kernel71(v761, v756);	// L1414
+  kernel73(v756, (float)0.000000);	// L1415
+  kernel72(v762, v756);	// L1416
+  kernel71(v756, v776);	// L1417
+  kernel86(v763, (float)0.000000);	// L1418
+  kernel69(v761, v763);	// L1419
+  auto v777 = reinterpret_cast<float(*)>(v697 + 27354624);
+  kernel84(v777, v756);	// L1421
+  auto v778 = reinterpret_cast<float(*)[256][3][3]>(v697 + 29713920);
+  kernel83(v763, v778, v756);	// L1423
+  kernel72(v771, v756);	// L1424
+  auto v779 = reinterpret_cast<float(*)[256][6][6]>(v695 + 1916928);
+  kernel81(v756, v779, v770);	// L1426
+  kernel71(v770, v756);	// L1427
+  kernel79(v756, (float)1.000000);	// L1428
+  kernel71(v756, v771);	// L1429
+  kernel77(v771, (float)1.000000, (float)0.000000);	// L1430
+  kernel76(v770, v771, v756);	// L1431
+  kernel75(v756, v770, v772);	// L1432
+  kernel71(v771, v756);	// L1433
   kernel73(v756, (float)0.000000);	// L1434
-  kernel72(v770, v756);	// L1435
-  kernel71(v756, v778);	// L1436
-  kernel70(v775, (float)0.000000);	// L1437
-  kernel69(v779, v775);	// L1438
-  auto v780 = reinterpret_cast<float(*)[512][3][3]>(v696 + 3281664);
+  kernel72(v772, v756);	// L1435
+  kernel71(v756, v779);	// L1436
+  kernel70(v763, (float)0.000000);	// L1437
+  kernel69(v771, v763);	// L1438
+  auto v780 = reinterpret_cast<float(*)[512][3][3]>(v695 + 3281664);
   auto v781 = reinterpret_cast<float(*)>(v697 + 22636032);
   kernel20(v781, v780);	// L1441
   auto v782 = reinterpret_cast<float(*)[256][3][3]>(v697 + 24995328);
-  kernel67(v775, v782, v780);	// L1443
+  kernel67(v763, v782, v780);	// L1443
   auto v783 = reinterpret_cast<float(*)[512][3][3]>(v695 + 2064384);
-  auto v784 = reinterpret_cast<float(*)[512][3][3]>(v697 + 2801664);
+  auto v784 = reinterpret_cast<float(*)[512][3][3]>(v696 + 2801664);
   kernel17(v780, v783, v784);	// L1446
   kernel7(v784, v780);	// L1447
   kernel15(v780, (float)1.000000);	// L1448
@@ -2074,7 +2047,7 @@ void control(
   kernel7(v780, v785);	// L1450
   kernel13(v785, (float)1.000000, (float)0.000000);	// L1451
   kernel12(v784, v785, v780);	// L1452
-  auto v786 = reinterpret_cast<float(*)[512][3][3]>(v695 + 3601664);
+  auto v786 = reinterpret_cast<float(*)[512][3][3]>(v697 + 3601664);
   kernel11(v780, v784, v786);	// L1454
   kernel7(v785, v780);	// L1455
   kernel9(v780, (float)0.000000);	// L1456
@@ -2091,72 +2064,109 @@ void control(
   auto v791 = reinterpret_cast<float(*)>(v697 + 13198848);
   kernel20(v791, v780);	// L1468
   auto v792 = reinterpret_cast<float(*)[256][1][1]>(v697 + 15558144);
-  kernel50(v779, v792, v780);	// L1470
+  kernel50(v771, v792, v780);	// L1470
   kernel8(v788, v780);	// L1471
   auto v793 = reinterpret_cast<float(*)[512][3][3]>(v695 + 2211840);
   kernel17(v780, v793, v784);	// L1473
   kernel7(v784, v780);	// L1474
   kernel15(v780, (float)1.000000);	// L1475
-  auto v794 = reinterpret_cast<float(*)[512][3][3]>(v695 + 2961664);
+  auto v794 = reinterpret_cast<float(*)[512][3][3]>(v697 + 2961664);
   kernel7(v780, v794);	// L1477
   kernel13(v794, (float)1.000000, (float)0.000000);	// L1478
   kernel12(v784, v794, v780);	// L1479
-  kernel11(v780, v784, v788);	// L1480
-  kernel7(v794, v780);	// L1481
-  kernel9(v780, (float)0.000000);	// L1482
-  kernel8(v788, v780);	// L1483
-  kernel7(v780, v793);	// L1484
-  auto v795 = reinterpret_cast<float(*)[512][5][5]>(v696 + 2801664);
-  kernel37(v795, (float)0.000000);	// L1486
-  kernel21(v794, v795);	// L1487
+  auto v795 = reinterpret_cast<float(*)[512][3][3]>(v697 + 3441664);
+  kernel11(v780, v784, v795);	// L1481
+  kernel7(v794, v780);	// L1482
+  kernel9(v780, (float)0.000000);	// L1483
+  kernel8(v795, v780);	// L1484
+  kernel7(v780, v793);	// L1485
+  kernel37(v787, (float)0.000000);	// L1486
+  kernel21(v794, v787);	// L1487
   auto v796 = reinterpret_cast<float(*)>(v697 + 8480256);
   kernel20(v796, v780);	// L1489
   auto v797 = reinterpret_cast<float(*)[512][3][3]>(v697 + 10839552);
-  kernel19(v795, v797, v780);	// L1491
+  kernel19(v787, v797, v780);	// L1491
   auto v798 = reinterpret_cast<float(*)[512][3][3]>(v695 + 2359296);
-  auto v799 = reinterpret_cast<float(*)[512][3][3]>(v695 + 2801664);
-  kernel17(v780, v798, v799);	// L1494
-  kernel7(v799, v780);	// L1495
-  kernel15(v780, (float)1.000000);	// L1496
-  kernel7(v780, v788);	// L1497
-  kernel13(v788, (float)1.000000, (float)0.000000);	// L1498
-  kernel12(v799, v788, v780);	// L1499
-  auto v800 = reinterpret_cast<float(*)[512][3][3]>(v697 + 3601664);
-  kernel11(v780, v799, v800);	// L1501
-  kernel7(v788, v780);	// L1502
-  kernel9(v780, (float)0.000000);	// L1503
-  kernel8(v800, v780);	// L1504
-  kernel7(v780, v798);	// L1505
-  kernel22(v787, (float)0.000000);	// L1506
-  kernel21(v788, v787);	// L1507
-  auto v801 = reinterpret_cast<float(*)>(v697 + 3761664);
-  kernel20(v801, v780);	// L1509
-  auto v802 = reinterpret_cast<float(*)[512][3][3]>(v697 + 6120960);
-  kernel19(v787, v802, v780);	// L1511
-  kernel8(v794, v780);	// L1512
-  auto v803 = reinterpret_cast<float(*)[512][3][3]>(v695 + 2506752);
-  kernel17(v780, v803, v799);	// L1514
-  kernel7(v799, v780);	// L1515
-  kernel15(v780, (float)1.000000);	// L1516
-  kernel7(v780, v794);	// L1517
-  kernel13(v794, (float)1.000000, (float)0.000000);	// L1518
-  kernel12(v799, v794, v780);	// L1519
-  kernel11(v780, v799, v788);	// L1520
-  kernel7(v794, v780);	// L1521
-  kernel9(v780, (float)0.000000);	// L1522
-  kernel8(v788, v780);	// L1523
-  kernel7(v780, v803);	// L1524
-  auto v804 = reinterpret_cast<float(*)[512][1][1]>(v695 + 2801664);
-  kernel6(v804, (float)0.000000);	// L1526
-  kernel5(v794, v709, v804);	// L1527
-  kernel4(v804, (float)9.000000);	// L1528
-  auto v805 = reinterpret_cast<float(*)[10]>(v696 + 2961664);
-  auto v806 = reinterpret_cast<float(*)[512]>(v697 + 100492800);
-  kernel3(v806, v805);	// L1531
-  auto v807 = reinterpret_cast<float(*)[10]>(v695 + 2654208);
-  kernel2(v807, (float)0.000000);	// L1533
-  kernel1(v804, v805, v807);	// L1534
-  auto v808 = reinterpret_cast<float(*)>(v697 + 98133504);
-  kernel0(v808, v807);	// L1536
+  kernel17(v780, v798, v784);	// L1493
+  kernel7(v784, v780);	// L1494
+  kernel15(v780, (float)1.000000);	// L1495
+  kernel7(v780, v785);	// L1496
+  kernel13(v785, (float)1.000000, (float)0.000000);	// L1497
+  kernel12(v784, v785, v780);	// L1498
+  kernel11(v780, v784, v786);	// L1499
+  kernel7(v785, v780);	// L1500
+  kernel9(v780, (float)0.000000);	// L1501
+  kernel8(v786, v780);	// L1502
+  kernel7(v780, v798);	// L1503
+  kernel22(v787, (float)0.000000);	// L1504
+  kernel21(v785, v787);	// L1505
+  auto v799 = reinterpret_cast<float(*)>(v697 + 3761664);
+  kernel20(v799, v780);	// L1507
+  auto v800 = reinterpret_cast<float(*)[512][3][3]>(v697 + 6120960);
+  kernel19(v787, v800, v780);	// L1509
+  kernel8(v794, v780);	// L1510
+  auto v801 = reinterpret_cast<float(*)[512][3][3]>(v695 + 2506752);
+  kernel17(v780, v801, v784);	// L1512
+  kernel7(v784, v780);	// L1513
+  kernel15(v780, (float)1.000000);	// L1514
+  auto v802 = reinterpret_cast<float(*)[512][3][3]>(v696 + 2961664);
+  kernel7(v780, v802);	// L1516
+  kernel13(v802, (float)1.000000, (float)0.000000);	// L1517
+  kernel12(v784, v802, v780);	// L1518
+  kernel11(v780, v784, v785);	// L1519
+  kernel7(v802, v780);	// L1520
+  kernel9(v780, (float)0.000000);	// L1521
+  kernel8(v785, v780);	// L1522
+  kernel7(v780, v801);	// L1523
+  auto v803 = reinterpret_cast<float(*)[512][1][1]>(v696 + 2801664);
+  kernel6(v803, (float)0.000000);	// L1525
+  kernel5(v802, v709, v803);	// L1526
+  kernel4(v803, (float)9.000000);	// L1527
+  auto v804 = reinterpret_cast<float(*)[10]>(v697 + 2961664);
+  auto v805 = reinterpret_cast<float(*)[512]>(v696 + 100492800);
+  kernel3(v805, v804);	// L1530
+  auto v806 = reinterpret_cast<float(*)[10]>(v695 + 2654208);
+  kernel2(v806, (float)0.000000);	// L1532
+  kernel1(v803, v804, v806);	// L1533
+  auto v807 = reinterpret_cast<float(*)>(v697 + 98133504);
+  kernel0(v807, v806);	// L1535
+}
+
+/// The T-step wrapper (FHCA v1.4: on-chip time-step loop)
+/// Drives the single-step control T times; membrane states persist in DDR top_level buffers.
+/// input_frames: DDR staging of T input frames (per-step-input);
+///   frame t is memcpy'd to the input slot (arg0+0) before step t.
+///   frame_elems=0: static input (host pre-writes frame, no copy).
+/// out_frames: per-step outputs staged to DDR (out region assumed on
+///   arg0 at out_elem_offset); out_elems=0: skip staging.
+void control_t(
+  ap_int<32> t_v0[102852096],
+  ap_int<32> t_v1[102852096],
+  ap_int<32> t_v2[102852096],
+  const ap_int<32> *input_frames,
+  float *out_frames,
+  long out_elem_offset,
+  int out_elems,
+  int t_steps,
+  long frame_elems
+) {
+  #pragma HLS interface s_axilite port=return bundle=ctrl
+  #pragma hls interface m_axi offset=direct bundle=g0 port=t_v0
+  #pragma hls stable variable=t_v0
+  #pragma hls interface m_axi offset=direct bundle=g0 port=t_v1
+  #pragma hls stable variable=t_v1
+  #pragma hls interface m_axi offset=direct bundle=g0 port=t_v2
+  #pragma hls stable variable=t_v2
+  #pragma hls interface m_axi offset=direct bundle=g1 port=input_frames
+  #pragma hls interface m_axi offset=direct bundle=g1 port=out_frames
+  for (int t = 0; t < t_steps; t++) {
+    if (frame_elems > 0)
+      memcpy((void*)t_v0, (const void*)(input_frames + (long)t * frame_elems), frame_elems * sizeof(ap_int<32>));
+    control(t_v0, t_v1, t_v2);
+    if (out_elems > 0)
+      memcpy((void*)(out_frames + (long)t * out_elems),
+             (const void*)((const char*)t_v0 + out_elem_offset * sizeof(ap_int<32>)),
+             out_elems * sizeof(float));
+  }
 }
 

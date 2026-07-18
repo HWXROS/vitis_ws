@@ -3346,3 +3346,41 @@ void control(
   kernel0(v1201, v1200);	// L2490
 }
 
+/// The T-step wrapper (FHCA v1.4: on-chip time-step loop)
+/// Drives the single-step control T times; membrane states persist in DDR top_level buffers.
+/// input_frames: DDR staging of T input frames (per-step-input);
+///   frame t is memcpy'd to the input slot (arg0+0) before step t.
+///   frame_elems=0: static input (host pre-writes frame, no copy).
+/// out_frames: per-step outputs staged to DDR (out region assumed on
+///   arg0 at out_elem_offset); out_elems=0: skip staging.
+void control_t(
+  ap_int<32> t_v0[91189248],
+  ap_int<32> t_v1[91189248],
+  ap_int<32> t_v2[91189248],
+  const ap_int<32> *input_frames,
+  float *out_frames,
+  long out_elem_offset,
+  int out_elems,
+  int t_steps,
+  long frame_elems
+) {
+  #pragma HLS interface s_axilite port=return bundle=ctrl
+  #pragma hls interface m_axi offset=direct bundle=g0 port=t_v0
+  #pragma hls stable variable=t_v0
+  #pragma hls interface m_axi offset=direct bundle=g0 port=t_v1
+  #pragma hls stable variable=t_v1
+  #pragma hls interface m_axi offset=direct bundle=g0 port=t_v2
+  #pragma hls stable variable=t_v2
+  #pragma hls interface m_axi offset=direct bundle=g1 port=input_frames
+  #pragma hls interface m_axi offset=direct bundle=g1 port=out_frames
+  for (int t = 0; t < t_steps; t++) {
+    if (frame_elems > 0)
+      memcpy((void*)t_v0, (const void*)(input_frames + (long)t * frame_elems), frame_elems * sizeof(ap_int<32>));
+    control(t_v0, t_v1, t_v2);
+    if (out_elems > 0)
+      memcpy((void*)(out_frames + (long)t * out_elems),
+             (const void*)((const char*)t_v0 + out_elem_offset * sizeof(ap_int<32>)),
+             out_elems * sizeof(float));
+  }
+}
+

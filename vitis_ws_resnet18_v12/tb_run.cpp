@@ -12,6 +12,7 @@
 // 权重表: /home/hwx/HCA/FPGA-SNN/FastHCA/gen-mlir2hls/resnet18/output/gen/host/mem_init_ext.cpp（byte offset，勿再乘 4）
 
 void control(ap_int<32>*, ap_int<32>*, ap_int<32>*);
+void control_t(ap_int<32>*, ap_int<32>*, ap_int<32>*, const ap_int<32>*, float*, long, int, int, long);
 
 #define DDR_SIZE      118502656    // from hls.cpp
 #define NUM_CLASSES   1000
@@ -84,6 +85,7 @@ int main() {
 
     ap_int<32>* ddr = (ap_int<32>*)malloc(DDR_SIZE * sizeof(ap_int<32>));
     float* input_buf = (float*)malloc(INPUT_SIZE * sizeof(float));
+    
     if (!ddr || !input_buf) { printf("FATAL: malloc failed\n"); return 1; }
 
     int correct = 0;
@@ -100,7 +102,7 @@ int main() {
         fread(&true_label, sizeof(int), 1, fp);
         fclose(fp);
 
-        // Load input image
+        // Load input image (单帧 (全程同一帧))
         snprintf(path, 256, "test_images/test_image_%d.bin", idx);
         fp = fopen(path, "rb");
         if (!fp) { printf("FATAL: missing %s\n", path); return 1; }
@@ -128,21 +130,20 @@ int main() {
 
         // T-step loop: membrane states persist in DDR top_level buffers
         // across control() calls (mirrors spikingjelly reset_net + T-loop).
-        float acc_output[NUM_CLASSES] = {0.0f};
-        for (int t = 0; t < T_STEPS; t++) {
-            // Reload input each step: control() may clobber the input region
-            float* ddr_f = (float*)((char*)ddr + INPUT_OFFSET * sizeof(ap_int<32>));
-            for (int i = 0; i < INPUT_SIZE; i++) ddr_f[i] = input_buf[i];
+        // FHCA v1.4: on-chip T-step loop via control_t() (static input)
+        float* ddr_f = (float*)((char*)ddr + INPUT_OFFSET * sizeof(ap_int<32>));
+        for (int i = 0; i < INPUT_SIZE; i++) ddr_f[i] = input_buf[i];
 
-            control(ddr, ddr, ddr);
-
-            float* step_output = (float*)((char*)ddr + OUTPUT_OFFSET * sizeof(ap_int<32>));
-            for (int i = 0; i < NUM_CLASSES; i++) acc_output[i] += step_output[i];
-        }
+        float out_frames[T_STEPS * NUM_CLASSES];
+        control_t(ddr, ddr, ddr, nullptr, out_frames,
+                  OUTPUT_OFFSET, NUM_CLASSES, T_STEPS, 0);
 
         // spikingjelly convention: mean over T steps
-        float hls_output[NUM_CLASSES];
-        for (int i = 0; i < NUM_CLASSES; i++) hls_output[i] = acc_output[i] / T_STEPS;
+        float hls_output[NUM_CLASSES] = {{0.0f}};
+        for (int t = 0; t < T_STEPS; t++)
+            for (int i = 0; i < NUM_CLASSES; i++)
+                hls_output[i] += out_frames[t * NUM_CLASSES + i] / T_STEPS;
+
 
         int hls_pred = 0;
         for (int i = 1; i < NUM_CLASSES; i++)
