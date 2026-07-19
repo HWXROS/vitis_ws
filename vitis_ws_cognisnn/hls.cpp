@@ -19,1475 +19,1703 @@ void kernel0(
   float v0[11],
   float v1[1][11]
 ) {	// L2
-  for (int v2 = 0; v2 < 11; v2 += 1) {	// L3
+  float v2[1][11];	// L3
+  #pragma HLS resource variable=v2 core=ram_t2p_bram
+
+  memcpy(v2, v1, 11 * sizeof(float));	// L4
+
+  for (int v3 = 0; v3 < 11; v3 += 1) {	// L5
     #pragma HLS pipeline II=1
-    #pragma HLS dependence false variable=v1
+    #pragma HLS dependence false variable=v2
     #pragma HLS dependence false variable=v0
-    float v3 = v1[0][v2];	// L4
-    float v4 = v0[v2];	// L5
-    float v5 = v3 + v4;	// L6
-    v1[0][v2] = v5;	// L7
+    float v4 = v2[0][v3];	// L6
+    float v5 = v0[v3];	// L7
+    float v6 = v4 + v5;	// L8
+    v2[0][v3] = v6;	// L9
   }
+  memcpy(v1, v2, 11 * sizeof(float));	// L11
+
 }
 
 void kernel1(
-  float v6[1][32][1][1],
-  float v7[32][11],
-  float v8[1][11]
-) {	// L11
-  float v9[1][32][1][1];	// L12
-  #pragma HLS resource variable=v9 core=ram_t2p_bram
+  float v7[1][32][1][1],
+  float v8[32][11],
+  float v9[1][11]
+) {	// L14
+  float v10[1][11];	// L15
+  #pragma HLS resource variable=v10 core=ram_t2p_bram
 
-  memcpy(v9, v6, 32 * sizeof(float));	// L13
+  memcpy(v10, v9, 11 * sizeof(float));	// L16
 
-  for (int v10 = 0; v10 < 32; v10 += 1) {	// L14
-    for (int v11 = 0; v11 < 11; v11 += 1) {	// L15
+  float v11[1][32][1][1];	// L17
+  #pragma HLS resource variable=v11 core=ram_t2p_bram
+
+  memcpy(v11, v7, 32 * sizeof(float));	// L18
+
+  for (int v12 = 0; v12 < 32; v12 += 1) {	// L19
+    for (int v13 = 0; v13 < 11; v13 += 1) {	// L20
       #pragma HLS pipeline II=1
-      #pragma HLS dependence false variable=v9
-      #pragma HLS dependence false variable=v7
+      #pragma HLS dependence false variable=v11
       #pragma HLS dependence false variable=v8
-      float v12 = v9[0][v10][0][0];	// L16
-      float v13 = v7[v10][v11];	// L17
-      float v14 = v8[0][v11];	// L18
-      float v15 = v12 * v13;	// L19
-      float v16 = v14 + v15;	// L20
-      v8[0][v11] = v16;	// L21
+      #pragma HLS dependence false variable=v10
+      float v14 = v11[0][v12][0][0];	// L21
+      float v15 = v8[v12][v13];	// L22
+      float v16 = v10[0][v13];	// L23
+      float v17 = v14 * v15;	// L24
+      float v18 = v16 + v17;	// L25
+      v10[0][v13] = v18;	// L26
     }
   }
+  memcpy(v9, v10, 11 * sizeof(float));	// L29
+
 }
 
 void kernel2(
-  float v17[1][11],
-  float v18
-) {	// L26
-  for (int v19 = 0; v19 < 11; v19 += 1) {	// L27
+  float v19[1][11],
+  float v20
+) {	// L32
+  for (int v21 = 0; v21 < 11; v21 += 1) {	// L33
     #pragma HLS pipeline II=1
-    #pragma HLS dependence false variable=v17
-    v17[0][v19] = v18;	// L28
+    #pragma HLS dependence false variable=v19
+    v19[0][v21] = v20;	// L34
   }
 }
 
 void kernel3(
-  float v20[1][32][1][1],
-  float v21
-) {	// L32
-  for (int v22 = 0; v22 < 32; v22 += 1) {	// L33
-    float v23 = v20[0][v22][0][0];	// L34
-    float v24 = v23 / v21;	// L35
-    v20[0][v22][0][0] = v24;	// L36
+  float v22[1][32][1][1],
+  float v23
+) {	// L38
+  for (int v24 = 0; v24 < 32; v24 += 1) {	// L39
+    float v25 = v22[0][v24][0][0];	// L40
+    float v26 = v25 / v23;	// L41
+    v22[0][v24][0][0] = v26;	// L42
   }
 }
 
 void kernel4(
-  float v25[1][32][2][2],
-  float v26[2][2],
-  float v27[1][32][1][1]
-) {	// L40
-  for (int v28 = 0; v28 < 2; v28 += 1) {	// L41
-    for (int v29 = 0; v29 < 2; v29 += 1) {	// L42
-      for (int v30 = 0; v30 < 32; v30 += 1) {	// L43
-        float v31 = v25[0][v30][v28][v29];	// L44
-        float v32 = v27[0][v30][0][0];	// L45
-        float v33 = v32 + v31;	// L46
-        v27[0][v30][0][0] = v33;	// L47
+  float v27[1][32][2][2],
+  float v28[2][2],
+  float v29[1][32][1][1]
+) {	// L46
+  float v30[1][32][1][1];	// L47
+  #pragma HLS resource variable=v30 core=ram_t2p_bram
+
+  memcpy(v30, v29, 32 * sizeof(float));	// L48
+
+  for (int v31 = 0; v31 < 2; v31 += 1) {	// L49
+    for (int v32 = 0; v32 < 2; v32 += 1) {	// L50
+      for (int v33 = 0; v33 < 32; v33 += 1) {	// L51
+        float v34 = v27[0][v33][v31][v32];	// L52
+        float v35 = v30[0][v33][0][0];	// L53
+        float v36 = v35 + v34;	// L54
+        v30[0][v33][0][0] = v36;	// L55
       }
     }
   }
+  memcpy(v29, v30, 32 * sizeof(float));	// L59
+
 }
 
 void kernel5(
-  float v34[1][32][1][1],
-  float v35
-) {	// L53
-  for (int v36 = 0; v36 < 32; v36 += 1) {	// L54
-    v34[0][v36][0][0] = v35;	// L55
+  float v37[1][32][1][1],
+  float v38
+) {	// L62
+  for (int v39 = 0; v39 < 32; v39 += 1) {	// L63
+    v37[0][v39][0][0] = v38;	// L64
   }
 }
 
 void kernel6(
-  float v37[1][32][2][2],
-  float v38[1][32][2][2],
-  float v39[1][32][2][2],
-  float v40
-) {	// L59
-  for (int v41 = 0; v41 < 32; v41 += 1) {	// L60
-    for (int v42 = 0; v42 < 2; v42 += 1) {	// L61
-      for (int v43 = 0; v43 < 2; v43 += 1) {	// L62
+  float v40[1][32][2][2],
+  float v41[1][32][2][2],
+  float v42[1][32][2][2],
+  float v43
+) {	// L68
+  for (int v44 = 0; v44 < 32; v44 += 1) {	// L69
+    for (int v45 = 0; v45 < 2; v45 += 1) {	// L70
+      for (int v46 = 0; v46 < 2; v46 += 1) {	// L71
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v37
-        #pragma HLS dependence false variable=v39
-        #pragma HLS dependence false variable=v38
-        float v44 = v37[0][v41][v42][v43];	// L63
-        float v45 = v38[0][v41][v42][v43];	// L64
-        float v46 = v40 - v45;	// L65
-        float v47 = v40 - v44;	// L66
-        float v48 = v47 * v46;	// L67
-        float v49 = v40 - v48;	// L68
-        v39[0][v41][v42][v43] = v49;	// L69
+        #pragma HLS dependence false variable=v40
+        #pragma HLS dependence false variable=v42
+        #pragma HLS dependence false variable=v41
+        float v47 = v40[0][v44][v45][v46];	// L72
+        float v48 = v41[0][v44][v45][v46];	// L73
+        float v49 = v43 - v48;	// L74
+        float v50 = v43 - v47;	// L75
+        float v51 = v50 * v49;	// L76
+        float v52 = v43 - v51;	// L77
+        v42[0][v44][v45][v46] = v52;	// L78
       }
     }
   }
 }
 
 void kernel7(
-  float v50[1][32][2][2],
-  float v51[1][32][2][2]
-) {	// L75
-  for (int v52 = 0; v52 < 32; v52 += 1) {	// L76
-    for (int v53 = 0; v53 < 2; v53 += 1) {	// L77
-      for (int v54 = 0; v54 < 2; v54 += 1) {	// L78
+  float v53[1][32][2][2],
+  float v54[1][32][2][2]
+) {	// L84
+  for (int v55 = 0; v55 < 32; v55 += 1) {	// L85
+    for (int v56 = 0; v56 < 2; v56 += 1) {	// L86
+      for (int v57 = 0; v57 < 2; v57 += 1) {	// L87
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v50
-        #pragma HLS dependence false variable=v51
-        float v55 = v50[0][v52][v53][v54];	// L79
-        v51[0][v52][v53][v54] = v55;	// L80
+        #pragma HLS dependence false variable=v53
+        #pragma HLS dependence false variable=v54
+        float v58 = v53[0][v55][v56][v57];	// L88
+        v54[0][v55][v56][v57] = v58;	// L89
       }
     }
   }
 }
 
 void kernel8(
-  float v56[1][32][2][2],
-  float v57[1][32][2][2],
-  float v58
-) {	// L86
-  for (int v59 = 0; v59 < 32; v59 += 1) {	// L87
-    for (int v60 = 0; v60 < 2; v60 += 1) {	// L88
-      for (int v61 = 0; v61 < 2; v61 += 1) {	// L89
+  float v59[1][32][2][2],
+  float v60[1][32][2][2],
+  float v61
+) {	// L95
+  float v62[1][32][2][2];	// L96
+  #pragma HLS resource variable=v62 core=ram_t2p_bram
+
+  memcpy(v62, v60, 128 * sizeof(float));	// L97
+
+  for (int v63 = 0; v63 < 32; v63 += 1) {	// L98
+    for (int v64 = 0; v64 < 2; v64 += 1) {	// L99
+      for (int v65 = 0; v65 < 2; v65 += 1) {	// L100
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v57
-        #pragma HLS dependence false variable=v56
-        float v62 = v57[0][v59][v60][v61];	// L90
-        float v63 = v56[0][v59][v60][v61];	// L91
-        float v64 = v63 * v58;	// L92
-        float v65 = v62 - v63;	// L93
-        float v66 = v65 + v64;	// L94
-        v57[0][v59][v60][v61] = v66;	// L95
+        #pragma HLS dependence false variable=v62
+        #pragma HLS dependence false variable=v59
+        float v66 = v62[0][v63][v64][v65];	// L101
+        float v67 = v59[0][v63][v64][v65];	// L102
+        float v68 = v67 * v61;	// L103
+        float v69 = v66 - v67;	// L104
+        float v70 = v69 + v68;	// L105
+        v62[0][v63][v64][v65] = v70;	// L106
       }
     }
   }
+  memcpy(v60, v62, 128 * sizeof(float));	// L110
+
 }
 
 void kernel9(
-  float v67[1][32][2][2],
-  float v68,
-  float v69
-) {	// L101
-  for (int v70 = 0; v70 < 32; v70 += 1) {	// L102
-    for (int v71 = 0; v71 < 2; v71 += 1) {	// L103
-      for (int v72 = 0; v72 < 2; v72 += 1) {	// L104
+  float v71[1][32][2][2],
+  float v72,
+  float v73
+) {	// L113
+  for (int v74 = 0; v74 < 32; v74 += 1) {	// L114
+    for (int v75 = 0; v75 < 2; v75 += 1) {	// L115
+      for (int v76 = 0; v76 < 2; v76 += 1) {	// L116
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v67
-        float v73 = v67[0][v70][v71][v72];	// L105
-        float v74 = v73 - v69;	// L106
-        bool v75 = v74 >= v68;	// L107
-        float v76 = v75 ? v69 : v68;	// L108
-        v67[0][v70][v71][v72] = v76;	// L109
+        #pragma HLS dependence false variable=v71
+        float v77 = v71[0][v74][v75][v76];	// L117
+        float v78 = v77 - v73;	// L118
+        bool v79 = v78 >= v72;	// L119
+        float v80 = v79 ? v73 : v72;	// L120
+        v71[0][v74][v75][v76] = v80;	// L121
       }
     }
   }
 }
 
 void kernel11(
-  float v77[1][32][2][2],
-  float v78[1][32][2][2],
-  float v79[1][32][2][2],
-  float v80
-) {	// L115
-  for (int v81 = 0; v81 < 32; v81 += 1) {	// L116
-    for (int v82 = 0; v82 < 2; v82 += 1) {	// L117
-      for (int v83 = 0; v83 < 2; v83 += 1) {	// L118
+  float v81[1][32][2][2],
+  float v82[1][32][2][2],
+  float v83[1][32][2][2],
+  float v84
+) {	// L127
+  for (int v85 = 0; v85 < 32; v85 += 1) {	// L128
+    for (int v86 = 0; v86 < 2; v86 += 1) {	// L129
+      for (int v87 = 0; v87 < 2; v87 += 1) {	// L130
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v77
-        #pragma HLS dependence false variable=v79
-        #pragma HLS dependence false variable=v78
-        float v84 = v77[0][v81][v82][v83];	// L119
-        float v85 = v78[0][v81][v82][v83];	// L120
-        float v86 = v85 / v80;	// L121
-        float v87 = v84 / v80;	// L122
-        float v88 = v84 - v87;	// L123
-        float v89 = v88 + v86;	// L124
-        v79[0][v81][v82][v83] = v89;	// L125
+        #pragma HLS dependence false variable=v81
+        #pragma HLS dependence false variable=v83
+        #pragma HLS dependence false variable=v82
+        float v88 = v81[0][v85][v86][v87];	// L131
+        float v89 = v82[0][v85][v86][v87];	// L132
+        float v90 = v89 / v84;	// L133
+        float v91 = v88 / v84;	// L134
+        float v92 = v88 - v91;	// L135
+        float v93 = v92 + v90;	// L136
+        v83[0][v85][v86][v87] = v93;	// L137
       }
     }
   }
 }
 
 void kernel12(
-  float v90[1][32][4][4],
-  float v91[32][32][3][3],
-  float v92[1][32][2][2]
-) {	// L131
-  float v93[32][32][3][3];	// L132
-  #pragma HLS resource variable=v93 core=ram_t2p_bram
+  float v94[1][32][4][4],
+  float v95[32][32][3][3],
+  float v96[1][32][2][2]
+) {	// L143
+  float v97[1][32][4][4];	// L144
+  #pragma HLS resource variable=v97 core=ram_t2p_bram
 
-  memcpy(v93, v91, 9216 * sizeof(float));	// L133
+  memcpy(v97, v94, 512 * sizeof(float));	// L145
 
-  for (int v94 = 0; v94 < 32; v94 += 1) {	// L134
-    for (int v95 = 0; v95 < 3; v95 += 1) {	// L135
-      for (int v96 = 0; v96 < 3; v96 += 1) {	// L136
-        for (int v97 = 0; v97 < 32; v97 += 1) {	// L137
-          for (int v98 = 0; v98 < 2; v98 += 1) {	// L138
-            for (int v99 = 0; v99 < 2; v99 += 1) {	// L139
+  float v98[1][32][2][2];	// L146
+  #pragma HLS resource variable=v98 core=ram_t2p_bram
+
+  memcpy(v98, v96, 128 * sizeof(float));	// L147
+
+  float v99[32][32][3][3];	// L148
+  #pragma HLS resource variable=v99 core=ram_t2p_bram
+
+  memcpy(v99, v95, 9216 * sizeof(float));	// L149
+
+  for (int v100 = 0; v100 < 32; v100 += 1) {	// L150
+    for (int v101 = 0; v101 < 3; v101 += 1) {	// L151
+      for (int v102 = 0; v102 < 3; v102 += 1) {	// L152
+        for (int v103 = 0; v103 < 32; v103 += 1) {	// L153
+          for (int v104 = 0; v104 < 2; v104 += 1) {	// L154
+            for (int v105 = 0; v105 < 2; v105 += 1) {	// L155
               #pragma HLS pipeline II=1
-              #pragma HLS dependence false variable=v90
-              #pragma HLS dependence false variable=v92
-              #pragma HLS dependence false variable=v93
-              float v100 = v90[0][v94][(v98 + v95)][(v99 + v96)];	// L140
-              float v101 = v93[v97][v94][v95][v96];	// L141
-              float v102 = v92[0][v97][v98][v99];	// L142
-              float v103 = v100 * v101;	// L143
-              float v104 = v102 + v103;	// L144
-              v92[0][v97][v98][v99] = v104;	// L145
+              #pragma HLS dependence false variable=v97
+              #pragma HLS dependence false variable=v98
+              #pragma HLS dependence false variable=v99
+              float v106 = v97[0][v100][(v104 + v101)][(v105 + v102)];	// L156
+              float v107 = v99[v103][v100][v101][v102];	// L157
+              float v108 = v98[0][v103][v104][v105];	// L158
+              float v109 = v106 * v107;	// L159
+              float v110 = v108 + v109;	// L160
+              v98[0][v103][v104][v105] = v110;	// L161
             }
           }
         }
       }
     }
   }
+  memcpy(v96, v98, 128 * sizeof(float));	// L168
+
 }
 
 void kernel13(
-  float v105[1][32][2][2],
-  float v106[1][32][4][4]
-) {	// L154
-  for (int v107 = 0; v107 < 32; v107 += 1) {	// L155
-    for (int v108 = 0; v108 < 2; v108 += 1) {	// L156
-      for (int v109 = 0; v109 < 2; v109 += 1) {	// L157
+  float v111[1][32][2][2],
+  float v112[1][32][4][4]
+) {	// L171
+  for (int v113 = 0; v113 < 32; v113 += 1) {	// L172
+    for (int v114 = 0; v114 < 2; v114 += 1) {	// L173
+      for (int v115 = 0; v115 < 2; v115 += 1) {	// L174
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v105
-        #pragma HLS dependence false variable=v106
-        float v110 = v105[0][v107][v108][v109];	// L158
-        v106[0][v107][(v108 + 1)][(v109 + 1)] = v110;	// L159
+        #pragma HLS dependence false variable=v111
+        #pragma HLS dependence false variable=v112
+        float v116 = v111[0][v113][v114][v115];	// L175
+        v112[0][v113][(v114 + 1)][(v115 + 1)] = v116;	// L176
       }
     }
   }
 }
 
 void kernel14(
-  float v111[1][32][4][4],
-  float v112
-) {	// L165
-  for (int v113 = 0; v113 < 32; v113 += 1) {	// L166
-    for (int v114 = 0; v114 < 4; v114 += 1) {	// L167
-      for (int v115 = 0; v115 < 4; v115 += 1) {	// L168
+  float v117[1][32][4][4],
+  float v118
+) {	// L182
+  for (int v119 = 0; v119 < 32; v119 += 1) {	// L183
+    for (int v120 = 0; v120 < 4; v120 += 1) {	// L184
+      for (int v121 = 0; v121 < 4; v121 += 1) {	// L185
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v111
-        v111[0][v113][v114][v115] = v112;	// L169
+        #pragma HLS dependence false variable=v117
+        v117[0][v119][v120][v121] = v118;	// L186
       }
     }
   }
 }
 
 void kernel22(
-  float v116[32],
-  float v117[1][32][2][2]
-) {	// L175
-  float v118[32];	// L176
-  #pragma HLS resource variable=v118 core=ram_t2p_bram
+  float v122[32],
+  float v123[1][32][2][2]
+) {	// L192
+  float v124[32];	// L193
+  #pragma HLS resource variable=v124 core=ram_t2p_bram
 
-  memcpy(v118, v116, 32 * sizeof(float));	// L177
+  memcpy(v124, v122, 32 * sizeof(float));	// L194
 
-  for (int v119 = 0; v119 < 32; v119 += 1) {	// L178
-    for (int v120 = 0; v120 < 2; v120 += 1) {	// L179
-      for (int v121 = 0; v121 < 2; v121 += 1) {	// L180
+  for (int v125 = 0; v125 < 32; v125 += 1) {	// L195
+    for (int v126 = 0; v126 < 2; v126 += 1) {	// L196
+      for (int v127 = 0; v127 < 2; v127 += 1) {	// L197
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v118
-        #pragma HLS dependence false variable=v117
-        float v122 = v118[v119];	// L181
-        v117[0][v119][v120][v121] = v122;	// L182
+        #pragma HLS dependence false variable=v124
+        #pragma HLS dependence false variable=v123
+        float v128 = v124[v125];	// L198
+        v123[0][v125][v126][v127] = v128;	// L199
       }
     }
   }
 }
 
 void kernel24(
-  float v123[1][32][4][4],
-  float v124
-) {	// L188
-  for (int v125 = 0; v125 < 32; v125 += 1) {	// L189
-    for (int v126 = 0; v126 < 4; v126 += 1) {	// L190
-      for (int v127 = 0; v127 < 4; v127 += 1) {	// L191
+  float v129[1][32][4][4],
+  float v130
+) {	// L205
+  for (int v131 = 0; v131 < 32; v131 += 1) {	// L206
+    for (int v132 = 0; v132 < 4; v132 += 1) {	// L207
+      for (int v133 = 0; v133 < 4; v133 += 1) {	// L208
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v123
-        v123[0][v125][v126][v127] = v124;	// L192
+        #pragma HLS dependence false variable=v129
+        v129[0][v131][v132][v133] = v130;	// L209
       }
     }
   }
 }
 
 void kernel25(
-  float v128[1][32][2][2],
-  float v129
-) {	// L198
-  for (int v130 = 0; v130 < 32; v130 += 1) {	// L199
-    for (int v131 = 0; v131 < 2; v131 += 1) {	// L200
-      for (int v132 = 0; v132 < 2; v132 += 1) {	// L201
+  float v134[1][32][2][2],
+  float v135
+) {	// L215
+  float v136[1][32][2][2];	// L216
+  #pragma HLS resource variable=v136 core=ram_t2p_bram
+
+  memcpy(v136, v134, 128 * sizeof(float));	// L217
+
+  for (int v137 = 0; v137 < 32; v137 += 1) {	// L218
+    for (int v138 = 0; v138 < 2; v138 += 1) {	// L219
+      for (int v139 = 0; v139 < 2; v139 += 1) {	// L220
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v128
-        float v133 = v128[0][v130][v131][v132];	// L202
-        float v134 = v133 / v129;	// L203
-        v128[0][v130][v131][v132] = v134;	// L204
+        #pragma HLS dependence false variable=v136
+        float v140 = v136[0][v137][v138][v139];	// L221
+        float v141 = v140 / v135;	// L222
+        v136[0][v137][v138][v139] = v141;	// L223
       }
     }
   }
+  memcpy(v134, v136, 128 * sizeof(float));	// L227
+
 }
 
 void kernel26(
-  float v135[1][32][4][4],
-  float v136[2][2],
-  float v137[1][32][2][2]
-) {	// L210
-  for (int v138 = 0; v138 < 2; v138 += 1) {	// L211
-    for (int v139 = 0; v139 < 2; v139 += 1) {	// L212
-      for (int v140 = 0; v140 < 32; v140 += 1) {	// L213
-        for (int v141 = 0; v141 < 2; v141 += 1) {	// L214
-          for (int v142 = 0; v142 < 2; v142 += 1) {	// L215
+  float v142[1][32][4][4],
+  float v143[2][2],
+  float v144[1][32][2][2]
+) {	// L230
+  float v145[1][32][2][2];	// L231
+  #pragma HLS resource variable=v145 core=ram_t2p_bram
+
+  memcpy(v145, v144, 128 * sizeof(float));	// L232
+
+  for (int v146 = 0; v146 < 2; v146 += 1) {	// L233
+    for (int v147 = 0; v147 < 2; v147 += 1) {	// L234
+      for (int v148 = 0; v148 < 32; v148 += 1) {	// L235
+        for (int v149 = 0; v149 < 2; v149 += 1) {	// L236
+          for (int v150 = 0; v150 < 2; v150 += 1) {	// L237
             #pragma HLS pipeline II=1
-            #pragma HLS dependence false variable=v135
-            #pragma HLS dependence false variable=v137
-            float v143 = v135[0][v140][((v141 * 2) + v138)][((v142 * 2) + v139)];	// L216
-            float v144 = v137[0][v140][v141][v142];	// L217
-            float v145 = v144 + v143;	// L218
-            v137[0][v140][v141][v142] = v145;	// L219
+            #pragma HLS dependence false variable=v142
+            #pragma HLS dependence false variable=v145
+            float v151 = v142[0][v148][((v149 * 2) + v146)][((v150 * 2) + v147)];	// L238
+            float v152 = v145[0][v148][v149][v150];	// L239
+            float v153 = v152 + v151;	// L240
+            v145[0][v148][v149][v150] = v153;	// L241
           }
         }
       }
     }
   }
+  memcpy(v144, v145, 128 * sizeof(float));	// L247
+
 }
 
 void kernel27(
-  float v146[1][32][2][2],
-  float v147
-) {	// L227
-  for (int v148 = 0; v148 < 32; v148 += 1) {	// L228
-    for (int v149 = 0; v149 < 2; v149 += 1) {	// L229
-      for (int v150 = 0; v150 < 2; v150 += 1) {	// L230
+  float v154[1][32][2][2],
+  float v155
+) {	// L250
+  for (int v156 = 0; v156 < 32; v156 += 1) {	// L251
+    for (int v157 = 0; v157 < 2; v157 += 1) {	// L252
+      for (int v158 = 0; v158 < 2; v158 += 1) {	// L253
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v146
-        v146[0][v148][v149][v150] = v147;	// L231
+        #pragma HLS dependence false variable=v154
+        v154[0][v156][v157][v158] = v155;	// L254
       }
     }
   }
 }
 
 void kernel28(
-  float v151[1][32][4][4],
-  float v152[1][32][4][4],
-  float v153[1][32][4][4],
-  float v154
-) {	// L237
-  for (int v155 = 0; v155 < 32; v155 += 1) {	// L238
-    for (int v156 = 0; v156 < 4; v156 += 1) {	// L239
-      for (int v157 = 0; v157 < 4; v157 += 1) {	// L240
+  float v159[1][32][4][4],
+  float v160[1][32][4][4],
+  float v161[1][32][4][4],
+  float v162
+) {	// L260
+  for (int v163 = 0; v163 < 32; v163 += 1) {	// L261
+    for (int v164 = 0; v164 < 4; v164 += 1) {	// L262
+      for (int v165 = 0; v165 < 4; v165 += 1) {	// L263
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v151
-        #pragma HLS dependence false variable=v153
-        #pragma HLS dependence false variable=v152
-        float v158 = v151[0][v155][v156][v157];	// L241
-        float v159 = v152[0][v155][v156][v157];	// L242
-        float v160 = v154 - v159;	// L243
-        float v161 = v154 - v158;	// L244
-        float v162 = v161 * v160;	// L245
-        float v163 = v154 - v162;	// L246
-        v153[0][v155][v156][v157] = v163;	// L247
+        #pragma HLS dependence false variable=v159
+        #pragma HLS dependence false variable=v161
+        #pragma HLS dependence false variable=v160
+        float v166 = v159[0][v163][v164][v165];	// L264
+        float v167 = v160[0][v163][v164][v165];	// L265
+        float v168 = v162 - v167;	// L266
+        float v169 = v162 - v166;	// L267
+        float v170 = v169 * v168;	// L268
+        float v171 = v162 - v170;	// L269
+        v161[0][v163][v164][v165] = v171;	// L270
       }
     }
   }
 }
 
 void kernel29(
-  float v164[1][32][4][4],
-  float v165[1][32][4][4]
-) {	// L253
-  for (int v166 = 0; v166 < 32; v166 += 1) {	// L254
-    for (int v167 = 0; v167 < 4; v167 += 1) {	// L255
-      for (int v168 = 0; v168 < 4; v168 += 1) {	// L256
+  float v172[1][32][4][4],
+  float v173[1][32][4][4]
+) {	// L276
+  for (int v174 = 0; v174 < 32; v174 += 1) {	// L277
+    for (int v175 = 0; v175 < 4; v175 += 1) {	// L278
+      for (int v176 = 0; v176 < 4; v176 += 1) {	// L279
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v164
-        #pragma HLS dependence false variable=v165
-        float v169 = v164[0][v166][v167][v168];	// L257
-        v165[0][v166][v167][v168] = v169;	// L258
+        #pragma HLS dependence false variable=v172
+        #pragma HLS dependence false variable=v173
+        float v177 = v172[0][v174][v175][v176];	// L280
+        v173[0][v174][v175][v176] = v177;	// L281
       }
     }
   }
 }
 
 void kernel30(
-  float v170[1][32][4][4],
-  float v171[1][32][4][4],
-  float v172
-) {	// L264
-  for (int v173 = 0; v173 < 32; v173 += 1) {	// L265
-    for (int v174 = 0; v174 < 4; v174 += 1) {	// L266
-      for (int v175 = 0; v175 < 4; v175 += 1) {	// L267
+  float v178[1][32][4][4],
+  float v179[1][32][4][4],
+  float v180
+) {	// L287
+  for (int v181 = 0; v181 < 32; v181 += 1) {	// L288
+    for (int v182 = 0; v182 < 4; v182 += 1) {	// L289
+      for (int v183 = 0; v183 < 4; v183 += 1) {	// L290
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v171
-        #pragma HLS dependence false variable=v170
-        float v176 = v171[0][v173][v174][v175];	// L268
-        float v177 = v170[0][v173][v174][v175];	// L269
-        float v178 = v177 * v172;	// L270
-        float v179 = v176 - v177;	// L271
-        float v180 = v179 + v178;	// L272
-        v171[0][v173][v174][v175] = v180;	// L273
+        #pragma HLS dependence false variable=v179
+        #pragma HLS dependence false variable=v178
+        float v184 = v179[0][v181][v182][v183];	// L291
+        float v185 = v178[0][v181][v182][v183];	// L292
+        float v186 = v185 * v180;	// L293
+        float v187 = v184 - v185;	// L294
+        float v188 = v187 + v186;	// L295
+        v179[0][v181][v182][v183] = v188;	// L296
       }
     }
   }
 }
 
 void kernel31(
-  float v181[1][32][4][4],
-  float v182,
-  float v183
-) {	// L279
-  for (int v184 = 0; v184 < 32; v184 += 1) {	// L280
-    for (int v185 = 0; v185 < 4; v185 += 1) {	// L281
-      for (int v186 = 0; v186 < 4; v186 += 1) {	// L282
+  float v189[1][32][4][4],
+  float v190,
+  float v191
+) {	// L302
+  for (int v192 = 0; v192 < 32; v192 += 1) {	// L303
+    for (int v193 = 0; v193 < 4; v193 += 1) {	// L304
+      for (int v194 = 0; v194 < 4; v194 += 1) {	// L305
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v181
-        float v187 = v181[0][v184][v185][v186];	// L283
-        float v188 = v187 - v183;	// L284
-        bool v189 = v188 >= v182;	// L285
-        float v190 = v189 ? v183 : v182;	// L286
-        v181[0][v184][v185][v186] = v190;	// L287
+        #pragma HLS dependence false variable=v189
+        float v195 = v189[0][v192][v193][v194];	// L306
+        float v196 = v195 - v191;	// L307
+        bool v197 = v196 >= v190;	// L308
+        float v198 = v197 ? v191 : v190;	// L309
+        v189[0][v192][v193][v194] = v198;	// L310
       }
     }
   }
 }
 
 void kernel33(
-  float v191[1][32][4][4],
-  float v192[1][32][4][4],
-  float v193[1][32][4][4],
-  float v194
-) {	// L293
-  for (int v195 = 0; v195 < 32; v195 += 1) {	// L294
-    for (int v196 = 0; v196 < 4; v196 += 1) {	// L295
-      for (int v197 = 0; v197 < 4; v197 += 1) {	// L296
+  float v199[1][32][4][4],
+  float v200[1][32][4][4],
+  float v201[1][32][4][4],
+  float v202
+) {	// L316
+  for (int v203 = 0; v203 < 32; v203 += 1) {	// L317
+    for (int v204 = 0; v204 < 4; v204 += 1) {	// L318
+      for (int v205 = 0; v205 < 4; v205 += 1) {	// L319
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v191
-        #pragma HLS dependence false variable=v193
-        #pragma HLS dependence false variable=v192
-        float v198 = v191[0][v195][v196][v197];	// L297
-        float v199 = v192[0][v195][v196][v197];	// L298
-        float v200 = v199 / v194;	// L299
-        float v201 = v198 / v194;	// L300
-        float v202 = v198 - v201;	// L301
-        float v203 = v202 + v200;	// L302
-        v193[0][v195][v196][v197] = v203;	// L303
+        #pragma HLS dependence false variable=v199
+        #pragma HLS dependence false variable=v201
+        #pragma HLS dependence false variable=v200
+        float v206 = v199[0][v203][v204][v205];	// L320
+        float v207 = v200[0][v203][v204][v205];	// L321
+        float v208 = v207 / v202;	// L322
+        float v209 = v206 / v202;	// L323
+        float v210 = v206 - v209;	// L324
+        float v211 = v210 + v208;	// L325
+        v201[0][v203][v204][v205] = v211;	// L326
       }
     }
   }
 }
 
 void kernel34(
-  float v204[1][32][6][6],
-  float v205[32][32][3][3],
-  float v206[1][32][4][4]
-) {	// L309
-  float v207[32][32][3][3];	// L310
-  #pragma HLS resource variable=v207 core=ram_t2p_bram
+  float v212[1][32][6][6],
+  float v213[32][32][3][3],
+  float v214[1][32][4][4]
+) {	// L332
+  float v215[1][32][6][6];	// L333
+  #pragma HLS resource variable=v215 core=ram_t2p_bram
 
-  memcpy(v207, v205, 9216 * sizeof(float));	// L311
+  memcpy(v215, v212, 1152 * sizeof(float));	// L334
 
-  for (int v208 = 0; v208 < 32; v208 += 1) {	// L312
-    for (int v209 = 0; v209 < 3; v209 += 1) {	// L313
-      for (int v210 = 0; v210 < 3; v210 += 1) {	// L314
-        for (int v211 = 0; v211 < 32; v211 += 1) {	// L315
-          for (int v212 = 0; v212 < 4; v212 += 1) {	// L316
-            for (int v213 = 0; v213 < 4; v213 += 1) {	// L317
+  float v216[1][32][4][4];	// L335
+  #pragma HLS resource variable=v216 core=ram_t2p_bram
+
+  memcpy(v216, v214, 512 * sizeof(float));	// L336
+
+  float v217[32][32][3][3];	// L337
+  #pragma HLS resource variable=v217 core=ram_t2p_bram
+
+  memcpy(v217, v213, 9216 * sizeof(float));	// L338
+
+  for (int v218 = 0; v218 < 32; v218 += 1) {	// L339
+    for (int v219 = 0; v219 < 3; v219 += 1) {	// L340
+      for (int v220 = 0; v220 < 3; v220 += 1) {	// L341
+        for (int v221 = 0; v221 < 32; v221 += 1) {	// L342
+          for (int v222 = 0; v222 < 4; v222 += 1) {	// L343
+            for (int v223 = 0; v223 < 4; v223 += 1) {	// L344
               #pragma HLS pipeline II=1
-              #pragma HLS dependence false variable=v204
-              #pragma HLS dependence false variable=v206
-              #pragma HLS dependence false variable=v207
-              float v214 = v204[0][v208][(v212 + v209)][(v213 + v210)];	// L318
-              float v215 = v207[v211][v208][v209][v210];	// L319
-              float v216 = v206[0][v211][v212][v213];	// L320
-              float v217 = v214 * v215;	// L321
-              float v218 = v216 + v217;	// L322
-              v206[0][v211][v212][v213] = v218;	// L323
+              #pragma HLS dependence false variable=v215
+              #pragma HLS dependence false variable=v216
+              #pragma HLS dependence false variable=v217
+              float v224 = v215[0][v218][(v222 + v219)][(v223 + v220)];	// L345
+              float v225 = v217[v221][v218][v219][v220];	// L346
+              float v226 = v216[0][v221][v222][v223];	// L347
+              float v227 = v224 * v225;	// L348
+              float v228 = v226 + v227;	// L349
+              v216[0][v221][v222][v223] = v228;	// L350
             }
           }
         }
       }
     }
   }
+  memcpy(v214, v216, 512 * sizeof(float));	// L357
+
 }
 
 void kernel35(
-  float v219[1][32][4][4],
-  float v220[1][32][6][6]
-) {	// L332
-  for (int v221 = 0; v221 < 32; v221 += 1) {	// L333
-    for (int v222 = 0; v222 < 4; v222 += 1) {	// L334
-      for (int v223 = 0; v223 < 4; v223 += 1) {	// L335
+  float v229[1][32][4][4],
+  float v230[1][32][6][6]
+) {	// L360
+  for (int v231 = 0; v231 < 32; v231 += 1) {	// L361
+    for (int v232 = 0; v232 < 4; v232 += 1) {	// L362
+      for (int v233 = 0; v233 < 4; v233 += 1) {	// L363
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v219
-        #pragma HLS dependence false variable=v220
-        float v224 = v219[0][v221][v222][v223];	// L336
-        v220[0][v221][(v222 + 1)][(v223 + 1)] = v224;	// L337
+        #pragma HLS dependence false variable=v229
+        #pragma HLS dependence false variable=v230
+        float v234 = v229[0][v231][v232][v233];	// L364
+        v230[0][v231][(v232 + 1)][(v233 + 1)] = v234;	// L365
       }
     }
   }
 }
 
 void kernel36(
-  float v225[1][32][6][6],
-  float v226
-) {	// L343
-  for (int v227 = 0; v227 < 32; v227 += 1) {	// L344
-    for (int v228 = 0; v228 < 6; v228 += 1) {	// L345
-      for (int v229 = 0; v229 < 6; v229 += 1) {	// L346
+  float v235[1][32][6][6],
+  float v236
+) {	// L371
+  for (int v237 = 0; v237 < 32; v237 += 1) {	// L372
+    for (int v238 = 0; v238 < 6; v238 += 1) {	// L373
+      for (int v239 = 0; v239 < 6; v239 += 1) {	// L374
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v225
-        v225[0][v227][v228][v229] = v226;	// L347
+        #pragma HLS dependence false variable=v235
+        v235[0][v237][v238][v239] = v236;	// L375
       }
     }
   }
 }
 
 void kernel44(
-  float v230[32],
-  float v231[1][32][4][4]
-) {	// L353
-  float v232[32];	// L354
-  #pragma HLS resource variable=v232 core=ram_t2p_bram
+  float v240[32],
+  float v241[1][32][4][4]
+) {	// L381
+  float v242[32];	// L382
+  #pragma HLS resource variable=v242 core=ram_t2p_bram
 
-  memcpy(v232, v230, 32 * sizeof(float));	// L355
+  memcpy(v242, v240, 32 * sizeof(float));	// L383
 
-  for (int v233 = 0; v233 < 32; v233 += 1) {	// L356
-    for (int v234 = 0; v234 < 4; v234 += 1) {	// L357
-      for (int v235 = 0; v235 < 4; v235 += 1) {	// L358
+  for (int v243 = 0; v243 < 32; v243 += 1) {	// L384
+    for (int v244 = 0; v244 < 4; v244 += 1) {	// L385
+      for (int v245 = 0; v245 < 4; v245 += 1) {	// L386
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v232
-        #pragma HLS dependence false variable=v231
-        float v236 = v232[v233];	// L359
-        v231[0][v233][v234][v235] = v236;	// L360
+        #pragma HLS dependence false variable=v242
+        #pragma HLS dependence false variable=v241
+        float v246 = v242[v243];	// L387
+        v241[0][v243][v244][v245] = v246;	// L388
       }
     }
   }
 }
 
 void kernel46(
-  float v237[1][32][6][6],
-  float v238
-) {	// L366
-  for (int v239 = 0; v239 < 32; v239 += 1) {	// L367
-    for (int v240 = 0; v240 < 6; v240 += 1) {	// L368
-      for (int v241 = 0; v241 < 6; v241 += 1) {	// L369
+  float v247[1][32][6][6],
+  float v248
+) {	// L394
+  for (int v249 = 0; v249 < 32; v249 += 1) {	// L395
+    for (int v250 = 0; v250 < 6; v250 += 1) {	// L396
+      for (int v251 = 0; v251 < 6; v251 += 1) {	// L397
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v237
-        v237[0][v239][v240][v241] = v238;	// L370
+        #pragma HLS dependence false variable=v247
+        v247[0][v249][v250][v251] = v248;	// L398
       }
     }
   }
 }
 
 void kernel47(
-  float v242[1][32][4][4],
-  float v243[1][32][4][4],
-  float v244[1][32][4][4],
-  float v245,
-  float v246,
-  float v247,
-  float v248,
-  float v249
-) {	// L376
-  for (int v250 = 0; v250 < 32; v250 += 1) {	// L377
-    for (int v251 = 0; v251 < 4; v251 += 1) {	// L378
-      for (int v252 = 0; v252 < 4; v252 += 1) {	// L379
+  float v252[1][32][4][4],
+  float v253[1][32][4][4],
+  float v254[1][32][4][4],
+  float v255,
+  float v256,
+  float v257,
+  float v258,
+  float v259
+) {	// L404
+  for (int v260 = 0; v260 < 32; v260 += 1) {	// L405
+    for (int v261 = 0; v261 < 4; v261 += 1) {	// L406
+      for (int v262 = 0; v262 < 4; v262 += 1) {	// L407
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v243
-        #pragma HLS dependence false variable=v242
-        #pragma HLS dependence false variable=v244
-        float v253 = v242[0][v250][v251][v252];	// L380
-        float v254 = v244[0][v250][v251][v252];	// L381
-        float v255 = v243[0][v250][v251][v252];	// L382
-        float v256 = v255 / v249;	// L383
-        float v257 = v256 * v247;	// L384
-        float v258 = v254 / v249;	// L385
-        float v259 = v258 * v246;	// L386
-        float v260 = v253 / v248;	// L387
-        float v261 = v260 * v245;	// L388
-        float v262 = v261 + v259;	// L389
-        float v263 = v262 + v257;	// L390
-        v244[0][v250][v251][v252] = v263;	// L391
+        #pragma HLS dependence false variable=v253
+        #pragma HLS dependence false variable=v252
+        #pragma HLS dependence false variable=v254
+        float v263 = v252[0][v260][v261][v262];	// L408
+        float v264 = v254[0][v260][v261][v262];	// L409
+        float v265 = v253[0][v260][v261][v262];	// L410
+        float v266 = v265 / v259;	// L411
+        float v267 = v266 * v258;	// L412
+        float v268 = v264 / v259;	// L413
+        float v269 = v268 * v257;	// L414
+        float v270 = v263 / v256;	// L415
+        float v271 = v270 * v255;	// L416
+        float v272 = v271 + v269;	// L417
+        float v273 = v272 + v267;	// L418
+        v254[0][v260][v261][v262] = v273;	// L419
       }
     }
   }
 }
 
 void kernel48(
-  float v264[1][32][8][8],
-  float v265[2][2],
-  float v266[1][32][4][4]
-) {	// L397
-  for (int v267 = 0; v267 < 2; v267 += 1) {	// L398
-    for (int v268 = 0; v268 < 2; v268 += 1) {	// L399
-      for (int v269 = 0; v269 < 32; v269 += 1) {	// L400
-        for (int v270 = 0; v270 < 4; v270 += 1) {	// L401
-          for (int v271 = 0; v271 < 4; v271 += 1) {	// L402
+  float v274[1][32][8][8],
+  float v275[2][2],
+  float v276[1][32][4][4]
+) {	// L425
+  float v277[1][32][4][4];	// L426
+  #pragma HLS resource variable=v277 core=ram_t2p_bram
+
+  memcpy(v277, v276, 512 * sizeof(float));	// L427
+
+  for (int v278 = 0; v278 < 2; v278 += 1) {	// L428
+    for (int v279 = 0; v279 < 2; v279 += 1) {	// L429
+      for (int v280 = 0; v280 < 32; v280 += 1) {	// L430
+        for (int v281 = 0; v281 < 4; v281 += 1) {	// L431
+          for (int v282 = 0; v282 < 4; v282 += 1) {	// L432
             #pragma HLS pipeline II=1
-            #pragma HLS dependence false variable=v264
-            #pragma HLS dependence false variable=v266
-            float v272 = v264[0][v269][((v270 * 2) + v267)][((v271 * 2) + v268)];	// L403
-            float v273 = v266[0][v269][v270][v271];	// L404
-            float v274 = v273 + v272;	// L405
-            v266[0][v269][v270][v271] = v274;	// L406
+            #pragma HLS dependence false variable=v274
+            #pragma HLS dependence false variable=v277
+            float v283 = v274[0][v280][((v281 * 2) + v278)][((v282 * 2) + v279)];	// L433
+            float v284 = v277[0][v280][v281][v282];	// L434
+            float v285 = v284 + v283;	// L435
+            v277[0][v280][v281][v282] = v285;	// L436
           }
         }
       }
     }
   }
+  memcpy(v276, v277, 512 * sizeof(float));	// L442
+
 }
 
 void kernel49(
-  float v275[1][32][16][16],
-  float v276[4][4],
-  float v277[1][32][4][4]
-) {	// L414
-  for (int v278 = 0; v278 < 4; v278 += 1) {	// L415
-    for (int v279 = 0; v279 < 4; v279 += 1) {	// L416
-      for (int v280 = 0; v280 < 32; v280 += 1) {	// L417
-        for (int v281 = 0; v281 < 4; v281 += 1) {	// L418
-          for (int v282 = 0; v282 < 4; v282 += 1) {	// L419
+  float v286[1][32][16][16],
+  float v287[4][4],
+  float v288[1][32][4][4]
+) {	// L445
+  float v289[1][32][16][16];	// L446
+  #pragma HLS resource variable=v289 core=ram_t2p_bram
+
+  memcpy(v289, v286, 8192 * sizeof(float));	// L447
+
+  float v290[1][32][4][4];	// L448
+  #pragma HLS resource variable=v290 core=ram_t2p_bram
+
+  memcpy(v290, v288, 512 * sizeof(float));	// L449
+
+  for (int v291 = 0; v291 < 4; v291 += 1) {	// L450
+    for (int v292 = 0; v292 < 4; v292 += 1) {	// L451
+      for (int v293 = 0; v293 < 32; v293 += 1) {	// L452
+        for (int v294 = 0; v294 < 4; v294 += 1) {	// L453
+          for (int v295 = 0; v295 < 4; v295 += 1) {	// L454
             #pragma HLS pipeline II=1
-            #pragma HLS dependence false variable=v275
-            #pragma HLS dependence false variable=v277
-            float v283 = v275[0][v280][((v281 * 4) + v278)][((v282 * 4) + v279)];	// L420
-            float v284 = v277[0][v280][v281][v282];	// L421
-            float v285 = v284 + v283;	// L422
-            v277[0][v280][v281][v282] = v285;	// L423
+            #pragma HLS dependence false variable=v289
+            #pragma HLS dependence false variable=v290
+            float v296 = v289[0][v293][((v294 * 4) + v291)][((v295 * 4) + v292)];	// L455
+            float v297 = v290[0][v293][v294][v295];	// L456
+            float v298 = v297 + v296;	// L457
+            v290[0][v293][v294][v295] = v298;	// L458
           }
         }
       }
     }
   }
+  memcpy(v288, v290, 512 * sizeof(float));	// L464
+
 }
 
 void kernel53(
-  float v286[1][32][4][4],
-  float v287
-) {	// L431
-  for (int v288 = 0; v288 < 32; v288 += 1) {	// L432
-    for (int v289 = 0; v289 < 4; v289 += 1) {	// L433
-      for (int v290 = 0; v290 < 4; v290 += 1) {	// L434
+  float v299[1][32][4][4],
+  float v300
+) {	// L467
+  for (int v301 = 0; v301 < 32; v301 += 1) {	// L468
+    for (int v302 = 0; v302 < 4; v302 += 1) {	// L469
+      for (int v303 = 0; v303 < 4; v303 += 1) {	// L470
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v286
-        v286[0][v288][v289][v290] = v287;	// L435
+        #pragma HLS dependence false variable=v299
+        v299[0][v301][v302][v303] = v300;	// L471
       }
     }
   }
 }
 
 void kernel54(
-  float v291[1][32][8][8],
-  float v292[1][32][8][8],
-  float v293[1][32][8][8],
-  float v294
-) {	// L441
-  for (int v295 = 0; v295 < 32; v295 += 1) {	// L442
-    for (int v296 = 0; v296 < 8; v296 += 1) {	// L443
-      for (int v297 = 0; v297 < 8; v297 += 1) {	// L444
+  float v304[1][32][8][8],
+  float v305[1][32][8][8],
+  float v306[1][32][8][8],
+  float v307
+) {	// L477
+  for (int v308 = 0; v308 < 32; v308 += 1) {	// L478
+    for (int v309 = 0; v309 < 8; v309 += 1) {	// L479
+      for (int v310 = 0; v310 < 8; v310 += 1) {	// L480
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v291
-        #pragma HLS dependence false variable=v293
-        #pragma HLS dependence false variable=v292
-        float v298 = v291[0][v295][v296][v297];	// L445
-        float v299 = v292[0][v295][v296][v297];	// L446
-        float v300 = v294 - v299;	// L447
-        float v301 = v294 - v298;	// L448
-        float v302 = v301 * v300;	// L449
-        float v303 = v294 - v302;	// L450
-        v293[0][v295][v296][v297] = v303;	// L451
+        #pragma HLS dependence false variable=v304
+        #pragma HLS dependence false variable=v306
+        #pragma HLS dependence false variable=v305
+        float v311 = v304[0][v308][v309][v310];	// L481
+        float v312 = v305[0][v308][v309][v310];	// L482
+        float v313 = v307 - v312;	// L483
+        float v314 = v307 - v311;	// L484
+        float v315 = v314 * v313;	// L485
+        float v316 = v307 - v315;	// L486
+        v306[0][v308][v309][v310] = v316;	// L487
       }
     }
   }
 }
 
 void kernel55(
-  float v304[1][32][8][8],
-  float v305[1][32][8][8]
-) {	// L457
-  for (int v306 = 0; v306 < 32; v306 += 1) {	// L458
-    for (int v307 = 0; v307 < 8; v307 += 1) {	// L459
-      for (int v308 = 0; v308 < 8; v308 += 1) {	// L460
+  float v317[1][32][8][8],
+  float v318[1][32][8][8]
+) {	// L493
+  for (int v319 = 0; v319 < 32; v319 += 1) {	// L494
+    for (int v320 = 0; v320 < 8; v320 += 1) {	// L495
+      for (int v321 = 0; v321 < 8; v321 += 1) {	// L496
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v304
-        #pragma HLS dependence false variable=v305
-        float v309 = v304[0][v306][v307][v308];	// L461
-        v305[0][v306][v307][v308] = v309;	// L462
+        #pragma HLS dependence false variable=v317
+        #pragma HLS dependence false variable=v318
+        float v322 = v317[0][v319][v320][v321];	// L497
+        v318[0][v319][v320][v321] = v322;	// L498
       }
     }
   }
 }
 
 void kernel56(
-  float v310[1][32][8][8],
-  float v311[1][32][8][8],
-  float v312
-) {	// L468
-  for (int v313 = 0; v313 < 32; v313 += 1) {	// L469
-    for (int v314 = 0; v314 < 8; v314 += 1) {	// L470
-      for (int v315 = 0; v315 < 8; v315 += 1) {	// L471
+  float v323[1][32][8][8],
+  float v324[1][32][8][8],
+  float v325
+) {	// L504
+  for (int v326 = 0; v326 < 32; v326 += 1) {	// L505
+    for (int v327 = 0; v327 < 8; v327 += 1) {	// L506
+      for (int v328 = 0; v328 < 8; v328 += 1) {	// L507
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v311
-        #pragma HLS dependence false variable=v310
-        float v316 = v311[0][v313][v314][v315];	// L472
-        float v317 = v310[0][v313][v314][v315];	// L473
-        float v318 = v317 * v312;	// L474
-        float v319 = v316 - v317;	// L475
-        float v320 = v319 + v318;	// L476
-        v311[0][v313][v314][v315] = v320;	// L477
+        #pragma HLS dependence false variable=v324
+        #pragma HLS dependence false variable=v323
+        float v329 = v324[0][v326][v327][v328];	// L508
+        float v330 = v323[0][v326][v327][v328];	// L509
+        float v331 = v330 * v325;	// L510
+        float v332 = v329 - v330;	// L511
+        float v333 = v332 + v331;	// L512
+        v324[0][v326][v327][v328] = v333;	// L513
       }
     }
   }
 }
 
 void kernel57(
-  float v321[1][32][8][8],
-  float v322,
-  float v323
-) {	// L483
-  for (int v324 = 0; v324 < 32; v324 += 1) {	// L484
-    for (int v325 = 0; v325 < 8; v325 += 1) {	// L485
-      for (int v326 = 0; v326 < 8; v326 += 1) {	// L486
+  float v334[1][32][8][8],
+  float v335,
+  float v336
+) {	// L519
+  for (int v337 = 0; v337 < 32; v337 += 1) {	// L520
+    for (int v338 = 0; v338 < 8; v338 += 1) {	// L521
+      for (int v339 = 0; v339 < 8; v339 += 1) {	// L522
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v321
-        float v327 = v321[0][v324][v325][v326];	// L487
-        float v328 = v327 - v323;	// L488
-        bool v329 = v328 >= v322;	// L489
-        float v330 = v329 ? v323 : v322;	// L490
-        v321[0][v324][v325][v326] = v330;	// L491
+        #pragma HLS dependence false variable=v334
+        float v340 = v334[0][v337][v338][v339];	// L523
+        float v341 = v340 - v336;	// L524
+        bool v342 = v341 >= v335;	// L525
+        float v343 = v342 ? v336 : v335;	// L526
+        v334[0][v337][v338][v339] = v343;	// L527
       }
     }
   }
 }
 
 void kernel59(
-  float v331[1][32][8][8],
-  float v332[1][32][8][8],
-  float v333[1][32][8][8],
-  float v334
-) {	// L497
-  for (int v335 = 0; v335 < 32; v335 += 1) {	// L498
-    for (int v336 = 0; v336 < 8; v336 += 1) {	// L499
-      for (int v337 = 0; v337 < 8; v337 += 1) {	// L500
+  float v344[1][32][8][8],
+  float v345[1][32][8][8],
+  float v346[1][32][8][8],
+  float v347
+) {	// L533
+  for (int v348 = 0; v348 < 32; v348 += 1) {	// L534
+    for (int v349 = 0; v349 < 8; v349 += 1) {	// L535
+      for (int v350 = 0; v350 < 8; v350 += 1) {	// L536
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v331
-        #pragma HLS dependence false variable=v333
-        #pragma HLS dependence false variable=v332
-        float v338 = v331[0][v335][v336][v337];	// L501
-        float v339 = v332[0][v335][v336][v337];	// L502
-        float v340 = v339 / v334;	// L503
-        float v341 = v338 / v334;	// L504
-        float v342 = v338 - v341;	// L505
-        float v343 = v342 + v340;	// L506
-        v333[0][v335][v336][v337] = v343;	// L507
+        #pragma HLS dependence false variable=v344
+        #pragma HLS dependence false variable=v346
+        #pragma HLS dependence false variable=v345
+        float v351 = v344[0][v348][v349][v350];	// L537
+        float v352 = v345[0][v348][v349][v350];	// L538
+        float v353 = v352 / v347;	// L539
+        float v354 = v351 / v347;	// L540
+        float v355 = v351 - v354;	// L541
+        float v356 = v355 + v353;	// L542
+        v346[0][v348][v349][v350] = v356;	// L543
       }
     }
   }
 }
 
 void kernel60(
-  float v344[1][32][10][10],
-  float v345[32][32][3][3],
-  float v346[1][32][8][8]
-) {	// L513
-  float v347[32][32][3][3];	// L514
-  #pragma HLS resource variable=v347 core=ram_t2p_bram
+  float v357[1][32][10][10],
+  float v358[32][32][3][3],
+  float v359[1][32][8][8]
+) {	// L549
+  float v360[1][32][10][10];	// L550
+  #pragma HLS resource variable=v360 core=ram_t2p_bram
 
-  memcpy(v347, v345, 9216 * sizeof(float));	// L515
+  memcpy(v360, v357, 3200 * sizeof(float));	// L551
 
-  for (int v348 = 0; v348 < 32; v348 += 1) {	// L516
-    for (int v349 = 0; v349 < 3; v349 += 1) {	// L517
-      for (int v350 = 0; v350 < 3; v350 += 1) {	// L518
-        for (int v351 = 0; v351 < 32; v351 += 1) {	// L519
-          for (int v352 = 0; v352 < 8; v352 += 1) {	// L520
-            for (int v353 = 0; v353 < 8; v353 += 1) {	// L521
+  float v361[1][32][8][8];	// L552
+  #pragma HLS resource variable=v361 core=ram_t2p_bram
+
+  memcpy(v361, v359, 2048 * sizeof(float));	// L553
+
+  float v362[32][32][3][3];	// L554
+  #pragma HLS resource variable=v362 core=ram_t2p_bram
+
+  memcpy(v362, v358, 9216 * sizeof(float));	// L555
+
+  for (int v363 = 0; v363 < 32; v363 += 1) {	// L556
+    for (int v364 = 0; v364 < 3; v364 += 1) {	// L557
+      for (int v365 = 0; v365 < 3; v365 += 1) {	// L558
+        for (int v366 = 0; v366 < 32; v366 += 1) {	// L559
+          for (int v367 = 0; v367 < 8; v367 += 1) {	// L560
+            for (int v368 = 0; v368 < 8; v368 += 1) {	// L561
               #pragma HLS pipeline II=1
-              #pragma HLS dependence false variable=v344
-              #pragma HLS dependence false variable=v346
-              #pragma HLS dependence false variable=v347
-              float v354 = v344[0][v348][(v352 + v349)][(v353 + v350)];	// L522
-              float v355 = v347[v351][v348][v349][v350];	// L523
-              float v356 = v346[0][v351][v352][v353];	// L524
-              float v357 = v354 * v355;	// L525
-              float v358 = v356 + v357;	// L526
-              v346[0][v351][v352][v353] = v358;	// L527
+              #pragma HLS dependence false variable=v360
+              #pragma HLS dependence false variable=v361
+              #pragma HLS dependence false variable=v362
+              float v369 = v360[0][v363][(v367 + v364)][(v368 + v365)];	// L562
+              float v370 = v362[v366][v363][v364][v365];	// L563
+              float v371 = v361[0][v366][v367][v368];	// L564
+              float v372 = v369 * v370;	// L565
+              float v373 = v371 + v372;	// L566
+              v361[0][v366][v367][v368] = v373;	// L567
             }
           }
         }
       }
     }
   }
+  memcpy(v359, v361, 2048 * sizeof(float));	// L574
+
 }
 
 void kernel61(
-  float v359[1][32][8][8],
-  float v360[1][32][10][10]
-) {	// L536
-  for (int v361 = 0; v361 < 32; v361 += 1) {	// L537
-    for (int v362 = 0; v362 < 8; v362 += 1) {	// L538
-      for (int v363 = 0; v363 < 8; v363 += 1) {	// L539
+  float v374[1][32][8][8],
+  float v375[1][32][10][10]
+) {	// L577
+  for (int v376 = 0; v376 < 32; v376 += 1) {	// L578
+    for (int v377 = 0; v377 < 8; v377 += 1) {	// L579
+      for (int v378 = 0; v378 < 8; v378 += 1) {	// L580
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v359
-        #pragma HLS dependence false variable=v360
-        float v364 = v359[0][v361][v362][v363];	// L540
-        v360[0][v361][(v362 + 1)][(v363 + 1)] = v364;	// L541
+        #pragma HLS dependence false variable=v374
+        #pragma HLS dependence false variable=v375
+        float v379 = v374[0][v376][v377][v378];	// L581
+        v375[0][v376][(v377 + 1)][(v378 + 1)] = v379;	// L582
       }
     }
   }
 }
 
 void kernel62(
-  float v365[1][32][10][10],
-  float v366
-) {	// L547
-  for (int v367 = 0; v367 < 32; v367 += 1) {	// L548
-    for (int v368 = 0; v368 < 10; v368 += 1) {	// L549
-      for (int v369 = 0; v369 < 10; v369 += 1) {	// L550
+  float v380[1][32][10][10],
+  float v381
+) {	// L588
+  for (int v382 = 0; v382 < 32; v382 += 1) {	// L589
+    for (int v383 = 0; v383 < 10; v383 += 1) {	// L590
+      for (int v384 = 0; v384 < 10; v384 += 1) {	// L591
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v365
-        v365[0][v367][v368][v369] = v366;	// L551
+        #pragma HLS dependence false variable=v380
+        v380[0][v382][v383][v384] = v381;	// L592
       }
     }
   }
 }
 
 void kernel70(
-  float v370[32],
-  float v371[1][32][8][8]
-) {	// L557
-  float v372[32];	// L558
-  #pragma HLS resource variable=v372 core=ram_t2p_bram
+  float v385[32],
+  float v386[1][32][8][8]
+) {	// L598
+  float v387[32];	// L599
+  #pragma HLS resource variable=v387 core=ram_t2p_bram
 
-  memcpy(v372, v370, 32 * sizeof(float));	// L559
+  memcpy(v387, v385, 32 * sizeof(float));	// L600
 
-  for (int v373 = 0; v373 < 32; v373 += 1) {	// L560
-    for (int v374 = 0; v374 < 8; v374 += 1) {	// L561
-      for (int v375 = 0; v375 < 8; v375 += 1) {	// L562
+  for (int v388 = 0; v388 < 32; v388 += 1) {	// L601
+    for (int v389 = 0; v389 < 8; v389 += 1) {	// L602
+      for (int v390 = 0; v390 < 8; v390 += 1) {	// L603
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v372
-        #pragma HLS dependence false variable=v371
-        float v376 = v372[v373];	// L563
-        v371[0][v373][v374][v375] = v376;	// L564
+        #pragma HLS dependence false variable=v387
+        #pragma HLS dependence false variable=v386
+        float v391 = v387[v388];	// L604
+        v386[0][v388][v389][v390] = v391;	// L605
       }
     }
   }
 }
 
 void kernel72(
-  float v377[1][32][10][10],
-  float v378
-) {	// L570
-  for (int v379 = 0; v379 < 32; v379 += 1) {	// L571
-    for (int v380 = 0; v380 < 10; v380 += 1) {	// L572
-      for (int v381 = 0; v381 < 10; v381 += 1) {	// L573
+  float v392[1][32][10][10],
+  float v393
+) {	// L611
+  for (int v394 = 0; v394 < 32; v394 += 1) {	// L612
+    for (int v395 = 0; v395 < 10; v395 += 1) {	// L613
+      for (int v396 = 0; v396 < 10; v396 += 1) {	// L614
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v377
-        v377[0][v379][v380][v381] = v378;	// L574
+        #pragma HLS dependence false variable=v392
+        v392[0][v394][v395][v396] = v393;	// L615
       }
     }
   }
 }
 
 void kernel73(
-  float v382[1][32][8][8],
-  float v383
-) {	// L580
-  for (int v384 = 0; v384 < 32; v384 += 1) {	// L581
-    for (int v385 = 0; v385 < 8; v385 += 1) {	// L582
-      for (int v386 = 0; v386 < 8; v386 += 1) {	// L583
+  float v397[1][32][8][8],
+  float v398
+) {	// L621
+  for (int v399 = 0; v399 < 32; v399 += 1) {	// L622
+    for (int v400 = 0; v400 < 8; v400 += 1) {	// L623
+      for (int v401 = 0; v401 < 8; v401 += 1) {	// L624
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v382
-        float v387 = v382[0][v384][v385][v386];	// L584
-        float v388 = v387 / v383;	// L585
-        v382[0][v384][v385][v386] = v388;	// L586
+        #pragma HLS dependence false variable=v397
+        float v402 = v397[0][v399][v400][v401];	// L625
+        float v403 = v402 / v398;	// L626
+        v397[0][v399][v400][v401] = v403;	// L627
       }
     }
   }
 }
 
 void kernel75(
-  float v389[1][32][16][16],
-  float v390[2][2],
-  float v391[1][32][8][8]
-) {	// L592
-  for (int v392 = 0; v392 < 2; v392 += 1) {	// L593
-    for (int v393 = 0; v393 < 2; v393 += 1) {	// L594
-      for (int v394 = 0; v394 < 32; v394 += 1) {	// L595
-        for (int v395 = 0; v395 < 8; v395 += 1) {	// L596
-          for (int v396 = 0; v396 < 8; v396 += 1) {	// L597
+  float v404[1][32][16][16],
+  float v405[2][2],
+  float v406[1][32][8][8]
+) {	// L633
+  float v407[1][32][16][16];	// L634
+  #pragma HLS resource variable=v407 core=ram_t2p_bram
+
+  memcpy(v407, v404, 8192 * sizeof(float));	// L635
+
+  float v408[1][32][8][8];	// L636
+  #pragma HLS resource variable=v408 core=ram_t2p_bram
+
+  memcpy(v408, v406, 2048 * sizeof(float));	// L637
+
+  for (int v409 = 0; v409 < 2; v409 += 1) {	// L638
+    for (int v410 = 0; v410 < 2; v410 += 1) {	// L639
+      for (int v411 = 0; v411 < 32; v411 += 1) {	// L640
+        for (int v412 = 0; v412 < 8; v412 += 1) {	// L641
+          for (int v413 = 0; v413 < 8; v413 += 1) {	// L642
             #pragma HLS pipeline II=1
-            #pragma HLS dependence false variable=v389
-            #pragma HLS dependence false variable=v391
-            float v397 = v389[0][v394][((v395 * 2) + v392)][((v396 * 2) + v393)];	// L598
-            float v398 = v391[0][v394][v395][v396];	// L599
-            float v399 = v398 + v397;	// L600
-            v391[0][v394][v395][v396] = v399;	// L601
+            #pragma HLS dependence false variable=v407
+            #pragma HLS dependence false variable=v408
+            float v414 = v407[0][v411][((v412 * 2) + v409)][((v413 * 2) + v410)];	// L643
+            float v415 = v408[0][v411][v412][v413];	// L644
+            float v416 = v415 + v414;	// L645
+            v408[0][v411][v412][v413] = v416;	// L646
           }
         }
       }
     }
   }
+  memcpy(v406, v408, 2048 * sizeof(float));	// L652
+
 }
 
 void kernel76(
-  float v400[1][32][8][8],
-  float v401
-) {	// L609
-  for (int v402 = 0; v402 < 32; v402 += 1) {	// L610
-    for (int v403 = 0; v403 < 8; v403 += 1) {	// L611
-      for (int v404 = 0; v404 < 8; v404 += 1) {	// L612
+  float v417[1][32][8][8],
+  float v418
+) {	// L655
+  for (int v419 = 0; v419 < 32; v419 += 1) {	// L656
+    for (int v420 = 0; v420 < 8; v420 += 1) {	// L657
+      for (int v421 = 0; v421 < 8; v421 += 1) {	// L658
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v400
-        v400[0][v402][v403][v404] = v401;	// L613
+        #pragma HLS dependence false variable=v417
+        v417[0][v419][v420][v421] = v418;	// L659
       }
     }
   }
 }
 
 void kernel77(
-  float v405[1][32][16][16],
-  float v406[1][32][16][16],
-  float v407[1][32][16][16],
-  float v408
-) {	// L619
-  for (int v409 = 0; v409 < 32; v409 += 1) {	// L620
-    for (int v410 = 0; v410 < 16; v410 += 1) {	// L621
-      for (int v411 = 0; v411 < 16; v411 += 1) {	// L622
+  float v422[1][32][16][16],
+  float v423[1][32][16][16],
+  float v424[1][32][16][16],
+  float v425
+) {	// L665
+  float v426[1][32][16][16];	// L666
+  #pragma HLS resource variable=v426 core=ram_t2p_bram
+
+  memcpy(v426, v423, 8192 * sizeof(float));	// L667
+
+  float v427[1][32][16][16];	// L668
+  #pragma HLS resource variable=v427 core=ram_t2p_bram
+
+  memcpy(v427, v422, 8192 * sizeof(float));	// L669
+
+  for (int v428 = 0; v428 < 32; v428 += 1) {	// L670
+    for (int v429 = 0; v429 < 16; v429 += 1) {	// L671
+      for (int v430 = 0; v430 < 16; v430 += 1) {	// L672
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v405
-        #pragma HLS dependence false variable=v407
-        #pragma HLS dependence false variable=v406
-        float v412 = v405[0][v409][v410][v411];	// L623
-        float v413 = v406[0][v409][v410][v411];	// L624
-        float v414 = v408 - v413;	// L625
-        float v415 = v408 - v412;	// L626
-        float v416 = v415 * v414;	// L627
-        float v417 = v408 - v416;	// L628
-        v407[0][v409][v410][v411] = v417;	// L629
+        #pragma HLS dependence false variable=v427
+        #pragma HLS dependence false variable=v424
+        #pragma HLS dependence false variable=v426
+        float v431 = v427[0][v428][v429][v430];	// L673
+        float v432 = v426[0][v428][v429][v430];	// L674
+        float v433 = v425 - v432;	// L675
+        float v434 = v425 - v431;	// L676
+        float v435 = v434 * v433;	// L677
+        float v436 = v425 - v435;	// L678
+        v424[0][v428][v429][v430] = v436;	// L679
       }
     }
   }
 }
 
 void kernel78(
-  float v418[1][32][16][16],
-  float v419[1][32][16][16]
-) {	// L635
-  for (int v420 = 0; v420 < 32; v420 += 1) {	// L636
-    for (int v421 = 0; v421 < 16; v421 += 1) {	// L637
-      for (int v422 = 0; v422 < 16; v422 += 1) {	// L638
+  float v437[1][32][16][16],
+  float v438[1][32][16][16]
+) {	// L685
+  float v439[1][32][16][16];	// L686
+  #pragma HLS resource variable=v439 core=ram_t2p_bram
+
+  memcpy(v439, v437, 8192 * sizeof(float));	// L687
+
+  for (int v440 = 0; v440 < 32; v440 += 1) {	// L688
+    for (int v441 = 0; v441 < 16; v441 += 1) {	// L689
+      for (int v442 = 0; v442 < 16; v442 += 1) {	// L690
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v418
-        #pragma HLS dependence false variable=v419
-        float v423 = v418[0][v420][v421][v422];	// L639
-        v419[0][v420][v421][v422] = v423;	// L640
+        #pragma HLS dependence false variable=v439
+        #pragma HLS dependence false variable=v438
+        float v443 = v439[0][v440][v441][v442];	// L691
+        v438[0][v440][v441][v442] = v443;	// L692
       }
     }
   }
 }
 
 void kernel79(
-  float v424[1][32][16][16],
-  float v425[1][32][16][16],
-  float v426
-) {	// L646
-  for (int v427 = 0; v427 < 32; v427 += 1) {	// L647
-    for (int v428 = 0; v428 < 16; v428 += 1) {	// L648
-      for (int v429 = 0; v429 < 16; v429 += 1) {	// L649
+  float v444[1][32][16][16],
+  float v445[1][32][16][16],
+  float v446
+) {	// L698
+  float v447[1][32][16][16];	// L699
+  #pragma HLS resource variable=v447 core=ram_t2p_bram
+
+  memcpy(v447, v445, 8192 * sizeof(float));	// L700
+
+  for (int v448 = 0; v448 < 32; v448 += 1) {	// L701
+    for (int v449 = 0; v449 < 16; v449 += 1) {	// L702
+      for (int v450 = 0; v450 < 16; v450 += 1) {	// L703
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v425
-        #pragma HLS dependence false variable=v424
-        float v430 = v425[0][v427][v428][v429];	// L650
-        float v431 = v424[0][v427][v428][v429];	// L651
-        float v432 = v431 * v426;	// L652
-        float v433 = v430 - v431;	// L653
-        float v434 = v433 + v432;	// L654
-        v425[0][v427][v428][v429] = v434;	// L655
+        #pragma HLS dependence false variable=v447
+        #pragma HLS dependence false variable=v444
+        float v451 = v447[0][v448][v449][v450];	// L704
+        float v452 = v444[0][v448][v449][v450];	// L705
+        float v453 = v452 * v446;	// L706
+        float v454 = v451 - v452;	// L707
+        float v455 = v454 + v453;	// L708
+        v447[0][v448][v449][v450] = v455;	// L709
       }
     }
   }
+  memcpy(v445, v447, 8192 * sizeof(float));	// L713
+
 }
 
 void kernel80(
-  float v435[1][32][16][16],
-  float v436,
-  float v437
-) {	// L661
-  for (int v438 = 0; v438 < 32; v438 += 1) {	// L662
-    for (int v439 = 0; v439 < 16; v439 += 1) {	// L663
-      for (int v440 = 0; v440 < 16; v440 += 1) {	// L664
+  float v456[1][32][16][16],
+  float v457,
+  float v458
+) {	// L716
+  float v459[1][32][16][16];	// L717
+  #pragma HLS resource variable=v459 core=ram_t2p_bram
+
+  memcpy(v459, v456, 8192 * sizeof(float));	// L718
+
+  for (int v460 = 0; v460 < 32; v460 += 1) {	// L719
+    for (int v461 = 0; v461 < 16; v461 += 1) {	// L720
+      for (int v462 = 0; v462 < 16; v462 += 1) {	// L721
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v435
-        float v441 = v435[0][v438][v439][v440];	// L665
-        float v442 = v441 - v437;	// L666
-        bool v443 = v442 >= v436;	// L667
-        float v444 = v443 ? v437 : v436;	// L668
-        v435[0][v438][v439][v440] = v444;	// L669
+        #pragma HLS dependence false variable=v459
+        float v463 = v459[0][v460][v461][v462];	// L722
+        float v464 = v463 - v458;	// L723
+        bool v465 = v464 >= v457;	// L724
+        float v466 = v465 ? v458 : v457;	// L725
+        v459[0][v460][v461][v462] = v466;	// L726
       }
     }
   }
+  memcpy(v456, v459, 8192 * sizeof(float));	// L730
+
 }
 
 void kernel82(
-  float v445[1][32][16][16],
-  float v446[1][32][16][16],
-  float v447[1][32][16][16],
-  float v448
-) {	// L675
-  for (int v449 = 0; v449 < 32; v449 += 1) {	// L676
-    for (int v450 = 0; v450 < 16; v450 += 1) {	// L677
-      for (int v451 = 0; v451 < 16; v451 += 1) {	// L678
+  float v467[1][32][16][16],
+  float v468[1][32][16][16],
+  float v469[1][32][16][16],
+  float v470
+) {	// L733
+  float v471[1][32][16][16];	// L734
+  #pragma HLS resource variable=v471 core=ram_t2p_bram
+
+  memcpy(v471, v467, 8192 * sizeof(float));	// L735
+
+  float v472[1][32][16][16];	// L736
+  #pragma HLS resource variable=v472 core=ram_t2p_bram
+
+  memcpy(v472, v468, 8192 * sizeof(float));	// L737
+
+  float v473[1][32][16][16];	// L738
+  #pragma HLS resource variable=v473 core=ram_t2p_bram
+
+  for (int v474 = 0; v474 < 32; v474 += 1) {	// L739
+    for (int v475 = 0; v475 < 16; v475 += 1) {	// L740
+      for (int v476 = 0; v476 < 16; v476 += 1) {	// L741
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v445
-        #pragma HLS dependence false variable=v447
-        #pragma HLS dependence false variable=v446
-        float v452 = v445[0][v449][v450][v451];	// L679
-        float v453 = v446[0][v449][v450][v451];	// L680
-        float v454 = v453 / v448;	// L681
-        float v455 = v452 / v448;	// L682
-        float v456 = v452 - v455;	// L683
-        float v457 = v456 + v454;	// L684
-        v447[0][v449][v450][v451] = v457;	// L685
+        #pragma HLS dependence false variable=v471
+        #pragma HLS dependence false variable=v473
+        #pragma HLS dependence false variable=v472
+        float v477 = v471[0][v474][v475][v476];	// L742
+        float v478 = v472[0][v474][v475][v476];	// L743
+        float v479 = v478 / v470;	// L744
+        float v480 = v477 / v470;	// L745
+        float v481 = v477 - v480;	// L746
+        float v482 = v481 + v479;	// L747
+        v473[0][v474][v475][v476] = v482;	// L748
       }
     }
   }
+  memcpy(v469, v473, 8192 * sizeof(float));	// L752
+
 }
 
 void kernel83(
-  float v458[1][32][18][18],
-  float v459[32][32][3][3],
-  float v460[1][32][16][16]
-) {	// L691
-  float v461[32][32][3][3];	// L692
-  #pragma HLS resource variable=v461 core=ram_t2p_bram
+  float v483[1][32][18][18],
+  float v484[32][32][3][3],
+  float v485[1][32][16][16]
+) {	// L755
+  float v486[1][32][18][18];	// L756
+  #pragma HLS resource variable=v486 core=ram_t2p_bram
 
-  memcpy(v461, v459, 9216 * sizeof(float));	// L693
+  memcpy(v486, v483, 10368 * sizeof(float));	// L757
 
-  for (int v462 = 0; v462 < 32; v462 += 1) {	// L694
-    for (int v463 = 0; v463 < 3; v463 += 1) {	// L695
-      for (int v464 = 0; v464 < 3; v464 += 1) {	// L696
-        for (int v465 = 0; v465 < 32; v465 += 1) {	// L697
-          for (int v466 = 0; v466 < 16; v466 += 1) {	// L698
-            for (int v467 = 0; v467 < 16; v467 += 1) {	// L699
+  float v487[1][32][16][16];	// L758
+  #pragma HLS resource variable=v487 core=ram_t2p_bram
+
+  memcpy(v487, v485, 8192 * sizeof(float));	// L759
+
+  float v488[32][32][3][3];	// L760
+  #pragma HLS resource variable=v488 core=ram_t2p_bram
+
+  memcpy(v488, v484, 9216 * sizeof(float));	// L761
+
+  for (int v489 = 0; v489 < 32; v489 += 1) {	// L762
+    for (int v490 = 0; v490 < 3; v490 += 1) {	// L763
+      for (int v491 = 0; v491 < 3; v491 += 1) {	// L764
+        for (int v492 = 0; v492 < 32; v492 += 1) {	// L765
+          for (int v493 = 0; v493 < 16; v493 += 1) {	// L766
+            for (int v494 = 0; v494 < 16; v494 += 1) {	// L767
               #pragma HLS pipeline II=1
-              #pragma HLS dependence false variable=v458
-              #pragma HLS dependence false variable=v460
-              #pragma HLS dependence false variable=v461
-              float v468 = v458[0][v462][(v466 + v463)][(v467 + v464)];	// L700
-              float v469 = v461[v465][v462][v463][v464];	// L701
-              float v470 = v460[0][v465][v466][v467];	// L702
-              float v471 = v468 * v469;	// L703
-              float v472 = v470 + v471;	// L704
-              v460[0][v465][v466][v467] = v472;	// L705
+              #pragma HLS dependence false variable=v486
+              #pragma HLS dependence false variable=v487
+              #pragma HLS dependence false variable=v488
+              float v495 = v486[0][v489][(v493 + v490)][(v494 + v491)];	// L768
+              float v496 = v488[v492][v489][v490][v491];	// L769
+              float v497 = v487[0][v492][v493][v494];	// L770
+              float v498 = v495 * v496;	// L771
+              float v499 = v497 + v498;	// L772
+              v487[0][v492][v493][v494] = v499;	// L773
             }
           }
         }
       }
     }
   }
+  memcpy(v485, v487, 8192 * sizeof(float));	// L780
+
 }
 
 void kernel84(
-  float v473[1][32][16][16],
-  float v474[1][32][18][18]
-) {	// L714
-  for (int v475 = 0; v475 < 32; v475 += 1) {	// L715
-    for (int v476 = 0; v476 < 16; v476 += 1) {	// L716
-      for (int v477 = 0; v477 < 16; v477 += 1) {	// L717
+  float v500[1][32][16][16],
+  float v501[1][32][18][18]
+) {	// L783
+  float v502[1][32][16][16];	// L784
+  #pragma HLS resource variable=v502 core=ram_t2p_bram
+
+  memcpy(v502, v500, 8192 * sizeof(float));	// L785
+
+  float v503[1][32][18][18];	// L786
+  #pragma HLS resource variable=v503 core=ram_t2p_bram
+
+  for (int v504 = 0; v504 < 32; v504 += 1) {	// L787
+    for (int v505 = 0; v505 < 16; v505 += 1) {	// L788
+      for (int v506 = 0; v506 < 16; v506 += 1) {	// L789
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v473
-        #pragma HLS dependence false variable=v474
-        float v478 = v473[0][v475][v476][v477];	// L718
-        v474[0][v475][(v476 + 1)][(v477 + 1)] = v478;	// L719
+        #pragma HLS dependence false variable=v502
+        #pragma HLS dependence false variable=v503
+        float v507 = v502[0][v504][v505][v506];	// L790
+        v503[0][v504][(v505 + 1)][(v506 + 1)] = v507;	// L791
       }
     }
   }
+  memcpy(v501, v503, 10368 * sizeof(float));	// L795
+
 }
 
 void kernel85(
-  float v479[1][32][18][18],
-  float v480
-) {	// L725
-  for (int v481 = 0; v481 < 32; v481 += 1) {	// L726
-    for (int v482 = 0; v482 < 18; v482 += 1) {	// L727
-      for (int v483 = 0; v483 < 18; v483 += 1) {	// L728
+  float v508[1][32][18][18],
+  float v509
+) {	// L798
+  float v510[1][32][18][18];	// L799
+  #pragma HLS resource variable=v510 core=ram_t2p_bram
+
+  for (int v511 = 0; v511 < 32; v511 += 1) {	// L800
+    for (int v512 = 0; v512 < 18; v512 += 1) {	// L801
+      for (int v513 = 0; v513 < 18; v513 += 1) {	// L802
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v479
-        v479[0][v481][v482][v483] = v480;	// L729
+        #pragma HLS dependence false variable=v510
+        v510[0][v511][v512][v513] = v509;	// L803
       }
     }
   }
+  memcpy(v508, v510, 10368 * sizeof(float));	// L807
+
 }
 
 void kernel93(
-  float v484[32],
-  float v485[1][32][16][16]
-) {	// L735
-  float v486[32];	// L736
-  #pragma HLS resource variable=v486 core=ram_t2p_bram
+  float v514[32],
+  float v515[1][32][16][16]
+) {	// L810
+  float v516[1][32][16][16];	// L811
+  #pragma HLS resource variable=v516 core=ram_t2p_bram
 
-  memcpy(v486, v484, 32 * sizeof(float));	// L737
+  float v517[32];	// L812
+  #pragma HLS resource variable=v517 core=ram_t2p_bram
 
-  for (int v487 = 0; v487 < 32; v487 += 1) {	// L738
-    for (int v488 = 0; v488 < 16; v488 += 1) {	// L739
-      for (int v489 = 0; v489 < 16; v489 += 1) {	// L740
+  memcpy(v517, v514, 32 * sizeof(float));	// L813
+
+  for (int v518 = 0; v518 < 32; v518 += 1) {	// L814
+    for (int v519 = 0; v519 < 16; v519 += 1) {	// L815
+      for (int v520 = 0; v520 < 16; v520 += 1) {	// L816
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v486
-        #pragma HLS dependence false variable=v485
-        float v490 = v486[v487];	// L741
-        v485[0][v487][v488][v489] = v490;	// L742
+        #pragma HLS dependence false variable=v517
+        #pragma HLS dependence false variable=v516
+        float v521 = v517[v518];	// L817
+        v516[0][v518][v519][v520] = v521;	// L818
       }
     }
   }
+  memcpy(v515, v516, 8192 * sizeof(float));	// L822
+
 }
 
 void kernel95(
-  float v491[1][32][18][18],
-  float v492
-) {	// L748
-  for (int v493 = 0; v493 < 32; v493 += 1) {	// L749
-    for (int v494 = 0; v494 < 18; v494 += 1) {	// L750
-      for (int v495 = 0; v495 < 18; v495 += 1) {	// L751
+  float v522[1][32][18][18],
+  float v523
+) {	// L825
+  float v524[1][32][18][18];	// L826
+  #pragma HLS resource variable=v524 core=ram_t2p_bram
+
+  for (int v525 = 0; v525 < 32; v525 += 1) {	// L827
+    for (int v526 = 0; v526 < 18; v526 += 1) {	// L828
+      for (int v527 = 0; v527 < 18; v527 += 1) {	// L829
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v491
-        v491[0][v493][v494][v495] = v492;	// L752
+        #pragma HLS dependence false variable=v524
+        v524[0][v525][v526][v527] = v523;	// L830
       }
     }
   }
+  memcpy(v522, v524, 10368 * sizeof(float));	// L834
+
 }
 
 void kernel96(
-  float v496[1][32][16][16],
-  float v497[1][32][16][16],
-  float v498,
-  float v499,
-  float v500
-) {	// L758
-  for (int v501 = 0; v501 < 32; v501 += 1) {	// L759
-    for (int v502 = 0; v502 < 16; v502 += 1) {	// L760
-      for (int v503 = 0; v503 < 16; v503 += 1) {	// L761
+  float v528[1][32][16][16],
+  float v529[1][32][16][16],
+  float v530,
+  float v531,
+  float v532
+) {	// L837
+  float v533[1][32][16][16];	// L838
+  #pragma HLS resource variable=v533 core=ram_t2p_bram
+
+  memcpy(v533, v528, 8192 * sizeof(float));	// L839
+
+  float v534[1][32][16][16];	// L840
+  #pragma HLS resource variable=v534 core=ram_t2p_bram
+
+  memcpy(v534, v529, 8192 * sizeof(float));	// L841
+
+  for (int v535 = 0; v535 < 32; v535 += 1) {	// L842
+    for (int v536 = 0; v536 < 16; v536 += 1) {	// L843
+      for (int v537 = 0; v537 < 16; v537 += 1) {	// L844
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v497
-        #pragma HLS dependence false variable=v496
-        float v504 = v497[0][v501][v502][v503];	// L762
-        float v505 = v496[0][v501][v502][v503];	// L763
-        float v506 = v505 * v499;	// L764
-        float v507 = v504 / v500;	// L765
-        float v508 = v507 * v498;	// L766
-        float v509 = v508 + v506;	// L767
-        v497[0][v501][v502][v503] = v509;	// L768
+        #pragma HLS dependence false variable=v534
+        #pragma HLS dependence false variable=v533
+        float v538 = v534[0][v535][v536][v537];	// L845
+        float v539 = v533[0][v535][v536][v537];	// L846
+        float v540 = v539 * v531;	// L847
+        float v541 = v538 / v532;	// L848
+        float v542 = v541 * v530;	// L849
+        float v543 = v542 + v540;	// L850
+        v534[0][v535][v536][v537] = v543;	// L851
       }
     }
   }
+  memcpy(v529, v534, 8192 * sizeof(float));	// L855
+
 }
 
 void kernel97(
-  float v510[1][32][32][32],
-  float v511[2][2],
-  float v512[1][32][16][16]
-) {	// L774
-  for (int v513 = 0; v513 < 2; v513 += 1) {	// L775
-    for (int v514 = 0; v514 < 2; v514 += 1) {	// L776
-      for (int v515 = 0; v515 < 32; v515 += 1) {	// L777
-        for (int v516 = 0; v516 < 16; v516 += 1) {	// L778
-          for (int v517 = 0; v517 < 16; v517 += 1) {	// L779
+  float v544[1][32][32][32],
+  float v545[2][2],
+  float v546[1][32][16][16]
+) {	// L858
+  float v547[1][32][16][16];	// L859
+  #pragma HLS resource variable=v547 core=ram_t2p_bram
+
+  memcpy(v547, v546, 8192 * sizeof(float));	// L860
+
+  for (int v548 = 0; v548 < 2; v548 += 1) {	// L861
+    for (int v549 = 0; v549 < 2; v549 += 1) {	// L862
+      for (int v550 = 0; v550 < 32; v550 += 1) {	// L863
+        for (int v551 = 0; v551 < 16; v551 += 1) {	// L864
+          for (int v552 = 0; v552 < 16; v552 += 1) {	// L865
             #pragma HLS pipeline II=1
-            #pragma HLS dependence false variable=v510
-            #pragma HLS dependence false variable=v512
-            float v518 = v510[0][v515][((v516 * 2) + v513)][((v517 * 2) + v514)];	// L780
-            float v519 = v512[0][v515][v516][v517];	// L781
-            float v520 = v519 + v518;	// L782
-            v512[0][v515][v516][v517] = v520;	// L783
+            #pragma HLS dependence false variable=v544
+            #pragma HLS dependence false variable=v547
+            float v553 = v544[0][v550][((v551 * 2) + v548)][((v552 * 2) + v549)];	// L866
+            float v554 = v547[0][v550][v551][v552];	// L867
+            float v555 = v554 + v553;	// L868
+            v547[0][v550][v551][v552] = v555;	// L869
           }
         }
       }
     }
   }
+  memcpy(v546, v547, 8192 * sizeof(float));	// L875
+
 }
 
 void kernel98(
-  float v521[1][32][16][16],
-  float v522
-) {	// L791
-  for (int v523 = 0; v523 < 32; v523 += 1) {	// L792
-    for (int v524 = 0; v524 < 16; v524 += 1) {	// L793
-      for (int v525 = 0; v525 < 16; v525 += 1) {	// L794
+  float v556[1][32][16][16],
+  float v557
+) {	// L878
+  float v558[1][32][16][16];	// L879
+  #pragma HLS resource variable=v558 core=ram_t2p_bram
+
+  memcpy(v558, v556, 8192 * sizeof(float));	// L880
+
+  for (int v559 = 0; v559 < 32; v559 += 1) {	// L881
+    for (int v560 = 0; v560 < 16; v560 += 1) {	// L882
+      for (int v561 = 0; v561 < 16; v561 += 1) {	// L883
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v521
-        float v526 = v521[0][v523][v524][v525];	// L795
-        float v527 = v526 / v522;	// L796
-        v521[0][v523][v524][v525] = v527;	// L797
+        #pragma HLS dependence false variable=v558
+        float v562 = v558[0][v559][v560][v561];	// L884
+        float v563 = v562 / v557;	// L885
+        v558[0][v559][v560][v561] = v563;	// L886
       }
     }
   }
+  memcpy(v556, v558, 8192 * sizeof(float));	// L890
+
 }
 
 void kernel101(
-  float v528[1][32][16][16],
-  float v529
-) {	// L803
-  for (int v530 = 0; v530 < 32; v530 += 1) {	// L804
-    for (int v531 = 0; v531 < 16; v531 += 1) {	// L805
-      for (int v532 = 0; v532 < 16; v532 += 1) {	// L806
+  float v564[1][32][16][16],
+  float v565
+) {	// L893
+  float v566[1][32][16][16];	// L894
+  #pragma HLS resource variable=v566 core=ram_t2p_bram
+
+  for (int v567 = 0; v567 < 32; v567 += 1) {	// L895
+    for (int v568 = 0; v568 < 16; v568 += 1) {	// L896
+      for (int v569 = 0; v569 < 16; v569 += 1) {	// L897
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v528
-        v528[0][v530][v531][v532] = v529;	// L807
+        #pragma HLS dependence false variable=v566
+        v566[0][v567][v568][v569] = v565;	// L898
       }
     }
   }
+  memcpy(v564, v566, 8192 * sizeof(float));	// L902
+
 }
 
 void kernel102(
-  float v533[1][32][32][32],
-  float v534[1][32][32][32],
-  float v535[1][32][32][32],
-  float v536
-) {	// L813
-  for (int v537 = 0; v537 < 32; v537 += 1) {	// L814
-    for (int v538 = 0; v538 < 32; v538 += 1) {	// L815
-      for (int v539 = 0; v539 < 32; v539 += 1) {	// L816
+  float v570[1][32][32][32],
+  float v571[1][32][32][32],
+  float v572[1][32][32][32],
+  float v573
+) {	// L905
+  for (int v574 = 0; v574 < 32; v574 += 1) {	// L906
+    for (int v575 = 0; v575 < 32; v575 += 1) {	// L907
+      for (int v576 = 0; v576 < 32; v576 += 1) {	// L908
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v533
-        #pragma HLS dependence false variable=v535
-        #pragma HLS dependence false variable=v534
-        float v540 = v533[0][v537][v538][v539];	// L817
-        float v541 = v534[0][v537][v538][v539];	// L818
-        float v542 = v536 - v541;	// L819
-        float v543 = v536 - v540;	// L820
-        float v544 = v543 * v542;	// L821
-        float v545 = v536 - v544;	// L822
-        v535[0][v537][v538][v539] = v545;	// L823
+        #pragma HLS dependence false variable=v570
+        #pragma HLS dependence false variable=v572
+        #pragma HLS dependence false variable=v571
+        float v577 = v570[0][v574][v575][v576];	// L909
+        float v578 = v571[0][v574][v575][v576];	// L910
+        float v579 = v573 - v578;	// L911
+        float v580 = v573 - v577;	// L912
+        float v581 = v580 * v579;	// L913
+        float v582 = v573 - v581;	// L914
+        v572[0][v574][v575][v576] = v582;	// L915
       }
     }
   }
 }
 
 void kernel103(
-  float v546[1][32][32][32],
-  float v547[1][32][32][32]
-) {	// L829
-  for (int v548 = 0; v548 < 32; v548 += 1) {	// L830
-    for (int v549 = 0; v549 < 32; v549 += 1) {	// L831
-      for (int v550 = 0; v550 < 32; v550 += 1) {	// L832
+  float v583[1][32][32][32],
+  float v584[1][32][32][32]
+) {	// L921
+  for (int v585 = 0; v585 < 32; v585 += 1) {	// L922
+    for (int v586 = 0; v586 < 32; v586 += 1) {	// L923
+      for (int v587 = 0; v587 < 32; v587 += 1) {	// L924
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v546
-        #pragma HLS dependence false variable=v547
-        float v551 = v546[0][v548][v549][v550];	// L833
-        v547[0][v548][v549][v550] = v551;	// L834
+        #pragma HLS dependence false variable=v583
+        #pragma HLS dependence false variable=v584
+        float v588 = v583[0][v585][v586][v587];	// L925
+        v584[0][v585][v586][v587] = v588;	// L926
       }
     }
   }
 }
 
 void kernel104(
-  float v552[1][32][32][32],
-  float v553[1][32][32][32],
-  float v554
-) {	// L840
-  for (int v555 = 0; v555 < 32; v555 += 1) {	// L841
-    for (int v556 = 0; v556 < 32; v556 += 1) {	// L842
-      for (int v557 = 0; v557 < 32; v557 += 1) {	// L843
+  float v589[1][32][32][32],
+  float v590[1][32][32][32],
+  float v591
+) {	// L932
+  for (int v592 = 0; v592 < 32; v592 += 1) {	// L933
+    for (int v593 = 0; v593 < 32; v593 += 1) {	// L934
+      for (int v594 = 0; v594 < 32; v594 += 1) {	// L935
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v553
-        #pragma HLS dependence false variable=v552
-        float v558 = v553[0][v555][v556][v557];	// L844
-        float v559 = v552[0][v555][v556][v557];	// L845
-        float v560 = v559 * v554;	// L846
-        float v561 = v558 - v559;	// L847
-        float v562 = v561 + v560;	// L848
-        v553[0][v555][v556][v557] = v562;	// L849
+        #pragma HLS dependence false variable=v590
+        #pragma HLS dependence false variable=v589
+        float v595 = v590[0][v592][v593][v594];	// L936
+        float v596 = v589[0][v592][v593][v594];	// L937
+        float v597 = v596 * v591;	// L938
+        float v598 = v595 - v596;	// L939
+        float v599 = v598 + v597;	// L940
+        v590[0][v592][v593][v594] = v599;	// L941
       }
     }
   }
 }
 
 void kernel105(
-  float v563[1][32][32][32],
-  float v564,
-  float v565
-) {	// L855
-  for (int v566 = 0; v566 < 32; v566 += 1) {	// L856
-    for (int v567 = 0; v567 < 32; v567 += 1) {	// L857
-      for (int v568 = 0; v568 < 32; v568 += 1) {	// L858
+  float v600[1][32][32][32],
+  float v601,
+  float v602
+) {	// L947
+  for (int v603 = 0; v603 < 32; v603 += 1) {	// L948
+    for (int v604 = 0; v604 < 32; v604 += 1) {	// L949
+      for (int v605 = 0; v605 < 32; v605 += 1) {	// L950
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v563
-        float v569 = v563[0][v566][v567][v568];	// L859
-        float v570 = v569 - v565;	// L860
-        bool v571 = v570 >= v564;	// L861
-        float v572 = v571 ? v565 : v564;	// L862
-        v563[0][v566][v567][v568] = v572;	// L863
+        #pragma HLS dependence false variable=v600
+        float v606 = v600[0][v603][v604][v605];	// L951
+        float v607 = v606 - v602;	// L952
+        bool v608 = v607 >= v601;	// L953
+        float v609 = v608 ? v602 : v601;	// L954
+        v600[0][v603][v604][v605] = v609;	// L955
       }
     }
   }
 }
 
 void kernel107(
-  float v573[1][32][32][32],
-  float v574[1][32][32][32],
-  float v575[1][32][32][32],
-  float v576
-) {	// L869
-  for (int v577 = 0; v577 < 32; v577 += 1) {	// L870
-    for (int v578 = 0; v578 < 32; v578 += 1) {	// L871
-      for (int v579 = 0; v579 < 32; v579 += 1) {	// L872
+  float v610[1][32][32][32],
+  float v611[1][32][32][32],
+  float v612[1][32][32][32],
+  float v613
+) {	// L961
+  for (int v614 = 0; v614 < 32; v614 += 1) {	// L962
+    for (int v615 = 0; v615 < 32; v615 += 1) {	// L963
+      for (int v616 = 0; v616 < 32; v616 += 1) {	// L964
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v573
-        #pragma HLS dependence false variable=v575
-        #pragma HLS dependence false variable=v574
-        float v580 = v573[0][v577][v578][v579];	// L873
-        float v581 = v574[0][v577][v578][v579];	// L874
-        float v582 = v581 / v576;	// L875
-        float v583 = v580 / v576;	// L876
-        float v584 = v580 - v583;	// L877
-        float v585 = v584 + v582;	// L878
-        v575[0][v577][v578][v579] = v585;	// L879
+        #pragma HLS dependence false variable=v610
+        #pragma HLS dependence false variable=v612
+        #pragma HLS dependence false variable=v611
+        float v617 = v610[0][v614][v615][v616];	// L965
+        float v618 = v611[0][v614][v615][v616];	// L966
+        float v619 = v618 / v613;	// L967
+        float v620 = v617 / v613;	// L968
+        float v621 = v617 - v620;	// L969
+        float v622 = v621 + v619;	// L970
+        v612[0][v614][v615][v616] = v622;	// L971
       }
     }
   }
 }
 
 void kernel108(
-  float v586[1][32][34][34],
-  float v587[32][32][3][3],
-  float v588[1][32][32][32]
-) {	// L885
-  float v589[32][32][3][3];	// L886
-  #pragma HLS resource variable=v589 core=ram_t2p_bram
+  float v623[1][32][34][34],
+  float v624[32][32][3][3],
+  float v625[1][32][32][32]
+) {	// L977
+  float v626[1][32][32][32];	// L978
+  #pragma HLS resource variable=v626 core=ram_t2p_uram
 
-  memcpy(v589, v587, 9216 * sizeof(float));	// L887
+  memcpy(v626, v625, 32768 * sizeof(float));	// L979
 
-  for (int v590 = 0; v590 < 32; v590 += 1) {	// L888
-    for (int v591 = 0; v591 < 3; v591 += 1) {	// L889
-      for (int v592 = 0; v592 < 3; v592 += 1) {	// L890
-        for (int v593 = 0; v593 < 32; v593 += 1) {	// L891
-          for (int v594 = 0; v594 < 32; v594 += 1) {	// L892
-            for (int v595 = 0; v595 < 32; v595 += 1) {	// L893
+  float v627[32][32][3][3];	// L980
+  #pragma HLS resource variable=v627 core=ram_t2p_bram
+
+  memcpy(v627, v624, 9216 * sizeof(float));	// L981
+
+  for (int v628 = 0; v628 < 32; v628 += 1) {	// L982
+    for (int v629 = 0; v629 < 3; v629 += 1) {	// L983
+      for (int v630 = 0; v630 < 3; v630 += 1) {	// L984
+        for (int v631 = 0; v631 < 32; v631 += 1) {	// L985
+          for (int v632 = 0; v632 < 32; v632 += 1) {	// L986
+            for (int v633 = 0; v633 < 32; v633 += 1) {	// L987
               #pragma HLS pipeline II=1
-              #pragma HLS dependence false variable=v586
-              #pragma HLS dependence false variable=v588
-              #pragma HLS dependence false variable=v589
-              float v596 = v586[0][v590][(v594 + v591)][(v595 + v592)];	// L894
-              float v597 = v589[v593][v590][v591][v592];	// L895
-              float v598 = v588[0][v593][v594][v595];	// L896
-              float v599 = v596 * v597;	// L897
-              float v600 = v598 + v599;	// L898
-              v588[0][v593][v594][v595] = v600;	// L899
+              #pragma HLS dependence false variable=v623
+              #pragma HLS dependence false variable=v626
+              #pragma HLS dependence false variable=v627
+              float v634 = v623[0][v628][(v632 + v629)][(v633 + v630)];	// L988
+              float v635 = v627[v631][v628][v629][v630];	// L989
+              float v636 = v626[0][v631][v632][v633];	// L990
+              float v637 = v634 * v635;	// L991
+              float v638 = v636 + v637;	// L992
+              v626[0][v631][v632][v633] = v638;	// L993
             }
           }
         }
       }
     }
   }
+  memcpy(v625, v626, 32768 * sizeof(float));	// L1000
+
 }
 
 void kernel109(
-  float v601[1][32][32][32],
-  float v602[1][32][34][34]
-) {	// L908
-  for (int v603 = 0; v603 < 32; v603 += 1) {	// L909
-    for (int v604 = 0; v604 < 32; v604 += 1) {	// L910
-      for (int v605 = 0; v605 < 32; v605 += 1) {	// L911
+  float v639[1][32][32][32],
+  float v640[1][32][34][34]
+) {	// L1003
+  for (int v641 = 0; v641 < 32; v641 += 1) {	// L1004
+    for (int v642 = 0; v642 < 32; v642 += 1) {	// L1005
+      for (int v643 = 0; v643 < 32; v643 += 1) {	// L1006
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v601
-        #pragma HLS dependence false variable=v602
-        float v606 = v601[0][v603][v604][v605];	// L912
-        v602[0][v603][(v604 + 1)][(v605 + 1)] = v606;	// L913
+        #pragma HLS dependence false variable=v639
+        #pragma HLS dependence false variable=v640
+        float v644 = v639[0][v641][v642][v643];	// L1007
+        v640[0][v641][(v642 + 1)][(v643 + 1)] = v644;	// L1008
       }
     }
   }
 }
 
 void kernel110(
-  float v607[1][32][34][34],
-  float v608
-) {	// L919
-  for (int v609 = 0; v609 < 32; v609 += 1) {	// L920
-    for (int v610 = 0; v610 < 34; v610 += 1) {	// L921
-      for (int v611 = 0; v611 < 34; v611 += 1) {	// L922
+  float v645[1][32][34][34],
+  float v646
+) {	// L1014
+  for (int v647 = 0; v647 < 32; v647 += 1) {	// L1015
+    for (int v648 = 0; v648 < 34; v648 += 1) {	// L1016
+      for (int v649 = 0; v649 < 34; v649 += 1) {	// L1017
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v607
-        v607[0][v609][v610][v611] = v608;	// L923
+        #pragma HLS dependence false variable=v645
+        v645[0][v647][v648][v649] = v646;	// L1018
       }
     }
   }
 }
 
 void kernel118(
-  float v612[32],
-  float v613[1][32][32][32]
-) {	// L929
-  float v614[32];	// L930
-  #pragma HLS resource variable=v614 core=ram_t2p_bram
+  float v650[32],
+  float v651[1][32][32][32]
+) {	// L1024
+  float v652[32];	// L1025
+  #pragma HLS resource variable=v652 core=ram_t2p_bram
 
-  memcpy(v614, v612, 32 * sizeof(float));	// L931
+  memcpy(v652, v650, 32 * sizeof(float));	// L1026
 
-  for (int v615 = 0; v615 < 32; v615 += 1) {	// L932
-    for (int v616 = 0; v616 < 32; v616 += 1) {	// L933
-      for (int v617 = 0; v617 < 32; v617 += 1) {	// L934
+  for (int v653 = 0; v653 < 32; v653 += 1) {	// L1027
+    for (int v654 = 0; v654 < 32; v654 += 1) {	// L1028
+      for (int v655 = 0; v655 < 32; v655 += 1) {	// L1029
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v614
-        #pragma HLS dependence false variable=v613
-        float v618 = v614[v615];	// L935
-        v613[0][v615][v616][v617] = v618;	// L936
+        #pragma HLS dependence false variable=v652
+        #pragma HLS dependence false variable=v651
+        float v656 = v652[v653];	// L1030
+        v651[0][v653][v654][v655] = v656;	// L1031
       }
     }
   }
 }
 
 void kernel120(
-  float v619[1][32][34][34],
-  float v620
-) {	// L942
-  for (int v621 = 0; v621 < 32; v621 += 1) {	// L943
-    for (int v622 = 0; v622 < 34; v622 += 1) {	// L944
-      for (int v623 = 0; v623 < 34; v623 += 1) {	// L945
+  float v657[1][32][34][34],
+  float v658
+) {	// L1037
+  for (int v659 = 0; v659 < 32; v659 += 1) {	// L1038
+    for (int v660 = 0; v660 < 34; v660 += 1) {	// L1039
+      for (int v661 = 0; v661 < 34; v661 += 1) {	// L1040
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v619
-        v619[0][v621][v622][v623] = v620;	// L946
+        #pragma HLS dependence false variable=v657
+        v657[0][v659][v660][v661] = v658;	// L1041
       }
     }
   }
 }
 
 void kernel121(
-  float v624[1][32][32][32],
-  float v625
-) {	// L952
-  for (int v626 = 0; v626 < 32; v626 += 1) {	// L953
-    for (int v627 = 0; v627 < 32; v627 += 1) {	// L954
-      for (int v628 = 0; v628 < 32; v628 += 1) {	// L955
+  float v662[1][32][32][32],
+  float v663
+) {	// L1047
+  for (int v664 = 0; v664 < 32; v664 += 1) {	// L1048
+    for (int v665 = 0; v665 < 32; v665 += 1) {	// L1049
+      for (int v666 = 0; v666 < 32; v666 += 1) {	// L1050
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v624
-        float v629 = v624[0][v626][v627][v628];	// L956
-        float v630 = v629 / v625;	// L957
-        v624[0][v626][v627][v628] = v630;	// L958
+        #pragma HLS dependence false variable=v662
+        float v667 = v662[0][v664][v665][v666];	// L1051
+        float v668 = v667 / v663;	// L1052
+        v662[0][v664][v665][v666] = v668;	// L1053
       }
     }
   }
 }
 
 void kernel123(
-  float v631[1][32][64][64],
-  float v632[2][2],
-  float v633[1][32][32][32]
-) {	// L964
-  for (int v634 = 0; v634 < 2; v634 += 1) {	// L965
-    for (int v635 = 0; v635 < 2; v635 += 1) {	// L966
-      for (int v636 = 0; v636 < 32; v636 += 1) {	// L967
-        for (int v637 = 0; v637 < 32; v637 += 1) {	// L968
-          for (int v638 = 0; v638 < 32; v638 += 1) {	// L969
+  float v669[1][32][64][64],
+  float v670[2][2],
+  float v671[1][32][32][32]
+) {	// L1059
+  for (int v672 = 0; v672 < 2; v672 += 1) {	// L1060
+    for (int v673 = 0; v673 < 2; v673 += 1) {	// L1061
+      for (int v674 = 0; v674 < 32; v674 += 1) {	// L1062
+        for (int v675 = 0; v675 < 32; v675 += 1) {	// L1063
+          for (int v676 = 0; v676 < 32; v676 += 1) {	// L1064
             #pragma HLS pipeline II=1
-            #pragma HLS dependence false variable=v631
-            #pragma HLS dependence false variable=v633
-            float v639 = v631[0][v636][((v637 * 2) + v634)][((v638 * 2) + v635)];	// L970
-            float v640 = v633[0][v636][v637][v638];	// L971
-            float v641 = v640 + v639;	// L972
-            v633[0][v636][v637][v638] = v641;	// L973
+            #pragma HLS dependence false variable=v669
+            #pragma HLS dependence false variable=v671
+            float v677 = v669[0][v674][((v675 * 2) + v672)][((v676 * 2) + v673)];	// L1065
+            float v678 = v671[0][v674][v675][v676];	// L1066
+            float v679 = v678 + v677;	// L1067
+            v671[0][v674][v675][v676] = v679;	// L1068
           }
         }
       }
@@ -1496,266 +1724,273 @@ void kernel123(
 }
 
 void kernel124(
-  float v642[1][32][32][32],
-  float v643
-) {	// L981
-  for (int v644 = 0; v644 < 32; v644 += 1) {	// L982
-    for (int v645 = 0; v645 < 32; v645 += 1) {	// L983
-      for (int v646 = 0; v646 < 32; v646 += 1) {	// L984
+  float v680[1][32][32][32],
+  float v681
+) {	// L1076
+  for (int v682 = 0; v682 < 32; v682 += 1) {	// L1077
+    for (int v683 = 0; v683 < 32; v683 += 1) {	// L1078
+      for (int v684 = 0; v684 < 32; v684 += 1) {	// L1079
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v642
-        v642[0][v644][v645][v646] = v643;	// L985
+        #pragma HLS dependence false variable=v680
+        v680[0][v682][v683][v684] = v681;	// L1080
       }
     }
   }
 }
 
 void kernel125(
-  float v647[1][32][64][64],
-  float v648[1][32][64][64],
-  float v649[1][32][64][64],
-  float v650
-) {	// L991
-  for (int v651 = 0; v651 < 32; v651 += 1) {	// L992
-    for (int v652 = 0; v652 < 64; v652 += 1) {	// L993
-      for (int v653 = 0; v653 < 64; v653 += 1) {	// L994
+  float v685[1][32][64][64],
+  float v686[1][32][64][64],
+  float v687[1][32][64][64],
+  float v688
+) {	// L1086
+  for (int v689 = 0; v689 < 32; v689 += 1) {	// L1087
+    for (int v690 = 0; v690 < 64; v690 += 1) {	// L1088
+      for (int v691 = 0; v691 < 64; v691 += 1) {	// L1089
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v647
-        #pragma HLS dependence false variable=v649
-        #pragma HLS dependence false variable=v648
-        float v654 = v647[0][v651][v652][v653];	// L995
-        float v655 = v648[0][v651][v652][v653];	// L996
-        float v656 = v650 - v655;	// L997
-        float v657 = v650 - v654;	// L998
-        float v658 = v657 * v656;	// L999
-        float v659 = v650 - v658;	// L1000
-        v649[0][v651][v652][v653] = v659;	// L1001
+        #pragma HLS dependence false variable=v685
+        #pragma HLS dependence false variable=v687
+        #pragma HLS dependence false variable=v686
+        float v692 = v685[0][v689][v690][v691];	// L1090
+        float v693 = v686[0][v689][v690][v691];	// L1091
+        float v694 = v688 - v693;	// L1092
+        float v695 = v688 - v692;	// L1093
+        float v696 = v695 * v694;	// L1094
+        float v697 = v688 - v696;	// L1095
+        v687[0][v689][v690][v691] = v697;	// L1096
       }
     }
   }
 }
 
 void kernel126(
-  float v660[1][32][64][64],
-  float v661[1][32][64][64]
-) {	// L1007
-  for (int v662 = 0; v662 < 32; v662 += 1) {	// L1008
-    for (int v663 = 0; v663 < 64; v663 += 1) {	// L1009
-      for (int v664 = 0; v664 < 64; v664 += 1) {	// L1010
+  float v698[1][32][64][64],
+  float v699[1][32][64][64]
+) {	// L1102
+  for (int v700 = 0; v700 < 32; v700 += 1) {	// L1103
+    for (int v701 = 0; v701 < 64; v701 += 1) {	// L1104
+      for (int v702 = 0; v702 < 64; v702 += 1) {	// L1105
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v660
-        #pragma HLS dependence false variable=v661
-        float v665 = v660[0][v662][v663][v664];	// L1011
-        v661[0][v662][v663][v664] = v665;	// L1012
+        #pragma HLS dependence false variable=v698
+        #pragma HLS dependence false variable=v699
+        float v703 = v698[0][v700][v701][v702];	// L1106
+        v699[0][v700][v701][v702] = v703;	// L1107
       }
     }
   }
 }
 
 void kernel127(
-  float v666[1][32][64][64],
-  float v667[1][32][64][64],
-  float v668
-) {	// L1018
-  for (int v669 = 0; v669 < 32; v669 += 1) {	// L1019
-    for (int v670 = 0; v670 < 64; v670 += 1) {	// L1020
-      for (int v671 = 0; v671 < 64; v671 += 1) {	// L1021
+  float v704[1][32][64][64],
+  float v705[1][32][64][64],
+  float v706
+) {	// L1113
+  for (int v707 = 0; v707 < 32; v707 += 1) {	// L1114
+    for (int v708 = 0; v708 < 64; v708 += 1) {	// L1115
+      for (int v709 = 0; v709 < 64; v709 += 1) {	// L1116
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v667
-        #pragma HLS dependence false variable=v666
-        float v672 = v667[0][v669][v670][v671];	// L1022
-        float v673 = v666[0][v669][v670][v671];	// L1023
-        float v674 = v673 * v668;	// L1024
-        float v675 = v672 - v673;	// L1025
-        float v676 = v675 + v674;	// L1026
-        v667[0][v669][v670][v671] = v676;	// L1027
+        #pragma HLS dependence false variable=v705
+        #pragma HLS dependence false variable=v704
+        float v710 = v705[0][v707][v708][v709];	// L1117
+        float v711 = v704[0][v707][v708][v709];	// L1118
+        float v712 = v711 * v706;	// L1119
+        float v713 = v710 - v711;	// L1120
+        float v714 = v713 + v712;	// L1121
+        v705[0][v707][v708][v709] = v714;	// L1122
       }
     }
   }
 }
 
 void kernel128(
-  float v677[1][32][64][64],
-  float v678,
-  float v679
-) {	// L1033
-  for (int v680 = 0; v680 < 32; v680 += 1) {	// L1034
-    for (int v681 = 0; v681 < 64; v681 += 1) {	// L1035
-      for (int v682 = 0; v682 < 64; v682 += 1) {	// L1036
+  float v715[1][32][64][64],
+  float v716,
+  float v717
+) {	// L1128
+  for (int v718 = 0; v718 < 32; v718 += 1) {	// L1129
+    for (int v719 = 0; v719 < 64; v719 += 1) {	// L1130
+      for (int v720 = 0; v720 < 64; v720 += 1) {	// L1131
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v677
-        float v683 = v677[0][v680][v681][v682];	// L1037
-        float v684 = v683 - v679;	// L1038
-        bool v685 = v684 >= v678;	// L1039
-        float v686 = v685 ? v679 : v678;	// L1040
-        v677[0][v680][v681][v682] = v686;	// L1041
+        #pragma HLS dependence false variable=v715
+        float v721 = v715[0][v718][v719][v720];	// L1132
+        float v722 = v721 - v717;	// L1133
+        bool v723 = v722 >= v716;	// L1134
+        float v724 = v723 ? v717 : v716;	// L1135
+        v715[0][v718][v719][v720] = v724;	// L1136
       }
     }
   }
 }
 
 void kernel130(
-  float v687[1][32][64][64],
-  float v688[1][32][64][64],
-  float v689[1][32][64][64],
-  float v690
-) {	// L1047
-  for (int v691 = 0; v691 < 32; v691 += 1) {	// L1048
-    for (int v692 = 0; v692 < 64; v692 += 1) {	// L1049
-      for (int v693 = 0; v693 < 64; v693 += 1) {	// L1050
+  float v725[1][32][64][64],
+  float v726[1][32][64][64],
+  float v727[1][32][64][64],
+  float v728
+) {	// L1142
+  for (int v729 = 0; v729 < 32; v729 += 1) {	// L1143
+    for (int v730 = 0; v730 < 64; v730 += 1) {	// L1144
+      for (int v731 = 0; v731 < 64; v731 += 1) {	// L1145
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v687
-        #pragma HLS dependence false variable=v689
-        #pragma HLS dependence false variable=v688
-        float v694 = v687[0][v691][v692][v693];	// L1051
-        float v695 = v688[0][v691][v692][v693];	// L1052
-        float v696 = v695 / v690;	// L1053
-        float v697 = v694 / v690;	// L1054
-        float v698 = v694 - v697;	// L1055
-        float v699 = v698 + v696;	// L1056
-        v689[0][v691][v692][v693] = v699;	// L1057
+        #pragma HLS dependence false variable=v725
+        #pragma HLS dependence false variable=v727
+        #pragma HLS dependence false variable=v726
+        float v732 = v725[0][v729][v730][v731];	// L1146
+        float v733 = v726[0][v729][v730][v731];	// L1147
+        float v734 = v733 / v728;	// L1148
+        float v735 = v732 / v728;	// L1149
+        float v736 = v732 - v735;	// L1150
+        float v737 = v736 + v734;	// L1151
+        v727[0][v729][v730][v731] = v737;	// L1152
       }
     }
   }
 }
 
 void kernel131(
-  float v700[1][32][66][66],
-  float v701[32][32][3][3],
-  float v702[1][32][64][64]
-) {	// L1063
-  float v703[32][32][3][3];	// L1064
-  #pragma HLS resource variable=v703 core=ram_t2p_bram
+  float v738[1][32][66][66],
+  float v739[32][32][3][3],
+  float v740[1][32][64][64]
+) {	// L1158
+  float v741[1][32][64][64];	// L1159
+  #pragma HLS resource variable=v741 core=ram_t2p_uram
 
-  memcpy(v703, v701, 9216 * sizeof(float));	// L1065
+  memcpy(v741, v740, 131072 * sizeof(float));	// L1160
 
-  for (int v704 = 0; v704 < 32; v704 += 1) {	// L1066
-    for (int v705 = 0; v705 < 3; v705 += 1) {	// L1067
-      for (int v706 = 0; v706 < 3; v706 += 1) {	// L1068
-        for (int v707 = 0; v707 < 32; v707 += 1) {	// L1069
-          for (int v708 = 0; v708 < 64; v708 += 1) {	// L1070
-            for (int v709 = 0; v709 < 64; v709 += 1) {	// L1071
+  float v742[32][32][3][3];	// L1161
+  #pragma HLS resource variable=v742 core=ram_t2p_bram
+
+  memcpy(v742, v739, 9216 * sizeof(float));	// L1162
+
+  for (int v743 = 0; v743 < 32; v743 += 1) {	// L1163
+    for (int v744 = 0; v744 < 3; v744 += 1) {	// L1164
+      for (int v745 = 0; v745 < 3; v745 += 1) {	// L1165
+        for (int v746 = 0; v746 < 32; v746 += 1) {	// L1166
+          for (int v747 = 0; v747 < 64; v747 += 1) {	// L1167
+            for (int v748 = 0; v748 < 64; v748 += 1) {	// L1168
               #pragma HLS pipeline II=1
-              #pragma HLS dependence false variable=v700
-              #pragma HLS dependence false variable=v702
-              #pragma HLS dependence false variable=v703
-              float v710 = v700[0][v704][(v708 + v705)][(v709 + v706)];	// L1072
-              float v711 = v703[v707][v704][v705][v706];	// L1073
-              float v712 = v702[0][v707][v708][v709];	// L1074
-              float v713 = v710 * v711;	// L1075
-              float v714 = v712 + v713;	// L1076
-              v702[0][v707][v708][v709] = v714;	// L1077
+              #pragma HLS dependence false variable=v738
+              #pragma HLS dependence false variable=v741
+              #pragma HLS dependence false variable=v742
+              float v749 = v738[0][v743][(v747 + v744)][(v748 + v745)];	// L1169
+              float v750 = v742[v746][v743][v744][v745];	// L1170
+              float v751 = v741[0][v746][v747][v748];	// L1171
+              float v752 = v749 * v750;	// L1172
+              float v753 = v751 + v752;	// L1173
+              v741[0][v746][v747][v748] = v753;	// L1174
             }
           }
         }
       }
     }
   }
+  memcpy(v740, v741, 131072 * sizeof(float));	// L1181
+
 }
 
 void kernel132(
-  float v715[1][32][64][64],
-  float v716[1][32][66][66]
-) {	// L1086
-  for (int v717 = 0; v717 < 32; v717 += 1) {	// L1087
-    for (int v718 = 0; v718 < 64; v718 += 1) {	// L1088
-      for (int v719 = 0; v719 < 64; v719 += 1) {	// L1089
+  float v754[1][32][64][64],
+  float v755[1][32][66][66]
+) {	// L1184
+  for (int v756 = 0; v756 < 32; v756 += 1) {	// L1185
+    for (int v757 = 0; v757 < 64; v757 += 1) {	// L1186
+      for (int v758 = 0; v758 < 64; v758 += 1) {	// L1187
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v715
-        #pragma HLS dependence false variable=v716
-        float v720 = v715[0][v717][v718][v719];	// L1090
-        v716[0][v717][(v718 + 1)][(v719 + 1)] = v720;	// L1091
+        #pragma HLS dependence false variable=v754
+        #pragma HLS dependence false variable=v755
+        float v759 = v754[0][v756][v757][v758];	// L1188
+        v755[0][v756][(v757 + 1)][(v758 + 1)] = v759;	// L1189
       }
     }
   }
 }
 
 void kernel133(
-  float v721[1][32][66][66],
-  float v722
-) {	// L1097
-  for (int v723 = 0; v723 < 32; v723 += 1) {	// L1098
-    for (int v724 = 0; v724 < 66; v724 += 1) {	// L1099
-      for (int v725 = 0; v725 < 66; v725 += 1) {	// L1100
+  float v760[1][32][66][66],
+  float v761
+) {	// L1195
+  for (int v762 = 0; v762 < 32; v762 += 1) {	// L1196
+    for (int v763 = 0; v763 < 66; v763 += 1) {	// L1197
+      for (int v764 = 0; v764 < 66; v764 += 1) {	// L1198
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v721
-        v721[0][v723][v724][v725] = v722;	// L1101
+        #pragma HLS dependence false variable=v760
+        v760[0][v762][v763][v764] = v761;	// L1199
       }
     }
   }
 }
 
 void kernel141(
-  float v726[32],
-  float v727[1][32][64][64]
-) {	// L1107
-  float v728[32];	// L1108
-  #pragma HLS resource variable=v728 core=ram_t2p_bram
+  float v765[32],
+  float v766[1][32][64][64]
+) {	// L1205
+  float v767[32];	// L1206
+  #pragma HLS resource variable=v767 core=ram_t2p_bram
 
-  memcpy(v728, v726, 32 * sizeof(float));	// L1109
+  memcpy(v767, v765, 32 * sizeof(float));	// L1207
 
-  for (int v729 = 0; v729 < 32; v729 += 1) {	// L1110
-    for (int v730 = 0; v730 < 64; v730 += 1) {	// L1111
-      for (int v731 = 0; v731 < 64; v731 += 1) {	// L1112
+  for (int v768 = 0; v768 < 32; v768 += 1) {	// L1208
+    for (int v769 = 0; v769 < 64; v769 += 1) {	// L1209
+      for (int v770 = 0; v770 < 64; v770 += 1) {	// L1210
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v728
-        #pragma HLS dependence false variable=v727
-        float v732 = v728[v729];	// L1113
-        v727[0][v729][v730][v731] = v732;	// L1114
+        #pragma HLS dependence false variable=v767
+        #pragma HLS dependence false variable=v766
+        float v771 = v767[v768];	// L1211
+        v766[0][v768][v769][v770] = v771;	// L1212
       }
     }
   }
 }
 
 void kernel143(
-  float v733[1][32][66][66],
-  float v734
-) {	// L1120
-  for (int v735 = 0; v735 < 32; v735 += 1) {	// L1121
-    for (int v736 = 0; v736 < 66; v736 += 1) {	// L1122
-      for (int v737 = 0; v737 < 66; v737 += 1) {	// L1123
+  float v772[1][32][66][66],
+  float v773
+) {	// L1218
+  for (int v774 = 0; v774 < 32; v774 += 1) {	// L1219
+    for (int v775 = 0; v775 < 66; v775 += 1) {	// L1220
+      for (int v776 = 0; v776 < 66; v776 += 1) {	// L1221
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v733
-        v733[0][v735][v736][v737] = v734;	// L1124
+        #pragma HLS dependence false variable=v772
+        v772[0][v774][v775][v776] = v773;	// L1222
       }
     }
   }
 }
 
 void kernel144(
-  float v738[1][32][64][64],
-  float v739
-) {	// L1130
-  for (int v740 = 0; v740 < 32; v740 += 1) {	// L1131
-    for (int v741 = 0; v741 < 64; v741 += 1) {	// L1132
-      for (int v742 = 0; v742 < 64; v742 += 1) {	// L1133
+  float v777[1][32][64][64],
+  float v778
+) {	// L1228
+  for (int v779 = 0; v779 < 32; v779 += 1) {	// L1229
+    for (int v780 = 0; v780 < 64; v780 += 1) {	// L1230
+      for (int v781 = 0; v781 < 64; v781 += 1) {	// L1231
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v738
-        float v743 = v738[0][v740][v741][v742];	// L1134
-        float v744 = v743 / v739;	// L1135
-        v738[0][v740][v741][v742] = v744;	// L1136
+        #pragma HLS dependence false variable=v777
+        float v782 = v777[0][v779][v780][v781];	// L1232
+        float v783 = v782 / v778;	// L1233
+        v777[0][v779][v780][v781] = v783;	// L1234
       }
     }
   }
 }
 
 void kernel145(
-  float v745[1][32][128][128],
-  float v746[2][2],
-  float v747[1][32][64][64]
-) {	// L1142
-  for (int v748 = 0; v748 < 2; v748 += 1) {	// L1143
-    for (int v749 = 0; v749 < 2; v749 += 1) {	// L1144
-      for (int v750 = 0; v750 < 32; v750 += 1) {	// L1145
-        for (int v751 = 0; v751 < 64; v751 += 1) {	// L1146
-          for (int v752 = 0; v752 < 64; v752 += 1) {	// L1147
+  float v784[1][32][128][128],
+  float v785[2][2],
+  float v786[1][32][64][64]
+) {	// L1240
+  for (int v787 = 0; v787 < 2; v787 += 1) {	// L1241
+    for (int v788 = 0; v788 < 2; v788 += 1) {	// L1242
+      for (int v789 = 0; v789 < 32; v789 += 1) {	// L1243
+        for (int v790 = 0; v790 < 64; v790 += 1) {	// L1244
+          for (int v791 = 0; v791 < 64; v791 += 1) {	// L1245
             #pragma HLS pipeline II=1
-            #pragma HLS dependence false variable=v745
-            #pragma HLS dependence false variable=v747
-            float v753 = v745[0][v750][((v751 * 2) + v748)][((v752 * 2) + v749)];	// L1148
-            float v754 = v747[0][v750][v751][v752];	// L1149
-            float v755 = v754 + v753;	// L1150
-            v747[0][v750][v751][v752] = v755;	// L1151
+            #pragma HLS dependence false variable=v784
+            #pragma HLS dependence false variable=v786
+            float v792 = v784[0][v789][((v790 * 2) + v787)][((v791 * 2) + v788)];	// L1246
+            float v793 = v786[0][v789][v790][v791];	// L1247
+            float v794 = v793 + v792;	// L1248
+            v786[0][v789][v790][v791] = v794;	// L1249
           }
         }
       }
@@ -1764,236 +1999,243 @@ void kernel145(
 }
 
 void kernel146(
-  float v756[1][32][64][64],
-  float v757
-) {	// L1159
-  for (int v758 = 0; v758 < 32; v758 += 1) {	// L1160
-    for (int v759 = 0; v759 < 64; v759 += 1) {	// L1161
-      for (int v760 = 0; v760 < 64; v760 += 1) {	// L1162
+  float v795[1][32][64][64],
+  float v796
+) {	// L1257
+  for (int v797 = 0; v797 < 32; v797 += 1) {	// L1258
+    for (int v798 = 0; v798 < 64; v798 += 1) {	// L1259
+      for (int v799 = 0; v799 < 64; v799 += 1) {	// L1260
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v756
-        v756[0][v758][v759][v760] = v757;	// L1163
+        #pragma HLS dependence false variable=v795
+        v795[0][v797][v798][v799] = v796;	// L1261
       }
     }
   }
 }
 
 void kernel147(
-  float v761[1][32][128][128],
-  float v762[1][32][128][128],
-  float v763[1][32][128][128],
-  float v764
-) {	// L1169
-  for (int v765 = 0; v765 < 32; v765 += 1) {	// L1170
-    for (int v766 = 0; v766 < 128; v766 += 1) {	// L1171
-      for (int v767 = 0; v767 < 128; v767 += 1) {	// L1172
+  float v800[1][32][128][128],
+  float v801[1][32][128][128],
+  float v802[1][32][128][128],
+  float v803
+) {	// L1267
+  for (int v804 = 0; v804 < 32; v804 += 1) {	// L1268
+    for (int v805 = 0; v805 < 128; v805 += 1) {	// L1269
+      for (int v806 = 0; v806 < 128; v806 += 1) {	// L1270
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v761
-        #pragma HLS dependence false variable=v763
-        #pragma HLS dependence false variable=v762
-        float v768 = v761[0][v765][v766][v767];	// L1173
-        float v769 = v762[0][v765][v766][v767];	// L1174
-        float v770 = v764 - v769;	// L1175
-        float v771 = v764 - v768;	// L1176
-        float v772 = v771 * v770;	// L1177
-        float v773 = v764 - v772;	// L1178
-        v763[0][v765][v766][v767] = v773;	// L1179
+        #pragma HLS dependence false variable=v800
+        #pragma HLS dependence false variable=v802
+        #pragma HLS dependence false variable=v801
+        float v807 = v800[0][v804][v805][v806];	// L1271
+        float v808 = v801[0][v804][v805][v806];	// L1272
+        float v809 = v803 - v808;	// L1273
+        float v810 = v803 - v807;	// L1274
+        float v811 = v810 * v809;	// L1275
+        float v812 = v803 - v811;	// L1276
+        v802[0][v804][v805][v806] = v812;	// L1277
       }
     }
   }
 }
 
 void kernel148(
-  float v774[1][32][128][128],
-  float v775[1][32][128][128]
-) {	// L1185
-  for (int v776 = 0; v776 < 32; v776 += 1) {	// L1186
-    for (int v777 = 0; v777 < 128; v777 += 1) {	// L1187
-      for (int v778 = 0; v778 < 128; v778 += 1) {	// L1188
+  float v813[1][32][128][128],
+  float v814[1][32][128][128]
+) {	// L1283
+  for (int v815 = 0; v815 < 32; v815 += 1) {	// L1284
+    for (int v816 = 0; v816 < 128; v816 += 1) {	// L1285
+      for (int v817 = 0; v817 < 128; v817 += 1) {	// L1286
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v774
-        #pragma HLS dependence false variable=v775
-        float v779 = v774[0][v776][v777][v778];	// L1189
-        v775[0][v776][v777][v778] = v779;	// L1190
+        #pragma HLS dependence false variable=v813
+        #pragma HLS dependence false variable=v814
+        float v818 = v813[0][v815][v816][v817];	// L1287
+        v814[0][v815][v816][v817] = v818;	// L1288
       }
     }
   }
 }
 
 void kernel149(
-  float v780[1][32][128][128],
-  float v781[1][32][128][128],
-  float v782
-) {	// L1196
-  for (int v783 = 0; v783 < 32; v783 += 1) {	// L1197
-    for (int v784 = 0; v784 < 128; v784 += 1) {	// L1198
-      for (int v785 = 0; v785 < 128; v785 += 1) {	// L1199
+  float v819[1][32][128][128],
+  float v820[1][32][128][128],
+  float v821
+) {	// L1294
+  for (int v822 = 0; v822 < 32; v822 += 1) {	// L1295
+    for (int v823 = 0; v823 < 128; v823 += 1) {	// L1296
+      for (int v824 = 0; v824 < 128; v824 += 1) {	// L1297
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v781
-        #pragma HLS dependence false variable=v780
-        float v786 = v781[0][v783][v784][v785];	// L1200
-        float v787 = v780[0][v783][v784][v785];	// L1201
-        float v788 = v787 * v782;	// L1202
-        float v789 = v786 - v787;	// L1203
-        float v790 = v789 + v788;	// L1204
-        v781[0][v783][v784][v785] = v790;	// L1205
+        #pragma HLS dependence false variable=v820
+        #pragma HLS dependence false variable=v819
+        float v825 = v820[0][v822][v823][v824];	// L1298
+        float v826 = v819[0][v822][v823][v824];	// L1299
+        float v827 = v826 * v821;	// L1300
+        float v828 = v825 - v826;	// L1301
+        float v829 = v828 + v827;	// L1302
+        v820[0][v822][v823][v824] = v829;	// L1303
       }
     }
   }
 }
 
 void kernel150(
-  float v791[1][32][128][128],
-  float v792,
-  float v793
-) {	// L1211
-  for (int v794 = 0; v794 < 32; v794 += 1) {	// L1212
-    for (int v795 = 0; v795 < 128; v795 += 1) {	// L1213
-      for (int v796 = 0; v796 < 128; v796 += 1) {	// L1214
+  float v830[1][32][128][128],
+  float v831,
+  float v832
+) {	// L1309
+  for (int v833 = 0; v833 < 32; v833 += 1) {	// L1310
+    for (int v834 = 0; v834 < 128; v834 += 1) {	// L1311
+      for (int v835 = 0; v835 < 128; v835 += 1) {	// L1312
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v791
-        float v797 = v791[0][v794][v795][v796];	// L1215
-        float v798 = v797 - v793;	// L1216
-        bool v799 = v798 >= v792;	// L1217
-        float v800 = v799 ? v793 : v792;	// L1218
-        v791[0][v794][v795][v796] = v800;	// L1219
+        #pragma HLS dependence false variable=v830
+        float v836 = v830[0][v833][v834][v835];	// L1313
+        float v837 = v836 - v832;	// L1314
+        bool v838 = v837 >= v831;	// L1315
+        float v839 = v838 ? v832 : v831;	// L1316
+        v830[0][v833][v834][v835] = v839;	// L1317
       }
     }
   }
 }
 
 void kernel152(
-  float v801[1][32][128][128],
-  float v802[1][32][128][128],
-  float v803[1][32][128][128],
-  float v804
-) {	// L1225
-  for (int v805 = 0; v805 < 32; v805 += 1) {	// L1226
-    for (int v806 = 0; v806 < 128; v806 += 1) {	// L1227
-      for (int v807 = 0; v807 < 128; v807 += 1) {	// L1228
+  float v840[1][32][128][128],
+  float v841[1][32][128][128],
+  float v842[1][32][128][128],
+  float v843
+) {	// L1323
+  for (int v844 = 0; v844 < 32; v844 += 1) {	// L1324
+    for (int v845 = 0; v845 < 128; v845 += 1) {	// L1325
+      for (int v846 = 0; v846 < 128; v846 += 1) {	// L1326
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v801
-        #pragma HLS dependence false variable=v803
-        #pragma HLS dependence false variable=v802
-        float v808 = v801[0][v805][v806][v807];	// L1229
-        float v809 = v802[0][v805][v806][v807];	// L1230
-        float v810 = v809 / v804;	// L1231
-        float v811 = v808 / v804;	// L1232
-        float v812 = v808 - v811;	// L1233
-        float v813 = v812 + v810;	// L1234
-        v803[0][v805][v806][v807] = v813;	// L1235
+        #pragma HLS dependence false variable=v840
+        #pragma HLS dependence false variable=v842
+        #pragma HLS dependence false variable=v841
+        float v847 = v840[0][v844][v845][v846];	// L1327
+        float v848 = v841[0][v844][v845][v846];	// L1328
+        float v849 = v848 / v843;	// L1329
+        float v850 = v847 / v843;	// L1330
+        float v851 = v847 - v850;	// L1331
+        float v852 = v851 + v849;	// L1332
+        v842[0][v844][v845][v846] = v852;	// L1333
       }
     }
   }
 }
 
 void kernel153(
-  float v814[1][32][130][130],
-  float v815[32][32][3][3],
-  float v816[1][32][128][128]
-) {	// L1241
-  float v817[32][32][3][3];	// L1242
-  #pragma HLS resource variable=v817 core=ram_t2p_bram
+  float v853[1][32][130][130],
+  float v854[32][32][3][3],
+  float v855[1][32][128][128]
+) {	// L1339
+  float v856[1][32][128][128];	// L1340
+  #pragma HLS resource variable=v856 core=ram_t2p_uram
 
-  memcpy(v817, v815, 9216 * sizeof(float));	// L1243
+  memcpy(v856, v855, 524288 * sizeof(float));	// L1341
 
-  for (int v818 = 0; v818 < 32; v818 += 1) {	// L1244
-    for (int v819 = 0; v819 < 3; v819 += 1) {	// L1245
-      for (int v820 = 0; v820 < 3; v820 += 1) {	// L1246
-        for (int v821 = 0; v821 < 32; v821 += 1) {	// L1247
-          for (int v822 = 0; v822 < 128; v822 += 1) {	// L1248
-            for (int v823 = 0; v823 < 128; v823 += 1) {	// L1249
+  float v857[32][32][3][3];	// L1342
+  #pragma HLS resource variable=v857 core=ram_t2p_bram
+
+  memcpy(v857, v854, 9216 * sizeof(float));	// L1343
+
+  for (int v858 = 0; v858 < 32; v858 += 1) {	// L1344
+    for (int v859 = 0; v859 < 3; v859 += 1) {	// L1345
+      for (int v860 = 0; v860 < 3; v860 += 1) {	// L1346
+        for (int v861 = 0; v861 < 32; v861 += 1) {	// L1347
+          for (int v862 = 0; v862 < 128; v862 += 1) {	// L1348
+            for (int v863 = 0; v863 < 128; v863 += 1) {	// L1349
               #pragma HLS pipeline II=1
-              #pragma HLS dependence false variable=v814
-              #pragma HLS dependence false variable=v816
-              #pragma HLS dependence false variable=v817
-              float v824 = v814[0][v818][(v822 + v819)][(v823 + v820)];	// L1250
-              float v825 = v817[v821][v818][v819][v820];	// L1251
-              float v826 = v816[0][v821][v822][v823];	// L1252
-              float v827 = v824 * v825;	// L1253
-              float v828 = v826 + v827;	// L1254
-              v816[0][v821][v822][v823] = v828;	// L1255
+              #pragma HLS dependence false variable=v853
+              #pragma HLS dependence false variable=v856
+              #pragma HLS dependence false variable=v857
+              float v864 = v853[0][v858][(v862 + v859)][(v863 + v860)];	// L1350
+              float v865 = v857[v861][v858][v859][v860];	// L1351
+              float v866 = v856[0][v861][v862][v863];	// L1352
+              float v867 = v864 * v865;	// L1353
+              float v868 = v866 + v867;	// L1354
+              v856[0][v861][v862][v863] = v868;	// L1355
             }
           }
         }
       }
     }
   }
+  memcpy(v855, v856, 524288 * sizeof(float));	// L1362
+
 }
 
 void kernel154(
-  float v829[1][32][128][128],
-  float v830[1][32][130][130]
-) {	// L1264
-  for (int v831 = 0; v831 < 32; v831 += 1) {	// L1265
-    for (int v832 = 0; v832 < 128; v832 += 1) {	// L1266
-      for (int v833 = 0; v833 < 128; v833 += 1) {	// L1267
+  float v869[1][32][128][128],
+  float v870[1][32][130][130]
+) {	// L1365
+  for (int v871 = 0; v871 < 32; v871 += 1) {	// L1366
+    for (int v872 = 0; v872 < 128; v872 += 1) {	// L1367
+      for (int v873 = 0; v873 < 128; v873 += 1) {	// L1368
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v829
-        #pragma HLS dependence false variable=v830
-        float v834 = v829[0][v831][v832][v833];	// L1268
-        v830[0][v831][(v832 + 1)][(v833 + 1)] = v834;	// L1269
+        #pragma HLS dependence false variable=v869
+        #pragma HLS dependence false variable=v870
+        float v874 = v869[0][v871][v872][v873];	// L1369
+        v870[0][v871][(v872 + 1)][(v873 + 1)] = v874;	// L1370
       }
     }
   }
 }
 
 void kernel155(
-  float v835[1][32][130][130],
-  float v836
-) {	// L1275
-  for (int v837 = 0; v837 < 32; v837 += 1) {	// L1276
-    for (int v838 = 0; v838 < 130; v838 += 1) {	// L1277
-      for (int v839 = 0; v839 < 130; v839 += 1) {	// L1278
+  float v875[1][32][130][130],
+  float v876
+) {	// L1376
+  for (int v877 = 0; v877 < 32; v877 += 1) {	// L1377
+    for (int v878 = 0; v878 < 130; v878 += 1) {	// L1378
+      for (int v879 = 0; v879 < 130; v879 += 1) {	// L1379
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v835
-        v835[0][v837][v838][v839] = v836;	// L1279
+        #pragma HLS dependence false variable=v875
+        v875[0][v877][v878][v879] = v876;	// L1380
       }
     }
   }
 }
 
 void kernel164(
-  float v840[1][32][130][130],
-  float v841
-) {	// L1285
-  for (int v842 = 0; v842 < 32; v842 += 1) {	// L1286
-    for (int v843 = 0; v843 < 130; v843 += 1) {	// L1287
-      for (int v844 = 0; v844 < 130; v844 += 1) {	// L1288
+  float v880[1][32][130][130],
+  float v881
+) {	// L1386
+  for (int v882 = 0; v882 < 32; v882 += 1) {	// L1387
+    for (int v883 = 0; v883 < 130; v883 += 1) {	// L1388
+      for (int v884 = 0; v884 < 130; v884 += 1) {	// L1389
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v840
-        v840[0][v842][v843][v844] = v841;	// L1289
+        #pragma HLS dependence false variable=v880
+        v880[0][v882][v883][v884] = v881;	// L1390
       }
     }
   }
 }
 
 void kernel170(
-  float v845[1][2][130][130],
-  float v846[32][2][3][3],
-  float v847[1][32][128][128]
-) {	// L1295
-  float v848[32][2][3][3];	// L1296
-  #pragma HLS resource variable=v848 core=ram_t2p_bram
+  float v885[1][2][130][130],
+  float v886[32][2][3][3],
+  float v887[1][32][128][128]
+) {	// L1396
+  float v888[32][2][3][3];	// L1397
+  #pragma HLS resource variable=v888 core=ram_t2p_bram
 
-  memcpy(v848, v846, 576 * sizeof(float));	// L1297
+  memcpy(v888, v886, 576 * sizeof(float));	// L1398
 
-  for (int v849 = 0; v849 < 2; v849 += 1) {	// L1298
-    for (int v850 = 0; v850 < 3; v850 += 1) {	// L1299
-      for (int v851 = 0; v851 < 3; v851 += 1) {	// L1300
-        for (int v852 = 0; v852 < 32; v852 += 1) {	// L1301
-          for (int v853 = 0; v853 < 128; v853 += 1) {	// L1302
-            for (int v854 = 0; v854 < 128; v854 += 1) {	// L1303
+  for (int v889 = 0; v889 < 2; v889 += 1) {	// L1399
+    for (int v890 = 0; v890 < 3; v890 += 1) {	// L1400
+      for (int v891 = 0; v891 < 3; v891 += 1) {	// L1401
+        for (int v892 = 0; v892 < 32; v892 += 1) {	// L1402
+          for (int v893 = 0; v893 < 128; v893 += 1) {	// L1403
+            for (int v894 = 0; v894 < 128; v894 += 1) {	// L1404
               #pragma HLS pipeline II=1
-              #pragma HLS dependence false variable=v845
-              #pragma HLS dependence false variable=v847
-              #pragma HLS dependence false variable=v848
-              float v855 = v845[0][v849][(v853 + v850)][(v854 + v851)];	// L1304
-              float v856 = v848[v852][v849][v850][v851];	// L1305
-              float v857 = v847[0][v852][v853][v854];	// L1306
-              float v858 = v855 * v856;	// L1307
-              float v859 = v857 + v858;	// L1308
-              v847[0][v852][v853][v854] = v859;	// L1309
+              #pragma HLS dependence false variable=v885
+              #pragma HLS dependence false variable=v887
+              #pragma HLS dependence false variable=v888
+              float v895 = v885[0][v889][(v893 + v890)][(v894 + v891)];	// L1405
+              float v896 = v888[v892][v889][v890][v891];	// L1406
+              float v897 = v887[0][v892][v893][v894];	// L1407
+              float v898 = v895 * v896;	// L1408
+              float v899 = v897 + v898;	// L1409
+              v887[0][v892][v893][v894] = v899;	// L1410
             }
           }
         }
@@ -2003,54 +2245,54 @@ void kernel170(
 }
 
 void kernel172(
-  float v860[32],
-  float v861[1][32][128][128]
-) {	// L1318
-  float v862[32];	// L1319
-  #pragma HLS resource variable=v862 core=ram_t2p_bram
+  float v900[32],
+  float v901[1][32][128][128]
+) {	// L1419
+  float v902[32];	// L1420
+  #pragma HLS resource variable=v902 core=ram_t2p_bram
 
-  memcpy(v862, v860, 32 * sizeof(float));	// L1320
+  memcpy(v902, v900, 32 * sizeof(float));	// L1421
 
-  for (int v863 = 0; v863 < 32; v863 += 1) {	// L1321
-    for (int v864 = 0; v864 < 128; v864 += 1) {	// L1322
-      for (int v865 = 0; v865 < 128; v865 += 1) {	// L1323
+  for (int v903 = 0; v903 < 32; v903 += 1) {	// L1422
+    for (int v904 = 0; v904 < 128; v904 += 1) {	// L1423
+      for (int v905 = 0; v905 < 128; v905 += 1) {	// L1424
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v862
-        #pragma HLS dependence false variable=v861
-        float v866 = v862[v863];	// L1324
-        v861[0][v863][v864][v865] = v866;	// L1325
+        #pragma HLS dependence false variable=v902
+        #pragma HLS dependence false variable=v901
+        float v906 = v902[v903];	// L1425
+        v901[0][v903][v904][v905] = v906;	// L1426
       }
     }
   }
 }
 
 void kernel173(
-  float v867[1][2][128][128],
-  float v868[1][2][130][130]
-) {	// L1331
-  for (int v869 = 0; v869 < 2; v869 += 1) {	// L1332
-    for (int v870 = 0; v870 < 128; v870 += 1) {	// L1333
-      for (int v871 = 0; v871 < 128; v871 += 1) {	// L1334
+  float v907[1][2][128][128],
+  float v908[1][2][130][130]
+) {	// L1432
+  for (int v909 = 0; v909 < 2; v909 += 1) {	// L1433
+    for (int v910 = 0; v910 < 128; v910 += 1) {	// L1434
+      for (int v911 = 0; v911 < 128; v911 += 1) {	// L1435
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v867
-        #pragma HLS dependence false variable=v868
-        float v872 = v867[0][v869][v870][v871];	// L1335
-        v868[0][v869][(v870 + 1)][(v871 + 1)] = v872;	// L1336
+        #pragma HLS dependence false variable=v907
+        #pragma HLS dependence false variable=v908
+        float v912 = v907[0][v909][v910][v911];	// L1436
+        v908[0][v909][(v910 + 1)][(v911 + 1)] = v912;	// L1437
       }
     }
   }
 }
 
 void kernel174(
-  float v873[1][2][130][130],
-  float v874
-) {	// L1342
-  for (int v875 = 0; v875 < 2; v875 += 1) {	// L1343
-    for (int v876 = 0; v876 < 130; v876 += 1) {	// L1344
-      for (int v877 = 0; v877 < 130; v877 += 1) {	// L1345
+  float v913[1][2][130][130],
+  float v914
+) {	// L1443
+  for (int v915 = 0; v915 < 2; v915 += 1) {	// L1444
+    for (int v916 = 0; v916 < 130; v916 += 1) {	// L1445
+      for (int v917 = 0; v917 < 130; v917 += 1) {	// L1446
         #pragma HLS pipeline II=1
-        #pragma HLS dependence false variable=v873
-        v873[0][v875][v876][v877] = v874;	// L1346
+        #pragma HLS dependence false variable=v913
+        v913[0][v915][v916][v917] = v914;	// L1447
       }
     }
   }
@@ -2058,279 +2300,279 @@ void kernel174(
 
 /// The top function
 void control(
-  ap_int<32> v878[12864384],
-  ap_int<32> v879[12864384],
-  ap_int<32> v880[12864384]
-) {	// L1352
+  ap_int<32> v918[12864384],
+  ap_int<32> v919[12864384],
+  ap_int<32> v920[12864384]
+) {	// L1453
   #pragma HLS interface s_axilite port=return bundle=ctrl
-  #pragma hls interface m_axi offset=direct bundle=g0 port=v878
-  #pragma hls stable variable=v878
-  #pragma hls interface m_axi offset=direct bundle=g0 port=v879
-  #pragma hls stable variable=v879
-  #pragma hls interface m_axi offset=direct bundle=g0 port=v880
-  #pragma hls stable variable=v880
+  #pragma hls interface m_axi offset=direct bundle=g0 port=v918
+  #pragma hls stable variable=v918
+  #pragma hls interface m_axi offset=direct bundle=g0 port=v919
+  #pragma hls stable variable=v919
+  #pragma hls interface m_axi offset=direct bundle=g0 port=v920
+  #pragma hls stable variable=v920
 
-  auto v881 = reinterpret_cast<float(*)[2][130][130]>(v878 + 8912896);
-  kernel174(v881, (float)0.000000);	// L1364
-  auto v882 = reinterpret_cast<float(*)[2][128][128]>(v878);
-  kernel173(v882, v881);	// L1366
-  auto v883 = reinterpret_cast<float(*)[32][128][128]>(v878 + 9453696);
-  auto v884 = reinterpret_cast<float(*)>(v880 + 12845952);
-  kernel172(v884, v883);	// L1369
-  auto v885 = reinterpret_cast<float(*)[32][128][128]>(v880 + 9994496);
-  kernel148(v883, v885);	// L1371
-  auto v886 = reinterpret_cast<float(*)[2][3][3]>(v879 + 12855168);
-  kernel170(v881, v886, v885);	// L1373
-  auto v887 = reinterpret_cast<float(*)[32][128][128]>(v878 + 524288);
-  auto v888 = reinterpret_cast<float(*)[32][128][128]>(v879 + 8912896);
-  kernel152(v887, v885, v888, (float)-0.000000);	// L1376
-  auto v889 = reinterpret_cast<float(*)[32][128][128]>(v878 + 9994496);
-  kernel148(v888, v889);	// L1378
-  kernel150(v889, (float)0.000000, (float)1.000000);	// L1379
-  kernel149(v889, v888, (float)0.000000);	// L1380
-  kernel148(v888, v887);	// L1381
-  auto v890 = reinterpret_cast<float(*)[32][130][130]>(v879 + 10535296);
-  kernel164(v890, (float)0.000000);	// L1383
-  kernel154(v889, v890);	// L1384
-  kernel148(v883, v885);	// L1385
-  auto v891 = reinterpret_cast<float(*)[32][3][3]>(v878 + 12836736);
-  kernel153(v890, v891, v885);	// L1387
-  auto v892 = reinterpret_cast<float(*)[32][128][128]>(v878 + 1048576);
-  kernel152(v892, v885, v888, (float)-0.000000);	// L1389
-  kernel148(v888, v889);	// L1390
-  kernel150(v889, (float)0.000000, (float)1.000000);	// L1391
-  kernel149(v889, v888, (float)0.000000);	// L1392
-  kernel148(v888, v892);	// L1393
-  kernel155(v890, (float)0.000000);	// L1394
-  kernel154(v889, v890);	// L1395
-  auto v893 = reinterpret_cast<float(*)[32][3][3]>(v880 + 12827520);
-  kernel153(v890, v893, v883);	// L1397
-  auto v894 = reinterpret_cast<float(*)[32][128][128]>(v878 + 1572864);
-  kernel152(v894, v883, v888, (float)-0.000000);	// L1399
-  kernel148(v888, v883);	// L1400
-  kernel150(v883, (float)0.000000, (float)1.000000);	// L1401
-  kernel149(v883, v888, (float)0.000000);	// L1402
-  kernel148(v888, v894);	// L1403
-  kernel147(v889, v883, v888, (float)1.000000);	// L1404
-  auto v895 = reinterpret_cast<float(*)[32][64][64]>(v878 + 9453696);
-  kernel146(v895, (float)0.000000);	// L1406
-  auto v896 = reinterpret_cast<float(*)[2]>(v878 + 9994496);
-  kernel145(v888, v896, v895);	// L1408
-  kernel144(v895, (float)4.000000);	// L1409
-  auto v897 = reinterpret_cast<float(*)[32][66][66]>(v878 + 8912896);
-  kernel143(v897, (float)0.000000);	// L1411
-  kernel132(v895, v897);	// L1412
-  auto v898 = reinterpret_cast<float(*)[32][64][64]>(v879 + 10535296);
-  kernel141(v884, v898);	// L1414
-  auto v899 = reinterpret_cast<float(*)[32][64][64]>(v879 + 11076096);
-  kernel126(v898, v899);	// L1416
-  auto v900 = reinterpret_cast<float(*)[32][3][3]>(v880 + 12818304);
-  kernel131(v897, v900, v899);	// L1418
-  auto v901 = reinterpret_cast<float(*)[32][64][64]>(v878 + 2097152);
-  kernel130(v901, v899, v895, (float)-0.000000);	// L1420
-  auto v902 = reinterpret_cast<float(*)[32][64][64]>(v879 + 8912896);
-  kernel126(v895, v902);	// L1422
-  kernel128(v902, (float)0.000000, (float)1.000000);	// L1423
-  kernel127(v902, v895, (float)0.000000);	// L1424
-  kernel126(v895, v901);	// L1425
-  auto v903 = reinterpret_cast<float(*)[32][66][66]>(v878 + 11076096);
-  kernel133(v903, (float)0.000000);	// L1427
-  kernel132(v902, v903);	// L1428
-  auto v904 = reinterpret_cast<float(*)[32][3][3]>(v880 + 12809088);
-  kernel131(v903, v904, v898);	// L1430
-  auto v905 = reinterpret_cast<float(*)[32][64][64]>(v878 + 2621440);
-  kernel130(v905, v898, v895, (float)-0.000000);	// L1432
-  kernel126(v895, v898);	// L1433
-  kernel128(v898, (float)0.000000, (float)1.000000);	// L1434
-  kernel127(v898, v895, (float)0.000000);	// L1435
-  kernel126(v895, v905);	// L1436
-  kernel125(v902, v898, v895, (float)1.000000);	// L1437
-  auto v906 = reinterpret_cast<float(*)[32][32][32]>(v879 + 8912896);
-  kernel124(v906, (float)0.000000);	// L1439
-  kernel123(v895, v896, v906);	// L1440
-  auto v907 = reinterpret_cast<float(*)[32][32][32]>(v878 + 9453696);
-  kernel103(v906, v907);	// L1442
-  kernel121(v907, (float)4.000000);	// L1443
-  auto v908 = reinterpret_cast<float(*)[32][34][34]>(v878 + 10535296);
-  kernel120(v908, (float)0.000000);	// L1445
-  kernel109(v907, v908);	// L1446
-  auto v909 = reinterpret_cast<float(*)[32][32][32]>(v880 + 11076096);
-  kernel118(v884, v909);	// L1448
-  auto v910 = reinterpret_cast<float(*)[32][32][32]>(v879 + 11616896);
-  kernel103(v909, v910);	// L1450
-  auto v911 = reinterpret_cast<float(*)[32][3][3]>(v880 + 12799872);
-  kernel108(v908, v911, v910);	// L1452
-  auto v912 = reinterpret_cast<float(*)[32][32][32]>(v878 + 3145728);
-  kernel107(v912, v910, v906, (float)-0.000000);	// L1454
-  auto v913 = reinterpret_cast<float(*)[32][32][32]>(v878 + 10535296);
-  kernel103(v906, v913);	// L1456
-  kernel105(v913, (float)0.000000, (float)1.000000);	// L1457
-  kernel104(v913, v906, (float)0.000000);	// L1458
-  kernel103(v906, v912);	// L1459
-  auto v914 = reinterpret_cast<float(*)[32][34][34]>(v878 + 11616896);
-  kernel110(v914, (float)0.000000);	// L1461
-  kernel109(v913, v914);	// L1462
-  auto v915 = reinterpret_cast<float(*)[32][3][3]>(v879 + 12790656);
-  kernel108(v914, v915, v909);	// L1464
-  auto v916 = reinterpret_cast<float(*)[32][32][32]>(v878 + 3670016);
-  kernel107(v916, v909, v906, (float)-0.000000);	// L1466
-  kernel103(v906, v909);	// L1467
-  kernel105(v909, (float)0.000000, (float)1.000000);	// L1468
-  kernel104(v909, v906, (float)0.000000);	// L1469
-  kernel103(v906, v916);	// L1470
-  kernel102(v913, v909, v906, (float)1.000000);	// L1471
-  auto v917 = reinterpret_cast<float(*)[32][16][16]>(v879 + 10535296);
-  kernel101(v917, (float)0.000000);	// L1473
-  auto v918 = reinterpret_cast<float(*)[32][16][16]>(v878 + 11076096);
-  kernel78(v917, v918);	// L1475
-  kernel97(v906, v896, v918);	// L1476
-  kernel98(v918, (float)4.000000);	// L1477
-  kernel97(v907, v896, v917);	// L1478
-  kernel96(v918, v917, (float)0.731261, (float)0.730867, (float)4.000000);	// L1479
-  auto v919 = reinterpret_cast<float(*)[32][18][18]>(v878 + 8912896);
-  kernel95(v919, (float)0.000000);	// L1481
-  kernel84(v917, v919);	// L1482
-  auto v920 = reinterpret_cast<float(*)[32][16][16]>(v878 + 9453696);
-  kernel93(v884, v920);	// L1484
-  auto v921 = reinterpret_cast<float(*)[32][16][16]>(v879 + 11616896);
-  kernel78(v920, v921);	// L1486
-  auto v922 = reinterpret_cast<float(*)[32][3][3]>(v880 + 12781440);
-  kernel83(v919, v922, v921);	// L1488
-  auto v923 = reinterpret_cast<float(*)[32][16][16]>(v878 + 4194304);
-  kernel82(v923, v921, v917, (float)-0.000000);	// L1490
-  auto v924 = reinterpret_cast<float(*)[32][16][16]>(v878 + 8912896);
-  kernel78(v917, v924);	// L1492
-  kernel80(v924, (float)0.000000, (float)1.000000);	// L1493
-  kernel79(v924, v917, (float)0.000000);	// L1494
-  kernel78(v917, v923);	// L1495
-  auto v925 = reinterpret_cast<float(*)[32][18][18]>(v879 + 11616896);
-  kernel85(v925, (float)0.000000);	// L1497
-  kernel84(v924, v925);	// L1498
-  auto v926 = reinterpret_cast<float(*)[32][3][3]>(v880 + 12772224);
-  kernel83(v925, v926, v920);	// L1500
-  auto v927 = reinterpret_cast<float(*)[32][16][16]>(v878 + 4718592);
-  kernel82(v927, v920, v917, (float)-0.000000);	// L1502
-  kernel78(v917, v920);	// L1503
-  kernel80(v920, (float)0.000000, (float)1.000000);	// L1504
-  kernel79(v920, v917, (float)0.000000);	// L1505
-  kernel78(v917, v927);	// L1506
-  kernel77(v924, v920, v917, (float)1.000000);	// L1507
-  auto v928 = reinterpret_cast<float(*)[32][8][8]>(v879 + 8912896);
-  kernel76(v928, (float)0.000000);	// L1509
-  kernel75(v917, v896, v928);	// L1510
-  auto v929 = reinterpret_cast<float(*)[32][8][8]>(v878 + 9453696);
-  kernel55(v928, v929);	// L1512
-  kernel73(v929, (float)4.000000);	// L1513
-  auto v930 = reinterpret_cast<float(*)[32][10][10]>(v879 + 10535296);
-  kernel72(v930, (float)0.000000);	// L1515
-  kernel61(v929, v930);	// L1516
-  auto v931 = reinterpret_cast<float(*)[32][8][8]>(v880 + 11616896);
-  kernel70(v884, v931);	// L1518
-  auto v932 = reinterpret_cast<float(*)[32][8][8]>(v878 + 12157696);
-  kernel55(v931, v932);	// L1520
-  auto v933 = reinterpret_cast<float(*)[32][3][3]>(v880 + 12763008);
-  kernel60(v930, v933, v932);	// L1522
-  auto v934 = reinterpret_cast<float(*)[32][8][8]>(v878 + 5242880);
-  kernel59(v934, v932, v928, (float)-0.000000);	// L1524
-  auto v935 = reinterpret_cast<float(*)[32][8][8]>(v879 + 10535296);
-  kernel55(v928, v935);	// L1526
-  kernel57(v935, (float)0.000000, (float)1.000000);	// L1527
-  kernel56(v935, v928, (float)0.000000);	// L1528
-  kernel55(v928, v934);	// L1529
-  auto v936 = reinterpret_cast<float(*)[32][10][10]>(v878 + 12157696);
-  kernel62(v936, (float)0.000000);	// L1531
-  kernel61(v935, v936);	// L1532
-  auto v937 = reinterpret_cast<float(*)[32][3][3]>(v879 + 12753792);
-  kernel60(v936, v937, v931);	// L1534
-  auto v938 = reinterpret_cast<float(*)[32][8][8]>(v878 + 5767168);
-  kernel59(v938, v931, v928, (float)-0.000000);	// L1536
-  auto v939 = reinterpret_cast<float(*)[32][8][8]>(v878 + 11616896);
-  kernel55(v928, v939);	// L1538
-  kernel57(v939, (float)0.000000, (float)1.000000);	// L1539
-  kernel56(v939, v928, (float)0.000000);	// L1540
-  kernel55(v928, v938);	// L1541
-  kernel54(v935, v939, v928, (float)1.000000);	// L1542
-  auto v940 = reinterpret_cast<float(*)[32][4][4]>(v878 + 10535296);
-  kernel53(v940, (float)0.000000);	// L1544
-  auto v941 = reinterpret_cast<float(*)[32][4][4]>(v880 + 11616896);
-  kernel29(v940, v941);	// L1546
-  kernel48(v928, v896, v941);	// L1547
-  auto v942 = reinterpret_cast<float(*)[32][4][4]>(v879 + 8912896);
-  kernel29(v940, v942);	// L1549
-  auto v943 = reinterpret_cast<float(*)[4]>(v880 + 12157696);
-  kernel49(v918, v943, v942);	// L1551
-  kernel48(v929, v896, v940);	// L1552
-  kernel47(v942, v941, v940, (float)0.730819, (float)0.729963, (float)0.732428, (float)16.000000, (float)4.000000);	// L1553
-  auto v944 = reinterpret_cast<float(*)[32][6][6]>(v878 + 8912896);
-  kernel46(v944, (float)0.000000);	// L1555
-  kernel35(v940, v944);	// L1556
-  auto v945 = reinterpret_cast<float(*)[32][4][4]>(v878 + 9453696);
-  kernel44(v884, v945);	// L1558
-  auto v946 = reinterpret_cast<float(*)[32][4][4]>(v879 + 11076096);
-  kernel29(v945, v946);	// L1560
-  auto v947 = reinterpret_cast<float(*)[32][3][3]>(v880 + 12744576);
-  kernel34(v944, v947, v946);	// L1562
-  auto v948 = reinterpret_cast<float(*)[32][4][4]>(v878 + 6291456);
-  kernel33(v948, v946, v940, (float)-0.000000);	// L1564
-  kernel29(v940, v942);	// L1565
-  kernel31(v942, (float)0.000000, (float)1.000000);	// L1566
-  kernel30(v942, v940, (float)0.000000);	// L1567
-  kernel29(v940, v948);	// L1568
-  auto v949 = reinterpret_cast<float(*)[32][6][6]>(v878 + 11076096);
-  kernel36(v949, (float)0.000000);	// L1570
-  kernel35(v942, v949);	// L1571
-  auto v950 = reinterpret_cast<float(*)[32][3][3]>(v880 + 12735360);
-  kernel34(v949, v950, v945);	// L1573
-  auto v951 = reinterpret_cast<float(*)[32][4][4]>(v878 + 6815744);
-  kernel33(v951, v945, v940, (float)-0.000000);	// L1575
-  auto v952 = reinterpret_cast<float(*)[32][4][4]>(v880 + 9453696);
-  kernel29(v940, v952);	// L1577
-  kernel31(v952, (float)0.000000, (float)1.000000);	// L1578
-  kernel30(v952, v940, (float)0.000000);	// L1579
-  kernel29(v940, v951);	// L1580
-  kernel28(v942, v952, v940, (float)1.000000);	// L1581
-  auto v953 = reinterpret_cast<float(*)[32][2][2]>(v879 + 8912896);
-  kernel27(v953, (float)0.000000);	// L1583
-  kernel26(v940, v896, v953);	// L1584
-  kernel25(v953, (float)4.000000);	// L1585
-  kernel24(v945, (float)0.000000);	// L1586
-  kernel13(v953, v945);	// L1587
-  auto v954 = reinterpret_cast<float(*)[32][2][2]>(v880 + 10535296);
-  kernel22(v884, v954);	// L1589
-  auto v955 = reinterpret_cast<float(*)[32][2][2]>(v879 + 11076096);
-  kernel7(v954, v955);	// L1591
-  auto v956 = reinterpret_cast<float(*)[32][3][3]>(v880 + 12726144);
-  kernel12(v945, v956, v955);	// L1593
-  auto v957 = reinterpret_cast<float(*)[32][2][2]>(v878 + 7340032);
-  kernel11(v957, v955, v953, (float)-0.000000);	// L1595
-  auto v958 = reinterpret_cast<float(*)[32][2][2]>(v878 + 9453696);
-  kernel7(v953, v958);	// L1597
-  kernel9(v958, (float)0.000000, (float)1.000000);	// L1598
-  kernel8(v958, v953, (float)0.000000);	// L1599
-  kernel7(v953, v957);	// L1600
-  auto v959 = reinterpret_cast<float(*)[32][4][4]>(v878 + 11076096);
-  kernel14(v959, (float)0.000000);	// L1602
-  kernel13(v958, v959);	// L1603
-  auto v960 = reinterpret_cast<float(*)[32][3][3]>(v879 + 12716928);
-  kernel12(v959, v960, v954);	// L1605
-  auto v961 = reinterpret_cast<float(*)[32][2][2]>(v878 + 7864320);
-  kernel11(v961, v954, v953, (float)-0.000000);	// L1607
-  auto v962 = reinterpret_cast<float(*)[32][2][2]>(v878 + 10535296);
-  kernel7(v953, v962);	// L1609
-  kernel9(v962, (float)0.000000, (float)1.000000);	// L1610
-  kernel8(v962, v953, (float)0.000000);	// L1611
-  kernel7(v953, v961);	// L1612
-  kernel6(v958, v962, v953, (float)1.000000);	// L1613
-  auto v963 = reinterpret_cast<float(*)[32][1][1]>(v878 + 9453696);
-  kernel5(v963, (float)0.000000);	// L1615
-  kernel4(v953, v896, v963);	// L1616
-  kernel3(v963, (float)4.000000);	// L1617
-  auto v964 = reinterpret_cast<float(*)[11]>(v878 + 8388608);
-  kernel2(v964, (float)0.000000);	// L1619
-  auto v965 = reinterpret_cast<float(*)[11]>(v880 + 12698496);
-  kernel1(v963, v965, v964);	// L1621
-  auto v966 = reinterpret_cast<float(*)>(v880 + 12707712);
-  kernel0(v966, v964);	// L1623
+  auto v921 = reinterpret_cast<float(*)[2][130][130]>(v919 + 8912896);
+  kernel174(v921, (float)0.000000);	// L1465
+  auto v922 = reinterpret_cast<float(*)[2][128][128]>(v918);
+  kernel173(v922, v921);	// L1467
+  auto v923 = reinterpret_cast<float(*)[32][128][128]>(v919 + 9453696);
+  auto v924 = reinterpret_cast<float(*)>(v920 + 12845952);
+  kernel172(v924, v923);	// L1470
+  auto v925 = reinterpret_cast<float(*)[32][128][128]>(v918 + 9994496);
+  kernel148(v923, v925);	// L1472
+  auto v926 = reinterpret_cast<float(*)[2][3][3]>(v920 + 12855168);
+  kernel170(v921, v926, v925);	// L1474
+  auto v927 = reinterpret_cast<float(*)[32][128][128]>(v918 + 524288);
+  auto v928 = reinterpret_cast<float(*)[32][128][128]>(v918 + 8912896);
+  kernel152(v927, v925, v928, (float)-0.000000);	// L1477
+  kernel148(v928, v925);	// L1478
+  kernel150(v925, (float)0.000000, (float)1.000000);	// L1479
+  kernel149(v925, v928, (float)0.000000);	// L1480
+  kernel148(v928, v927);	// L1481
+  auto v929 = reinterpret_cast<float(*)[32][130][130]>(v918 + 10535296);
+  kernel164(v929, (float)0.000000);	// L1483
+  kernel154(v925, v929);	// L1484
+  auto v930 = reinterpret_cast<float(*)[32][128][128]>(v919 + 9994496);
+  kernel148(v923, v930);	// L1486
+  auto v931 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12836736);
+  kernel153(v929, v931, v930);	// L1488
+  auto v932 = reinterpret_cast<float(*)[32][128][128]>(v918 + 1048576);
+  kernel152(v932, v930, v928, (float)-0.000000);	// L1490
+  kernel148(v928, v925);	// L1491
+  kernel150(v925, (float)0.000000, (float)1.000000);	// L1492
+  kernel149(v925, v928, (float)0.000000);	// L1493
+  kernel148(v928, v932);	// L1494
+  auto v933 = reinterpret_cast<float(*)[32][130][130]>(v919 + 10535296);
+  kernel155(v933, (float)0.000000);	// L1496
+  kernel154(v925, v933);	// L1497
+  auto v934 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12827520);
+  kernel153(v933, v934, v923);	// L1499
+  auto v935 = reinterpret_cast<float(*)[32][128][128]>(v918 + 1572864);
+  kernel152(v935, v923, v928, (float)-0.000000);	// L1501
+  kernel148(v928, v923);	// L1502
+  kernel150(v923, (float)0.000000, (float)1.000000);	// L1503
+  kernel149(v923, v928, (float)0.000000);	// L1504
+  kernel148(v928, v935);	// L1505
+  kernel147(v925, v923, v928, (float)1.000000);	// L1506
+  auto v936 = reinterpret_cast<float(*)[32][64][64]>(v919 + 9453696);
+  kernel146(v936, (float)0.000000);	// L1508
+  auto v937 = reinterpret_cast<float(*)[2]>(v919 + 9994496);
+  kernel145(v928, v937, v936);	// L1510
+  kernel144(v936, (float)4.000000);	// L1511
+  auto v938 = reinterpret_cast<float(*)[32][66][66]>(v918 + 8912896);
+  kernel143(v938, (float)0.000000);	// L1513
+  kernel132(v936, v938);	// L1514
+  auto v939 = reinterpret_cast<float(*)[32][64][64]>(v918 + 10535296);
+  kernel141(v924, v939);	// L1516
+  auto v940 = reinterpret_cast<float(*)[32][64][64]>(v919 + 11076096);
+  kernel126(v939, v940);	// L1518
+  auto v941 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12818304);
+  kernel131(v938, v941, v940);	// L1520
+  auto v942 = reinterpret_cast<float(*)[32][64][64]>(v918 + 2097152);
+  kernel130(v942, v940, v936, (float)-0.000000);	// L1522
+  auto v943 = reinterpret_cast<float(*)[32][64][64]>(v920 + 8912896);
+  kernel126(v936, v943);	// L1524
+  kernel128(v943, (float)0.000000, (float)1.000000);	// L1525
+  kernel127(v943, v936, (float)0.000000);	// L1526
+  kernel126(v936, v942);	// L1527
+  auto v944 = reinterpret_cast<float(*)[32][66][66]>(v918 + 11076096);
+  kernel133(v944, (float)0.000000);	// L1529
+  kernel132(v943, v944);	// L1530
+  auto v945 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12809088);
+  kernel131(v944, v945, v939);	// L1532
+  auto v946 = reinterpret_cast<float(*)[32][64][64]>(v918 + 2621440);
+  kernel130(v946, v939, v936, (float)-0.000000);	// L1534
+  kernel126(v936, v939);	// L1535
+  kernel128(v939, (float)0.000000, (float)1.000000);	// L1536
+  kernel127(v939, v936, (float)0.000000);	// L1537
+  kernel126(v936, v946);	// L1538
+  kernel125(v943, v939, v936, (float)1.000000);	// L1539
+  auto v947 = reinterpret_cast<float(*)[32][32][32]>(v920 + 8912896);
+  kernel124(v947, (float)0.000000);	// L1541
+  kernel123(v936, v937, v947);	// L1542
+  auto v948 = reinterpret_cast<float(*)[32][32][32]>(v918 + 9453696);
+  kernel103(v947, v948);	// L1544
+  kernel121(v948, (float)4.000000);	// L1545
+  auto v949 = reinterpret_cast<float(*)[32][34][34]>(v918 + 10535296);
+  kernel120(v949, (float)0.000000);	// L1547
+  kernel109(v948, v949);	// L1548
+  auto v950 = reinterpret_cast<float(*)[32][32][32]>(v918 + 11076096);
+  kernel118(v924, v950);	// L1550
+  auto v951 = reinterpret_cast<float(*)[32][32][32]>(v919 + 11616896);
+  kernel103(v950, v951);	// L1552
+  auto v952 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12799872);
+  kernel108(v949, v952, v951);	// L1554
+  auto v953 = reinterpret_cast<float(*)[32][32][32]>(v918 + 3145728);
+  kernel107(v953, v951, v947, (float)-0.000000);	// L1556
+  auto v954 = reinterpret_cast<float(*)[32][32][32]>(v919 + 10535296);
+  kernel103(v947, v954);	// L1558
+  kernel105(v954, (float)0.000000, (float)1.000000);	// L1559
+  kernel104(v954, v947, (float)0.000000);	// L1560
+  kernel103(v947, v953);	// L1561
+  auto v955 = reinterpret_cast<float(*)[32][34][34]>(v918 + 11616896);
+  kernel110(v955, (float)0.000000);	// L1563
+  kernel109(v954, v955);	// L1564
+  auto v956 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12790656);
+  kernel108(v955, v956, v950);	// L1566
+  auto v957 = reinterpret_cast<float(*)[32][32][32]>(v918 + 3670016);
+  kernel107(v957, v950, v947, (float)-0.000000);	// L1568
+  kernel103(v947, v950);	// L1569
+  kernel105(v950, (float)0.000000, (float)1.000000);	// L1570
+  kernel104(v950, v947, (float)0.000000);	// L1571
+  kernel103(v947, v957);	// L1572
+  kernel102(v954, v950, v947, (float)1.000000);	// L1573
+  auto v958 = reinterpret_cast<float(*)[32][16][16]>(v920 + 10535296);
+  kernel101(v958, (float)0.000000);	// L1575
+  auto v959 = reinterpret_cast<float(*)[32][16][16]>(v918 + 11076096);
+  kernel78(v958, v959);	// L1577
+  kernel97(v947, v937, v959);	// L1578
+  kernel98(v959, (float)4.000000);	// L1579
+  kernel97(v948, v937, v958);	// L1580
+  kernel96(v959, v958, (float)0.731261, (float)0.730867, (float)4.000000);	// L1581
+  auto v960 = reinterpret_cast<float(*)[32][18][18]>(v918 + 8912896);
+  kernel95(v960, (float)0.000000);	// L1583
+  kernel84(v958, v960);	// L1584
+  auto v961 = reinterpret_cast<float(*)[32][16][16]>(v918 + 9453696);
+  kernel93(v924, v961);	// L1586
+  auto v962 = reinterpret_cast<float(*)[32][16][16]>(v919 + 11616896);
+  kernel78(v961, v962);	// L1588
+  auto v963 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12781440);
+  kernel83(v960, v963, v962);	// L1590
+  auto v964 = reinterpret_cast<float(*)[32][16][16]>(v918 + 4194304);
+  kernel82(v964, v962, v958, (float)-0.000000);	// L1592
+  auto v965 = reinterpret_cast<float(*)[32][16][16]>(v919 + 8912896);
+  kernel78(v958, v965);	// L1594
+  kernel80(v965, (float)0.000000, (float)1.000000);	// L1595
+  kernel79(v965, v958, (float)0.000000);	// L1596
+  kernel78(v958, v964);	// L1597
+  auto v966 = reinterpret_cast<float(*)[32][18][18]>(v919 + 11616896);
+  kernel85(v966, (float)0.000000);	// L1599
+  kernel84(v965, v966);	// L1600
+  auto v967 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12772224);
+  kernel83(v966, v967, v961);	// L1602
+  auto v968 = reinterpret_cast<float(*)[32][16][16]>(v918 + 4718592);
+  kernel82(v968, v961, v958, (float)-0.000000);	// L1604
+  kernel78(v958, v961);	// L1605
+  kernel80(v961, (float)0.000000, (float)1.000000);	// L1606
+  kernel79(v961, v958, (float)0.000000);	// L1607
+  kernel78(v958, v968);	// L1608
+  kernel77(v965, v961, v958, (float)1.000000);	// L1609
+  auto v969 = reinterpret_cast<float(*)[32][8][8]>(v918 + 8912896);
+  kernel76(v969, (float)0.000000);	// L1611
+  kernel75(v958, v937, v969);	// L1612
+  auto v970 = reinterpret_cast<float(*)[32][8][8]>(v920 + 9453696);
+  kernel55(v969, v970);	// L1614
+  kernel73(v970, (float)4.000000);	// L1615
+  auto v971 = reinterpret_cast<float(*)[32][10][10]>(v918 + 10535296);
+  kernel72(v971, (float)0.000000);	// L1617
+  kernel61(v970, v971);	// L1618
+  auto v972 = reinterpret_cast<float(*)[32][8][8]>(v918 + 11616896);
+  kernel70(v924, v972);	// L1620
+  auto v973 = reinterpret_cast<float(*)[32][8][8]>(v919 + 12157696);
+  kernel55(v972, v973);	// L1622
+  auto v974 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12763008);
+  kernel60(v971, v974, v973);	// L1624
+  auto v975 = reinterpret_cast<float(*)[32][8][8]>(v918 + 5242880);
+  kernel59(v975, v973, v969, (float)-0.000000);	// L1626
+  auto v976 = reinterpret_cast<float(*)[32][8][8]>(v919 + 10535296);
+  kernel55(v969, v976);	// L1628
+  kernel57(v976, (float)0.000000, (float)1.000000);	// L1629
+  kernel56(v976, v969, (float)0.000000);	// L1630
+  kernel55(v969, v975);	// L1631
+  auto v977 = reinterpret_cast<float(*)[32][10][10]>(v918 + 12157696);
+  kernel62(v977, (float)0.000000);	// L1633
+  kernel61(v976, v977);	// L1634
+  auto v978 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12753792);
+  kernel60(v977, v978, v972);	// L1636
+  auto v979 = reinterpret_cast<float(*)[32][8][8]>(v918 + 5767168);
+  kernel59(v979, v972, v969, (float)-0.000000);	// L1638
+  auto v980 = reinterpret_cast<float(*)[32][8][8]>(v920 + 11616896);
+  kernel55(v969, v980);	// L1640
+  kernel57(v980, (float)0.000000, (float)1.000000);	// L1641
+  kernel56(v980, v969, (float)0.000000);	// L1642
+  kernel55(v969, v979);	// L1643
+  kernel54(v976, v980, v969, (float)1.000000);	// L1644
+  auto v981 = reinterpret_cast<float(*)[32][4][4]>(v918 + 10535296);
+  kernel53(v981, (float)0.000000);	// L1646
+  auto v982 = reinterpret_cast<float(*)[32][4][4]>(v919 + 11616896);
+  kernel29(v981, v982);	// L1648
+  kernel48(v969, v937, v982);	// L1649
+  auto v983 = reinterpret_cast<float(*)[32][4][4]>(v920 + 8912896);
+  kernel29(v981, v983);	// L1651
+  auto v984 = reinterpret_cast<float(*)[4]>(v919 + 12157696);
+  kernel49(v959, v984, v983);	// L1653
+  kernel48(v970, v937, v981);	// L1654
+  kernel47(v983, v982, v981, (float)0.730819, (float)16.000000, (float)0.729963, (float)0.732428, (float)4.000000);	// L1655
+  auto v985 = reinterpret_cast<float(*)[32][6][6]>(v918 + 8912896);
+  kernel46(v985, (float)0.000000);	// L1657
+  kernel35(v981, v985);	// L1658
+  auto v986 = reinterpret_cast<float(*)[32][4][4]>(v918 + 9453696);
+  kernel44(v924, v986);	// L1660
+  auto v987 = reinterpret_cast<float(*)[32][4][4]>(v919 + 11076096);
+  kernel29(v986, v987);	// L1662
+  auto v988 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12744576);
+  kernel34(v985, v988, v987);	// L1664
+  auto v989 = reinterpret_cast<float(*)[32][4][4]>(v918 + 6291456);
+  kernel33(v989, v987, v981, (float)-0.000000);	// L1666
+  kernel29(v981, v983);	// L1667
+  kernel31(v983, (float)0.000000, (float)1.000000);	// L1668
+  kernel30(v983, v981, (float)0.000000);	// L1669
+  kernel29(v981, v989);	// L1670
+  auto v990 = reinterpret_cast<float(*)[32][6][6]>(v919 + 11076096);
+  kernel36(v990, (float)0.000000);	// L1672
+  kernel35(v983, v990);	// L1673
+  auto v991 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12735360);
+  kernel34(v990, v991, v986);	// L1675
+  auto v992 = reinterpret_cast<float(*)[32][4][4]>(v918 + 6815744);
+  kernel33(v992, v986, v981, (float)-0.000000);	// L1677
+  auto v993 = reinterpret_cast<float(*)[32][4][4]>(v919 + 9453696);
+  kernel29(v981, v993);	// L1679
+  kernel31(v993, (float)0.000000, (float)1.000000);	// L1680
+  kernel30(v993, v981, (float)0.000000);	// L1681
+  kernel29(v981, v992);	// L1682
+  kernel28(v983, v993, v981, (float)1.000000);	// L1683
+  auto v994 = reinterpret_cast<float(*)[32][2][2]>(v919 + 8912896);
+  kernel27(v994, (float)0.000000);	// L1685
+  kernel26(v981, v937, v994);	// L1686
+  kernel25(v994, (float)4.000000);	// L1687
+  kernel24(v986, (float)0.000000);	// L1688
+  kernel13(v994, v986);	// L1689
+  auto v995 = reinterpret_cast<float(*)[32][2][2]>(v918 + 10535296);
+  kernel22(v924, v995);	// L1691
+  auto v996 = reinterpret_cast<float(*)[32][2][2]>(v919 + 11076096);
+  kernel7(v995, v996);	// L1693
+  auto v997 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12726144);
+  kernel12(v986, v997, v996);	// L1695
+  auto v998 = reinterpret_cast<float(*)[32][2][2]>(v918 + 7340032);
+  kernel11(v998, v996, v994, (float)-0.000000);	// L1697
+  auto v999 = reinterpret_cast<float(*)[32][2][2]>(v918 + 9453696);
+  kernel7(v994, v999);	// L1699
+  kernel9(v999, (float)0.000000, (float)1.000000);	// L1700
+  kernel8(v999, v994, (float)0.000000);	// L1701
+  kernel7(v994, v998);	// L1702
+  auto v1000 = reinterpret_cast<float(*)[32][4][4]>(v918 + 11076096);
+  kernel14(v1000, (float)0.000000);	// L1704
+  kernel13(v999, v1000);	// L1705
+  auto v1001 = reinterpret_cast<float(*)[32][3][3]>(v920 + 12716928);
+  kernel12(v1000, v1001, v995);	// L1707
+  auto v1002 = reinterpret_cast<float(*)[32][2][2]>(v918 + 7864320);
+  kernel11(v1002, v995, v994, (float)-0.000000);	// L1709
+  kernel7(v994, v995);	// L1710
+  kernel9(v995, (float)0.000000, (float)1.000000);	// L1711
+  kernel8(v995, v994, (float)0.000000);	// L1712
+  kernel7(v994, v1002);	// L1713
+  kernel6(v999, v995, v994, (float)1.000000);	// L1714
+  auto v1003 = reinterpret_cast<float(*)[32][1][1]>(v918 + 9453696);
+  kernel5(v1003, (float)0.000000);	// L1716
+  kernel4(v994, v937, v1003);	// L1717
+  kernel3(v1003, (float)4.000000);	// L1718
+  auto v1004 = reinterpret_cast<float(*)[11]>(v918 + 8388608);
+  kernel2(v1004, (float)0.000000);	// L1720
+  auto v1005 = reinterpret_cast<float(*)[11]>(v920 + 12698496);
+  kernel1(v1003, v1005, v1004);	// L1722
+  auto v1006 = reinterpret_cast<float(*)>(v920 + 12707712);
+  kernel0(v1006, v1004);	// L1724
 }
 
 /// The T-step wrapper (FHCA v1.4: on-chip time-step loop)
